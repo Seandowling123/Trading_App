@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 import HelloWorld from './HelloWorld';
 
-// react_frontend directory
+// react_front_end directory
 // npm start
 
 function App() {
