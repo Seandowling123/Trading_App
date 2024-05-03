@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-# TradingBotProj1 directory
+# Django_back_end directory
 # python manage.py runserver
 
 urlpatterns = [

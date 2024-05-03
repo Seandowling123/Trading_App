@@ -1,8 +1,26 @@
 import alpaca_trade_api as tradeapi
+from datetime import datetime, timedelta
 
-def get_historical_data(ticker):
+# Return a date interval of now and a date delta days ago
+def get_dates(delta):
+    current_date = datetime.now() - timedelta(days=1)
+    date_30_days_ago = current_date - timedelta(days=delta)
+    return [date_30_days_ago.strftime('%Y-%m-%d'), current_date.strftime('%Y-%m-%d')]
+
+# Get historical stock data
+def get_historical_data(ticker, timescale):
     try:
-        return api.get_bars(ticker, tradeapi.rest.TimeFrame.Day, "2021-06-08", "2021-06-09", adjustment='raw').df
+        if timescale == 'week':
+            dates = get_dates(7)
+            print(dates)
+            interval = tradeapi.rest.TimeFrame.Hour
+        elif timescale == 'month':
+            dates = get_dates(30)
+            interval = tradeapi.rest.TimeFrame.Day
+        elif timescale == 'year':
+            dates = get_dates(365)
+            interval = tradeapi.rest.TimeFrame.Day
+        return api.get_bars(ticker, interval, dates[0], dates[1], adjustment='raw').df
     except Exception as e: print(f'Error getting data for {ticker}: {e}')
 
 # Check if an asset is available by ticker
@@ -49,4 +67,4 @@ account = api.get_account()
 print('Cash:', account.cash)
 print('Buying Power:', account.buying_power)
 
-print(get_historical_data('AAPL'))
+print(get_historical_data('AAPL', 'week'))
