@@ -67,4 +67,4 @@ account = api.get_account()
 print('Cash:', account.cash)
 print('Buying Power:', account.buying_power)
 
-print(get_historical_data('AAPL', 'week'))
+#print(get_historical_data('AAPL', 'week'))
