@@ -9,7 +9,7 @@ def get_historical_data(ticker):
 def ticker_available(ticker):
     try:
         asset = api.get_asset(ticker)
-        if asset and asset.tradable:
+        if asset and asset.tradable: 
             return True
         return False
     except:
