@@ -10,6 +10,7 @@ def get_dates(delta):
 # Get historical stock data
 def get_historical_data(ticker, timescale):
     try:
+        print(ticker, timescale)
         if timescale == 'week':
             dates = get_dates(7)
             print(dates)
