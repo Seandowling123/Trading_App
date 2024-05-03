@@ -13,7 +13,7 @@ def get_historical_data(ticker, timescale):
         if timescale == 'week':
             dates = get_dates(7)
             print(dates)
-            interval = tradeapi.rest.TimeFrame.Hour
+            interval = tradeapi.rest.TimeFrame.Day
         elif timescale == 'month':
             dates = get_dates(30)
             interval = tradeapi.rest.TimeFrame.Day
