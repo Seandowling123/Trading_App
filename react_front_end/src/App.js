@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import Get_financial_data from './FinancialDataFetcher';
+import Get_stock_chart from './FinancialDataFetcher';
 
 // react_front_end directory
 // npm start
@@ -9,7 +9,7 @@ import Get_financial_data from './FinancialDataFetcher';
 function App() {
   return (
     <div>
-      <Get_financial_data />
+      <Get_stock_chart />
     </div>
   );
 }

@@ -23,7 +23,7 @@ function HelloWorld() {
   );
 }
 
-function Get_financial_data() {
+function Get_stock_chart() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -45,6 +45,6 @@ function Get_financial_data() {
   );
 }
 
-export default Get_financial_data;
+export default Get_stock_chart;
 //export default HelloWorld;
 // <StockChart data={message} />
