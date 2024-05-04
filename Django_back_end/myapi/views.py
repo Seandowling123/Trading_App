@@ -7,6 +7,7 @@ from . import get_financial_data
 def hello_world(request):
     return Response({'message': 'Peepee Poopoo'})
 
+@api_view(['GET'])
 def historical_data(request, ticker, timeframe):
     response = get_financial_data.get_historical_data(ticker, timeframe)
     return Response({'message': response})

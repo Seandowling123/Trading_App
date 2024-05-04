@@ -22,11 +22,11 @@ function HelloWorld() {
   );
 }
 
-function get_financial_data() {
+function Get_financial_data() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/historical_data/AAPL/week/')
+    axios.get('http://localhost:8000/api/historical_data/AAPL/week')
       .then(response => {
         setMessage(response.data.message);
       })
@@ -43,4 +43,5 @@ function get_financial_data() {
   );
 }
 
-export default HelloWorld;
+export default Get_financial_data;
+//export default HelloWorld;

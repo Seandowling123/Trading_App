@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import HelloWorld from './HelloWorld';
+import Get_financial_data from './HelloWorld';
 
 // react_front_end directory
 // npm start
@@ -9,7 +9,7 @@ import HelloWorld from './HelloWorld';
 function App() {
   return (
     <div>
-      <HelloWorld />
+      <Get_financial_data />
     </div>
   );
 }
