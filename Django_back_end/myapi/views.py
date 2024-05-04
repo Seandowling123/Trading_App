@@ -8,5 +8,5 @@ def hello_world(request):
     return Response({'message': 'Peepee Poopoo'})
 
 def historical_data(request, ticker, timeframe):
-    print(get_financial_data.get_historical_data(ticker, timeframe))
-    return Response('poop')
+    response = get_financial_data.get_historical_data(ticker, timeframe)
+    return Response({'message': response})
