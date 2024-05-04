@@ -1,28 +1,26 @@
-import requests
+import yfinance as yf
+from datetime import datetime, timedelta
 
-def get_historical_stock_data(symbol, api_key):
-    url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}"
+# Return a date interval of now and a date delta days ago
+def get_dates(delta):
+    current_date = datetime.now()
+    date_30_days_ago = current_date - timedelta(days=delta)
+    return [date_30_days_ago.strftime('%Y-%m-%d'), current_date.strftime('%Y-%m-%d')]
 
+# Get historical stock data
+def get_historical_data(ticker, timescale):
     try:
-        response = requests.get(url)
-        data = response.json()
-
-        if "Time Series (Daily)" in data:
-            return data["Time Series (Daily)"]
-        else:
-            print("Error: Unable to fetch data")
-            return None
-    except Exception as e:
-        print(f"Error: {e}")
+        print('Retrieving stock data.')
+        if timescale == 'week':
+            dates = get_dates(7)
+        elif timescale == 'month':
+            dates = get_dates(30)
+        elif timescale == 'year':
+            dates = get_dates(365)
+            
+        # Fetch historical stock data using yfinance
+        data = yf.download(ticker, dates[0], end=None)
+        return data
+    except Exception as e: 
+        print(f'Error getting data for {ticker}: {e}')
         return None
-
-# Example usage
-if __name__ == "__main__":
-    symbol = "AAPL"  # Example stock symbol (Apple Inc.)
-    api_key = "YOUR_API_KEY"  # Replace with your Alpha Vantage API key
-
-    stock_data = get_historical_stock_data(symbol, api_key)
-    if stock_data:
-        print("Historical Stock Data:")
-        for date, values in stock_data.items():
-            print(f"Date: {date}, Close Price: {values['4. close']}")
