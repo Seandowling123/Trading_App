@@ -7,8 +7,8 @@ const StockChart = ({ data }) => {
   }
 
   const trace = {
-    x: data.close,
-    y: data.open,
+    x: data['Date'],
+    y: data['Adj Close'],
     type: 'scatter',
     mode: 'lines',
     line: { color: 'blue' }
