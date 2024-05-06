@@ -14,14 +14,14 @@ const StockChart = ({ data }) => {
       y: data['Close'],
       type: 'scatter',
       mode: 'lines',
-      line: { color: '#007bff', width: 2 }, // Adjust line width for better visibility
+      line: { color: '#007bff', width: 2 },
     };
     const upper_trace = {
       x: dateObjects,
       y: data['Upper Band'],
       type: 'scatter',
       mode: 'lines',
-      line: { color: '#FFC06B', width: 1.5 }, // Adjust line width for better visibility
+      line: { color: '#FFC06B', width: 1.5 },
       fill: 'tonexty',
       fillcolor: 'rgba(255, 192, 107, 0.05)'
     };
@@ -30,7 +30,7 @@ const StockChart = ({ data }) => {
       y: data['Lower Band'],
       type: 'scatter',
       mode: 'lines',
-      line: { color: '#FFC06B', width: 1.5 }, // Adjust line width for better visibility
+      line: { color: '#FFC06B', width: 1.5 },
       fill: 'tonexty',
       fillcolor: 'rgba(255, 192, 107, 0.3)'
     };

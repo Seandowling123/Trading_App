@@ -26,7 +26,7 @@ def get_historical_data(ticker, timescale):
         return None
 
 # Calculate Bollinger Bands
-def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.8):
+def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.5):
     rolling_mean = close.rolling(window=window_size).mean()
     rolling_std = close.rolling(window=window_size).std()
 
