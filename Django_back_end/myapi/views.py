@@ -8,6 +8,6 @@ def hello_world(request):
     return Response({'message': 'Peepee Poopoo'})
 
 @api_view(['GET'])
-def historical_data(request, ticker, timeframe):
-    response = get_financial_data.get_historical_data(ticker, timeframe)
+def historical_data(request, ticker):
+    response = get_financial_data.get_close_with_bands(ticker)
     return Response({'message': response})
