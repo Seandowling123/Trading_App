@@ -1,27 +1,5 @@
 import alpaca_trade_api as tradeapi
-from datetime import datetime, timedelta
 from .API_keys import API_KEY, SECRET_KEY
-
-# Return a date interval of now and a date delta days ago
-def get_dates(delta):
-    current_date = datetime.now() - timedelta(days=1)
-    date_30_days_ago = current_date - timedelta(days=delta)
-    return [date_30_days_ago.strftime('%Y-%m-%d'), current_date.strftime('%Y-%m-%d')]
-
-# Get historical stock data
-def get_historical_data(ticker, timescale):
-    try:
-        if timescale == 'week':
-            dates = get_dates(7)
-            interval = tradeapi.rest.TimeFrame.Day
-        elif timescale == 'month':
-            dates = get_dates(30)
-            interval = tradeapi.rest.TimeFrame.Day
-        elif timescale == 'year':
-            dates = get_dates(365)
-            interval = tradeapi.rest.TimeFrame.Day
-        return api.get_bars(ticker, interval, dates[0], dates[1], adjustment='raw').df
-    except Exception as e: print(f'Error getting data for {ticker}: {e}')
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
@@ -41,7 +19,7 @@ def buy(ticker, quantity):
         qty=quantity,
         side='buy',
         type='market',
-        time_in_force='gtc')
+        time_in_force='fok')
         print(f'\Order Submitted: Buy {ticker} x{quantity}.')
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
@@ -53,7 +31,7 @@ def sell(ticker, quantity):
         qty=quantity,
         side='sell',
         type='market',
-        time_in_force='gtc')
+        time_in_force='fok')
         print(f'\Order Submitted: Sell {ticker} x{quantity}.')
     except Exception as e: print(f'Error selling {ticker}: {e}')
 
