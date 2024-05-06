@@ -41,7 +41,6 @@ function Get_stock_chart() {
   return (
     <div>
       <h1>Historical Stock Chart</h1>
-      <h2>{message['Price']}</h2>
       <StockChart data={message}/>
     </div>
   );

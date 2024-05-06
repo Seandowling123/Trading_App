@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+#plot-container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-left: 75px;
+}

@@ -8,7 +8,7 @@ import Get_stock_chart from './FinancialDataFetcher';
 
 function App() {
   return (
-    <div>
+    <div id="plot-container">
       <Get_stock_chart />
     </div>
   );
