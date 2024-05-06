@@ -5,7 +5,11 @@ from . import get_financial_data
 
 @api_view(['GET'])
 def hello_world(request):
-    return Response('Hello Clemmy')
+    return Response({'message': 'Hello'})
+
+@api_view(['GET'])
+def asdf(request):
+    return Response("<html><body><h1>Hello Clemmy</h1></body></html>")
 
 @api_view(['GET'])
 def historical_data(request, ticker):
