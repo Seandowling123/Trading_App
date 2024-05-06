@@ -5,7 +5,7 @@ from . import get_financial_data
 
 @api_view(['GET'])
 def hello_world(request):
-    return Response({'message': 'Peepee Poopoo'})
+    return Response({'message': 'Hello Clemmy'})
 
 @api_view(['GET'])
 def historical_data(request, ticker):
