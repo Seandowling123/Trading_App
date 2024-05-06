@@ -1,5 +1,6 @@
 import alpaca_trade_api as tradeapi
 from datetime import datetime, timedelta
+from .API_keys import API_KEY, SECRET_KEY
 
 # Return a date interval of now and a date delta days ago
 def get_dates(delta):
@@ -55,10 +56,6 @@ def sell(ticker, quantity):
         time_in_force='gtc')
         print(f'\Order Submitted: Sell {ticker} x{quantity}.')
     except Exception as e: print(f'Error selling {ticker}: {e}')
-
-
-API_KEY = 'PKJ8FJYF3MO1MJ8RRMVA'
-SECRET_KEY = 'J0WPGzniVtst8W2HK3zaz8ZbQ1Spp5ScZxPqw10x'
 
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
