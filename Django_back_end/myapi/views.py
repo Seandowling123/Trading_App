@@ -10,7 +10,7 @@ def hello_world(request):
 
 @api_view(['GET'])
 def asdf(request):
-    return HttpResponse("<html><body><h1>Hello Clemmy</h1></body></html>", content_type="text/html")
+    return HttpResponse("<html><body><h1>Hi Clemmy</h1></body></html>", content_type="text/html")
 
 @api_view(['GET'])
 def historical_data(request, ticker):
