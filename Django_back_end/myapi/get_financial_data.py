@@ -1,26 +1,27 @@
 import yfinance as yf
-from datetime import datetime, timedelta
-
-# Return a date interval of now and a date delta days ago
-def get_dates(delta):
-    current_date = datetime.now()
-    date_30_days_ago = current_date - timedelta(days=delta)
-    return [date_30_days_ago.strftime('%Y-%m-%d'), current_date.strftime('%Y-%m-%d')]
 
 # Get historical stock data
 def get_historical_data(ticker, timescale):
     try:
         print('Retrieving stock data.')
-        if timescale == 'week':
-            dates = get_dates(7)
+        if timescale == 'day':
+            prd = '1d'
+            itrvl = '1m'
+        elif timescale == 'week':
+            prd = '5d'
+            itrvl = '1d'
         elif timescale == 'month':
-            dates = get_dates(30)
+            prd = '1mo'
+            itrvl = '1d'
         elif timescale == 'year':
-            dates = get_dates(365)
+            prd = '1y'
+            itrvl = '1d'
             
         # Fetch historical stock data using yfinance
-        data = yf.download(ticker, dates[0], end=None)
+        data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True)
         return data
     except Exception as e: 
         print(f'Error getting data for {ticker}: {e}')
         return None
+
+print(get_historical_data('AAPL', 'day'))
