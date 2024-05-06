@@ -30,6 +30,7 @@ function Get_stock_chart() {
     axios.get('http://localhost:8000/api/historical_data/AAPL')
       .then(response => {
         setMessage(response.data.message);
+        console.log('here');
         console.log(message);
       })
       .catch(error => {

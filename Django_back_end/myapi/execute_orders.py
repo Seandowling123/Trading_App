@@ -41,7 +41,7 @@ def buy(ticker, quantity):
         side='buy',
         type='market',
         time_in_force='gtc')
-        print(f'\nTrade Executed: Buy {ticker} x{quantity}.')
+        print(f'\Order Submitted: Buy {ticker} x{quantity}.')
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
 # Submit a sell order 
@@ -53,7 +53,7 @@ def sell(ticker, quantity):
         side='sell',
         type='market',
         time_in_force='gtc')
-        print(f'\nTrade Executed: Sell {ticker} x{quantity}.')
+        print(f'\Order Submitted: Sell {ticker} x{quantity}.')
     except Exception as e: print(f'Error selling {ticker}: {e}')
 
 
@@ -65,5 +65,3 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.mark
 account = api.get_account()
 print('Cash:', account.cash)
 print('Buying Power:', account.buying_power)
-
-#print(get_historical_data('AAPL', 'week'))
