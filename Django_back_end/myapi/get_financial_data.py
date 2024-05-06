@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 
 # Get historical stock data
 def get_historical_data(ticker, timescale):
@@ -24,4 +25,22 @@ def get_historical_data(ticker, timescale):
         print(f'Error getting data for {ticker}: {e}')
         return None
 
-print(get_historical_data('AAPL', 'day'))
+# Calculate Bollinger Bands
+def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.8):
+    print('Calculating Bollinger Bands.')
+    rolling_mean = close.rolling(window=window_size).mean()
+    rolling_std = close.rolling(window=window_size).std()
+
+    # Calculate upper and lower Bollinger Bands
+    upper_band = rolling_mean + num_std_dev * rolling_std
+    lower_band = rolling_mean - num_std_dev * rolling_std
+    print(type(upper_band))
+    return upper_band, lower_band
+
+# Return close price time series with Bollinger Bands
+def get_close_with_bands(ticker, timescale='day'):
+    data = get_historical_data(ticker, timescale)
+    close = data['Close']
+    upper_band, lower_band = calculate_bollinger_bands(close)
+    dataframe = pd.DataFrame({'Price': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
+    return dataframe
