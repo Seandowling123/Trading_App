@@ -1,5 +1,5 @@
 import alpaca_trade_api as tradeapi
-from .API_keys import API_KEY, SECRET_KEY
+from API_keys import API_KEY, SECRET_KEY
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
