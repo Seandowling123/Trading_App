@@ -8,7 +8,7 @@ const StockChart = ({ data }) => {
   
     const trace = {
       x: data['Date'],
-      y: data['Adj Close'],
+      y: data['Price'],
       type: 'scatter',
       mode: 'lines',
       line: { color: '#007bff', width: 2 }, // Adjust line width for better visibility
@@ -18,8 +18,6 @@ const StockChart = ({ data }) => {
       title: 'Historical Stock Prices',
       titlefont: { size: 24, family: 'Arial, sans-serif', color: '#333' }, // Larger title font size and custom font family
       xaxis: {
-        title: 'Date',
-        titlefont: { size: 18, family: 'Arial, sans-serif', color: '#555' }, // Larger x-axis label font size and custom font family
         tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
         gridcolor: '#f0f0f0', // Light gray gridlines
         gridwidth: 1, // Gridline width
@@ -31,8 +29,6 @@ const StockChart = ({ data }) => {
         spikesnap: 'data', // Snap to cursor position
       },
       yaxis: {
-        title: 'Close Price',
-        titlefont: { size: 18, family: 'Arial, sans-serif', color: '#555' }, // Larger y-axis label font size and custom font family
         tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
         gridcolor: '#f0f0f0', // Light gray gridlines
         gridwidth: 1, // Gridline width
@@ -43,10 +39,9 @@ const StockChart = ({ data }) => {
         spikethickness: 2, // Increase spike thickness for solid line
         spikesnap: 'data', 
       },
-      margin: { t: 100, b: 100, l: 80, r: 80 }, // Add margin to top for title and all other sides
       hovermode: 'x unified', // Show hover information for all traces at the same x-axis value
       plot_bgcolor: '#fff', // White background color
-      paper_bgcolor: '#fff', // Light gray paper background color
+      paper_bgcolor: '#fff', // White paper background color
       autosize: true, // Automatically adjust size based on container
     };
   

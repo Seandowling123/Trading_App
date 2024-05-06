@@ -29,7 +29,7 @@ function Get_stock_chart() {
   useEffect(() => {
     axios.get('http://localhost:8000/api/historical_data/AAPL')
       .then(response => {
-        setMessage(response.data.message);
+        setMessage(response.data.financial_data);
         console.log('here');
         console.log(message);
       })
@@ -41,7 +41,8 @@ function Get_stock_chart() {
   return (
     <div>
       <h1>Historical Stock Chart</h1>
-      <StockChart data={message} />
+      <h2>{message['Price']}</h2>
+      <StockChart data={message}/>
     </div>
   );
 }

@@ -10,4 +10,4 @@ def hello_world(request):
 @api_view(['GET'])
 def historical_data(request, ticker):
     response = get_financial_data.get_close_with_bands(ticker)
-    return Response({'message': response})
+    return Response({'financial_data': response})

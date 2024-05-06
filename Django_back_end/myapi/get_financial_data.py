@@ -41,5 +41,8 @@ def get_close_with_bands(ticker, timescale='day'):
     close = data['Close']
     upper_band, lower_band = calculate_bollinger_bands(close)
     dataframe = pd.DataFrame({'Price': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
-    print(dataframe[20:])
+    dataframe.reset_index(inplace=True)
+    dataframe.rename(columns={'index': 'date'}, inplace=True)
     return dataframe[20:]
+
+#get_close_with_bands('AAPL')
