@@ -27,7 +27,7 @@ function Get_stock_chart() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/historical_data/AAPL')
+    axios.get('http://51.20.79.10:8000/api/historical_data/AAPL')
       .then(response => {
         setMessage(response.data.financial_data);
         console.log('here');
