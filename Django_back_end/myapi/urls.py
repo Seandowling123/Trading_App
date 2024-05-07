@@ -9,5 +9,5 @@ urlpatterns = [
     path('hello-world/', views.hello_world, name='hello_world'),
     path('asdf/', views.asdf),
     path('historical_data/<str:ticker>', views.historical_data),
-    path('static/', views.index)
+    path('index/', views.index)
 ]
