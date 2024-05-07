@@ -26,4 +26,4 @@ def index(request):
     with open(react_app_path, 'r') as file:
         html_content = file.read()
     # Serve the HTML content
-    return HttpResponse(html_content)
+    return HttpResponse(html_content, content_type="text/html")
