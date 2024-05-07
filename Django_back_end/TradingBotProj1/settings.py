@@ -122,7 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ec2-user/Trading_App/Django_back_end/myapi/static/react_front_end'
+STATIC_ROOT = '/home/ec2-user/Trading_App/Django_back_end/myapi/static'
 
 
 # Default primary key field type
