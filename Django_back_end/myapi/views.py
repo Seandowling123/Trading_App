@@ -3,7 +3,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import HttpResponse
 from .finance_tools import get_financial_data
-import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 @api_view(['GET'])
 def hello_world(request):
@@ -21,7 +23,7 @@ def historical_data(request, ticker):
 @api_view(['GET'])
 def index(request):
     # Get the path to the main HTML file of your React app
-    react_app_path = 'C:/Users/Sean Dowling/Trading_Bot/Django_back_end/build/index.html'
+    react_app_path = os.path.join(BASE_DIR, 'build/index.html')
     # Read the HTML file
     with open(react_app_path, 'r') as file:
         html_content = file.read()
