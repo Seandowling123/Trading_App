@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 from .finance_tools import get_financial_data
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
