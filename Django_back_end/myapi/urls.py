@@ -7,5 +7,6 @@ from . import views
 urlpatterns = [
     path('hello-world/', views.hello_world, name='hello_world'),
     path('asdf/', views.asdf),
-    path('historical_data/<str:ticker>', views.historical_data)
+    path('historical_data/<str:ticker>', views.historical_data),
+    path('index/', views.index)
 ]

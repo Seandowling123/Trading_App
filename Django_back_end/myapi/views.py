@@ -21,7 +21,7 @@ def historical_data(request, ticker):
 @api_view(['GET'])
 def index(request):
     # Get the path to the main HTML file of your React app
-    react_app_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '', 'index.html')
+    react_app_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static/react_front_end/public', 'index.html')
     # Read the HTML file
     with open(react_app_path, 'r') as file:
         html_content = file.read()
