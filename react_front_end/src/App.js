@@ -3,8 +3,9 @@ import './App.css';
 import React from 'react';
 import Get_stock_chart from './FinancialDataFetcher';
 
-// Django_back_end/myapi/static/react_front_end directory
+// react_front_end directory
 // npm start
+// npm run build
 
 function App() {
   return (
