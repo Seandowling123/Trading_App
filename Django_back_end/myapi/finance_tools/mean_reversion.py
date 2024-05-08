@@ -1,5 +1,6 @@
 import threading
 import time
+import schedule
 import numpy as np
 from get_financial_data import get_close_prices
 from execute_orders import buy, sell
@@ -36,6 +37,16 @@ def execute_trades():
     if current_position == 'neutral' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
         get_order_status(order_id)
+
+# Execute trades every minute
+def run_algorithm():
+    schedule.every().minute.at(":01").do(execute_trades)
+
+    # Run the scheduler
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
         
 
-trading_thread = threading.Thread(target=execute_trades)
+trading_thread = threading.Thread(target=run_algorithm)
+trading_thread.start()
