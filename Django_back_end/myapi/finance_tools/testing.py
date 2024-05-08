@@ -1,12 +1,31 @@
-import alpaca_trade_api as tradeapi
-from API_keys import API_KEY, SECRET_KEY
+from apscheduler.schedulers.background import BackgroundScheduler
+import time
+from get_financial_data import get_close_prices
+import threading
 
-# Initialize Alpaca API
-api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
+def my_function():
+    print(get_close_prices('SPY'))
+    print("Executing my function at 1 second past the minute")
 
-order_id='test_order'
-specific_order = api.get_order_by_client_order_id(order_id)
-print(specific_order)
+def schedule():
+    # Create a scheduler
+    scheduler = BackgroundScheduler()
+
+    # Add the job to execute my_function at 1 second past each minute
+    scheduler.add_job(my_function, 'cron', second='1')
+
+    # Start the scheduler
+    scheduler.start()
+
+    # Keep the program running
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Stopping the scheduler")
+        scheduler.shutdown()
+
+schedule()
 
 """# Check order status
 order_status = order.status

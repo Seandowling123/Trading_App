@@ -1,7 +1,6 @@
-import threading
-import time
-import schedule
 import numpy as np
+import time
+from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
 from execute_orders import buy, sell
 import alpaca_trade_api as tradeapi
@@ -43,14 +42,22 @@ def execute_trades():
     else: print('No trade available')
 
 # Execute trades every minute
-def run_algorithm():
-    schedule.every().minute.at(":20").do(execute_trades)
+def run_trading_algorithm():
+    scheduler = BackgroundScheduler()
 
-    # Run the scheduler
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-        
-trading_thread = threading.Thread(target=run_algorithm)
-trading_thread.start()
-close_prices = get_close_prices('SPY')
+    # Add the job to execute my_function at 1 second past each minute
+    scheduler.add_job(execute_trades, 'cron', second='1')
+    scheduler.start()
+
+    # Keep the program running
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Stopping the scheduler")
+        scheduler.shutdown()
+
+def cock():
+    get_close_prices('SPY')
+
+run_trading_algorithm()
