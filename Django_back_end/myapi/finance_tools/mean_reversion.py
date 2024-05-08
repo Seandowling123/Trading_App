@@ -10,7 +10,7 @@ from API_keys import API_KEY, SECRET_KEY
 # Initialize Alpaca API
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
-current_position = 'neutral'
+current_position = 'sold'
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=1.5):
@@ -34,19 +34,23 @@ def execute_trades():
     
     # Make trade decision
     global current_position
-    if current_position == 'neutral' and (close_prices[-1] <= lower_band):
+    if current_position == 'sold' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
-        get_order_status(order_id)
+        order_status = get_order_status(order_id)
+    elif current_position == 'bought' and (close_prices[-1] >= upper_band):
+        order_id = sell('SPY', 1)
+        order_status = get_order_status(order_id)
+    else: print('No trade available')
 
 # Execute trades every minute
 def run_algorithm():
-    schedule.every().minute.at(":01").do(execute_trades)
+    schedule.every().minute.at(":20").do(execute_trades)
 
     # Run the scheduler
     while True:
         schedule.run_pending()
         time.sleep(1)
         
-
 trading_thread = threading.Thread(target=run_algorithm)
 trading_thread.start()
+close_prices = get_close_prices('SPY')

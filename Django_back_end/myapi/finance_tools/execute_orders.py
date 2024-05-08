@@ -20,7 +20,7 @@ def buy(ticker, quantity):
         side='buy',
         type='market',
         time_in_force='fok')
-        print(f'\Order Submitted: Buy {ticker} x{quantity}.')
+        print(f'Order Submitted: Buy {ticker} x{quantity}.')
         return order.id
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
@@ -33,7 +33,7 @@ def sell(ticker, quantity):
         side='sell',
         type='market',
         time_in_force='fok')
-        print(f'\Order Submitted: Sell {ticker} x{quantity}.')
+        print(f'Order Submitted: Sell {ticker} x{quantity}.')
         return order.id
     except Exception as e: print(f'Error selling {ticker}: {e}')
 
