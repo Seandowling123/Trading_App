@@ -25,6 +25,11 @@ def get_historical_data(ticker, timescale):
         print(f'Error getting data for {ticker}: {e}')
         return None
 
+def get_close_prices(ticker, timescale='day'):
+    data = get_historical_data(ticker, timescale)
+    close_prices = data['Close']
+    return close_prices
+
 # Calculate Bollinger Bands
 def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.5):
     rolling_mean = close.rolling(window=window_size).mean()
@@ -37,8 +42,7 @@ def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.5):
 
 # Return close price time series with Bollinger Bands
 def get_close_with_bands(ticker, timescale='day'):
-    data = get_historical_data(ticker, timescale)
-    close = data['Close']
+    close = get_close_prices(ticker, timescale)
     upper_band, lower_band = calculate_bollinger_bands(close)
     dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
     dataframe.reset_index(inplace=True)
