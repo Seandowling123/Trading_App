@@ -28,7 +28,7 @@ def get_order_status(order_id):
 
 # Make the trading decisions
 def execute_trades():
-    close_prices = get_close_prices('SPY')
+    close_prices = list(get_close_prices('SPY'))
     upper_band, lower_band = get_bollinger_bands(close_prices)
     
     # Make trade decision
@@ -39,7 +39,7 @@ def execute_trades():
     elif current_position == 'bought' and (close_prices[-1] >= upper_band):
         order_id = sell('SPY', 1)
         order_status = get_order_status(order_id)
-    else: print('No trade available')
+    else: print('No trade available:', close_prices[-1], lower_band, upper_band)
 
 # Execute trades every minute
 def run_trading_algorithm():
