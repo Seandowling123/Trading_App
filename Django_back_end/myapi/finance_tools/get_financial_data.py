@@ -19,7 +19,7 @@ def get_historical_data(ticker, timescale):
             itrvl = '1d'
             
         # Fetch historical stock data using yfinance
-        data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True)
+        data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True, progress=False)
         return data
     except Exception as e: 
         print(f'Error getting data for {ticker}: {e}')
