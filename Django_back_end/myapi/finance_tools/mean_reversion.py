@@ -2,7 +2,7 @@ import numpy as np
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
-from execute_orders import buy, sell, get_order_status
+from execute_orders import buy, sell, get_order_data
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
 
@@ -36,7 +36,7 @@ def execute_trades():
     # Execute buy
     if current_position == 'sold' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
-        order_data = get_order_status(order_id)
+        order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
             current_position == 'bought'
             bought_price = order_data.filled_avg_price
@@ -45,7 +45,7 @@ def execute_trades():
     # Execute sell 
     elif current_position == 'bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
         order_id = sell('SPY', 1)
-        order_data = get_order_status(order_id)
+        order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
             current_position == 'sold'
             bought_price = None
