@@ -31,13 +31,25 @@ def execute_trades():
     
     # Make trade decision
     global current_position
+    global bought_price
+    
+    # Execute buy
     if current_position == 'sold' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
-        order_status = get_order_status(order_id)
-        print(order_status)
-    elif current_position == 'bought' and (close_prices[-1] >= upper_band):
+        order_data = get_order_status(order_id)
+        if order_data.status  == 'filled':
+            current_position == 'bought'
+            bought_price = order_data.filled_avg_price
+        print(order_data.status)
+        
+    # Execute sell 
+    elif current_position == 'bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
         order_id = sell('SPY', 1)
-        order_status = get_order_status(order_id)
+        order_data = get_order_status(order_id)
+        if order_data.status  == 'filled':
+            current_position == 'sold'
+            bought_price = None
+        print(order_data.status)
     else: print('No trade available:', close_prices[-1], lower_band, upper_band)
 
 # Execute trades every minute

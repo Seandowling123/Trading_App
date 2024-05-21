@@ -49,10 +49,11 @@ def sell(ticker, quantity):
     except Exception as e: print(f'Error selling {ticker}: {e}')
     
 # Get the status of an order after its been submitted
-def get_order_status(order_id):
-    specific_order = api.get_order_by_client_order_id(order_id)
-    print(specific_order)
+def get_order_data(order_id):
+    order_data = api.get_order_by_client_order_id(order_id)
+    return order_data
 
+# Get previous order data
 def get_prev_orders():
     order_chunk = api.list_orders(status='all', 
                                     nested='False', 
