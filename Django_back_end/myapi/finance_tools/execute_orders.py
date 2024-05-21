@@ -34,7 +34,7 @@ def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools
         writer.writerow({
             'side': order_data.side,
             'client_order_id': order_data.client_order_id,
-            'datetime': order_data.created_at,
+            'datetime': datetime.now(),
             'symbol': order_data.symbol,
             'qty': order_data.qty,
             'filled_avg_price': order_data.filled_avg_price
