@@ -38,5 +38,85 @@
         "symbol": "SPY",
         "qty": "1",
         "filled_avg_price": null
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:38",
+        "datetime": "2024-05-21-14:38",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.52"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:39",
+        "datetime": "2024-05-21-14:39",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.5"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:40",
+        "datetime": "2024-05-21-14:40",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.53"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:41",
+        "datetime": "2024-05-21-14:41",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.5"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:43",
+        "datetime": "2024-05-21-14:43",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.58"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:48",
+        "datetime": "2024-05-21-14:48",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.57"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:51",
+        "datetime": "2024-05-21-14:51",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.67"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:55",
+        "datetime": "2024-05-21-14:55",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.68"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-14:57",
+        "datetime": "2024-05-21-14:57",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.6"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-21-15:02",
+        "datetime": "2024-05-21-15:02",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "529.66"
     }
 ]

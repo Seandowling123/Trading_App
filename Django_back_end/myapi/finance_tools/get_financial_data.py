@@ -4,7 +4,6 @@ import pandas as pd
 # Get historical stock data
 def get_historical_data(ticker, timescale):
     try:
-        print('\nRetrieving stock data.')
         if timescale == 'day':
             prd = '1d'
             itrvl = '1m'

@@ -14,7 +14,7 @@ current_position = 'sold'
 bought_price = None
 
 # Calculate the bollinger bands for the current data
-def get_bollinger_bands(close_prices, window=20, num_std_dev=1.5):
+def get_bollinger_bands(close_prices, window=20, num_std_dev=.5):
     mean = np.mean(close_prices[-window:])
     std_dev = np.std(close_prices[-window:])
     
@@ -25,9 +25,9 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=1.5):
 
 # Make the trading decisions
 def execute_trades():
+    print('Evaluating position.')
     close_prices = list(get_close_prices('SPY'))
     upper_band, lower_band = get_bollinger_bands(close_prices)
-    lower_band = 530.02+1
     
     # Make trade decision
     global current_position
@@ -39,8 +39,8 @@ def execute_trades():
         order_id = buy('SPY', 1)
         order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
-            current_position == 'bought'
-            bought_price = order_data.filled_avg_price
+            current_position = 'bought'
+            bought_price = float(order_data.filled_avg_price)
             save_trade_to_csv(order_data)
         
         save_trade_to_json(order_data)
@@ -51,7 +51,7 @@ def execute_trades():
         order_id = sell('SPY', 1)
         order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
-            current_position == 'sold'
+            current_position = 'sold'
             bought_price = None
             save_trade_to_csv(order_data)
         print(order_data.status)

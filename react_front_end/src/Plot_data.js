@@ -76,4 +76,5 @@ const StockChart = ({ data }) => {
       />
     );
   };
+  
 export default StockChart;
