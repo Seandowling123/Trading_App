@@ -1,6 +1,7 @@
 from datetime import datetime
 import time
 import csv
+import json
 import os
 from pathlib import Path
 import alpaca_trade_api as tradeapi
@@ -16,7 +17,7 @@ def current_datetime_string():
 def get_order_id(ticker, side):
     return f'{side}-{ticker}-{current_datetime_string()}'
 
-# Save order details to csv
+# Save order details to CSV
 def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools/Trade_history\Trade_history.csv')):
     fieldnames = ['side', 'client_order_id', 'datetime', 'symbol', 'qty', 'filled_avg_price']
 
@@ -34,12 +35,37 @@ def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools
         writer.writerow({
             'side': order_data.side,
             'client_order_id': order_data.client_order_id,
-            'datetime': datetime.now(),
+            'datetime': current_datetime_string(),
             'symbol': order_data.symbol,
             'qty': order_data.qty,
             'filled_avg_price': order_data.filled_avg_price
         })
+        
+# Save order details to JSON
+def save_trade_to_json(order_data, json_path=os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.json')):
+    json_path = Path(json_path)
+    
+    # Load existing data if the JSON file exists
+    if json_path.exists():
+        with open(json_path, 'r') as file:
+            data = json.load(file)
+    else:
+        data = []
 
+    # Append the new order data
+    new_entry = {
+        'side': order_data.side,
+        'client_order_id': order_data.client_order_id,
+        'datetime': current_datetime_string(),
+        'symbol': order_data.symbol,
+        'qty': order_data.qty,
+        'filled_avg_price': order_data.filled_avg_price
+    }
+    data.append(new_entry)
+
+    # Write the updated data back to the JSON file
+    with open(json_path, 'w') as file:
+        json.dump(data, file, indent=4)
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
