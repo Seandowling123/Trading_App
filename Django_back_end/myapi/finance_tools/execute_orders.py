@@ -36,6 +36,17 @@ def sell(ticker, quantity):
         print(f'Order Submitted: Sell {ticker} x{quantity}.')
         return order.id
     except Exception as e: print(f'Error selling {ticker}: {e}')
+    
+# Get the status of an order after its been submitted
+def get_order_status(order_id):
+    specific_order = api.get_order_by_client_order_id(order_id)
+    print(specific_order)
+
+def get_prev_orders():
+    order_chunk = api.list_orders(status='all', 
+                                    nested='False', 
+                                    direction='desc',)
+    return order_chunk
 
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 

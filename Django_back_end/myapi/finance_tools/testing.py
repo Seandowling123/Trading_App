@@ -1,7 +1,7 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
 from get_financial_data import get_close_prices
-import threading
+from execute_orders import buy, sell, get_order_status, get_prev_orders
 
 def my_function():
     print(get_close_prices('SPY'))
@@ -25,12 +25,6 @@ def schedule():
         print("Stopping the scheduler")
         scheduler.shutdown()
 
-schedule()
-
-"""# Check order status
-order_status = order.status
-if order_status == 'filled':
-    print("Order has been executed successfully.")
-    print(f"Average filled price: {order.filled_avg_price}")
-else:
-    print("Order is still pending or partially filled.")"""
+id = '75ba7dcf-563c-447c-abec-8900ee05d0c5'
+sts = get_order_status(id)
+print(sts)
