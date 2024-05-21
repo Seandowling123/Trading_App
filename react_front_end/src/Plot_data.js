@@ -15,24 +15,27 @@ const StockChart = ({ data }) => {
       type: 'scatter',
       mode: 'lines',
       line: { color: '#007bff', width: 2 },
+      name: 'Close Price'
     };
     const upper_trace = {
-      x: dateObjects,
-      y: data['Upper Band'],
-      type: 'scatter',
-      mode: 'lines',
-      line: { color: '#FFC06B', width: 1.5 },
-      fill: 'tonexty',
-      fillcolor: 'rgba(255, 192, 107, 0.05)'
-    };
-    const lower_trace = {
       x: dateObjects,
       y: data['Lower Band'],
       type: 'scatter',
       mode: 'lines',
       line: { color: '#FFC06B', width: 1.5 },
       fill: 'tonexty',
-      fillcolor: 'rgba(255, 192, 107, 0.3)'
+      fillcolor: 'rgba(255, 192, 107, 0.05)',
+      name: 'Lower Band'
+    };
+    const lower_trace = {
+      x: dateObjects,
+      y: data['Upper Band'],
+      type: 'scatter',
+      mode: 'lines',
+      line: { color: '#FFC06B', width: 1.5 },
+      fill: 'tonexty',
+      fillcolor: 'rgba(255, 192, 107, 0.3)',
+      name: 'Upper Band'
     };
   
     // Array containing all trace objects
@@ -76,5 +79,5 @@ const StockChart = ({ data }) => {
       />
     );
   };
-  
+
 export default StockChart;
