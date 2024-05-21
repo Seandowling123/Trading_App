@@ -30,7 +30,7 @@ def buy(ticker, quantity):
             side='buy',
             type='market',
             time_in_force='fok',
-            client_order_id=get_order_id(ticker, 'buy')
+            client_order_id=get_order_id(ticker, 'Buy')
         )
         print(f"Order successfully submitted:\n"
               f"    - Side: Buy\n"
@@ -51,7 +51,7 @@ def sell(ticker, quantity):
             side='sell',
             type='market',
             time_in_force='fok',
-            client_order_id=get_order_id(ticker, 'sell')
+            client_order_id=get_order_id(ticker, 'Sell')
         )
         print(f"Order successfully submitted:\n"
               f"    - Side: Sell\n"
