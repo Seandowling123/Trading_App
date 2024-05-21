@@ -25,6 +25,10 @@ def schedule():
         print("Stopping the scheduler")
         scheduler.shutdown()
 
-id = '75ba7dcf-563c-447c-abec-8900ee05d0c5'
-sts = get_order_status(id)
+id = '123test'
+ 
+order_id = buy('SPY', 1)
+print(order_id)
+
+sts = get_order_status(order_id)
 print(sts)

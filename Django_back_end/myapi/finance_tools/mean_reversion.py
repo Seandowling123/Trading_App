@@ -1,5 +1,6 @@
 import numpy as np
 import time
+from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
 from execute_orders import buy, sell, get_order_status
@@ -12,6 +13,10 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.mark
 # Position tracking
 current_position = 'sold'
 bought_price = None
+
+# Create a string of the current date and time
+def current_datetime_string():
+    return datetime.now().strftime('%Y-%m-%d %H:%M')
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=1.5):

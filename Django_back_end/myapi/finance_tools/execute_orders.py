@@ -12,29 +12,31 @@ def ticker_available(ticker):
         return False
 
 # Submit a buy order
-def buy(ticker, quantity):
+def buy(ticker, quantity, id=None):
     try:
         order = api.submit_order(
         symbol=ticker,
         qty=quantity,
         side='buy',
         type='market',
-        time_in_force='fok')
+        time_in_force='fok',
+        client_order_id=id)
         print(f'Order Submitted: Buy {ticker} x{quantity}.')
-        return order.id
+        return order.client_order_id
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
 # Submit a sell order 
-def sell(ticker, quantity):
+def sell(ticker, quantity, id=None):
     try:
         order = api.submit_order(
         symbol=ticker,
         qty=quantity,
         side='sell',
         type='market',
-        time_in_force='fok')
+        time_in_force='fok',
+        client_order_id=id)
         print(f'Order Submitted: Sell {ticker} x{quantity}.')
-        return order.id
+        return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')
     
 # Get the status of an order after its been submitted
