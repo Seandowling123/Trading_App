@@ -25,13 +25,20 @@ def ticker_available(ticker):
 def buy(ticker, quantity):
     try:
         order = api.submit_order(
-        symbol=ticker,
-        qty=quantity,
-        side='buy',
-        type='market',
-        time_in_force='fok',
-        client_order_id=get_order_id(ticker, 'buy'))
-        print(f'Order Submitted: Buy {ticker} x{quantity}.')
+            symbol=ticker,
+            qty=quantity,
+            side='buy',
+            type='market',
+            time_in_force='fok',
+            client_order_id=get_order_id(ticker, 'buy')
+        )
+        print(f"Order successfully submitted:\n"
+              f"    - Side: Buy\n"
+              f"    - Ticker: {ticker}\n"
+              f"    - Quantity: {quantity}\n"
+              f"    - Order ID: {order.client_order_id}\n"
+              f"    - Created at: {order.created_at}\n"
+        )
         return order.client_order_id
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
@@ -39,13 +46,20 @@ def buy(ticker, quantity):
 def sell(ticker, quantity):
     try:
         order = api.submit_order(
-        symbol=ticker,
-        qty=quantity,
-        side='sell',
-        type='market',
-        time_in_force='fok',
-        client_order_id=get_order_id(ticker, 'sell'))
-        print(f'Order Submitted: Sell {ticker} x{quantity}.')
+            symbol=ticker,
+            qty=quantity,
+            side='sell',
+            type='market',
+            time_in_force='fok',
+            client_order_id=get_order_id(ticker, 'sell')
+        )
+        print(f"Order successfully submitted:\n"
+              f"    - Side: Sell\n"
+              f"    - Ticker: {ticker}\n"
+              f"    - Quantity: {quantity}\n"
+              f"    - Order ID: {order.client_order_id}\n"
+              f"    - Created at: {order.created_at}\n"
+        )
         return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')
     
