@@ -34,6 +34,7 @@ def execute_trades():
     global bought_price
     
     # Execute buy
+    print(current_position)
     if current_position == 'sold' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
         order_data = get_order_data(order_id)

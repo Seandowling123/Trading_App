@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
 
@@ -48,9 +49,21 @@ def sell(ticker, quantity):
         return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')
     
-# Get the status of an order after its been submitted
-def get_order_data(order_id):
+# Get data about an order from its ID
+def get_order_data(order_id, initial_delay=2, polling_interval=2, timeout=30):
     order_data = api.get_order_by_client_order_id(order_id)
+    
+    # Ensure order has been processed
+    if order_data.status == 'new':
+        time.sleep(initial_delay)
+        start_time = time.time()
+        
+        while time.time() - start_time < timeout:
+            order_data = get_order_data(order_id)
+            if order_data.status != 'new':
+                return order_data
+            time.sleep(polling_interval)
+        return None
     return order_data
 
 # Get previous order data
