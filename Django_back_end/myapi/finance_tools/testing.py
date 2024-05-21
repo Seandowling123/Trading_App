@@ -2,6 +2,10 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import time
 from get_financial_data import get_close_prices
 from execute_orders import buy, sell, get_order_status, get_prev_orders
+from datetime import datetime
+
+def current_datetime_string():
+    return datetime.now().strftime('%Y-%m-%d %H:%M')
 
 def my_function():
     print(get_close_prices('SPY'))
@@ -27,7 +31,7 @@ def schedule():
 
 id = '123test'
  
-order_id = buy('SPY', 1)
+order_id = buy('SPY', 1, current_datetime_string())
 print(order_id)
 
 sts = get_order_status(order_id)

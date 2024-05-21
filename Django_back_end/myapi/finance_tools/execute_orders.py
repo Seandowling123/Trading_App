@@ -1,5 +1,14 @@
+from datetime import datetime
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
+
+# Create a string of the current date and time
+def current_datetime_string():
+    return datetime.now().strftime('%Y-%m-%d %H:%M')
+
+# Create an order ID
+def get_order_id(ticker):
+    return f'{ticker} {current_datetime_string()}'
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
@@ -12,7 +21,7 @@ def ticker_available(ticker):
         return False
 
 # Submit a buy order
-def buy(ticker, quantity, id=None):
+def buy(ticker, quantity):
     try:
         order = api.submit_order(
         symbol=ticker,
@@ -20,13 +29,13 @@ def buy(ticker, quantity, id=None):
         side='buy',
         type='market',
         time_in_force='fok',
-        client_order_id=id)
+        client_order_id=get_order_id(ticker))
         print(f'Order Submitted: Buy {ticker} x{quantity}.')
         return order.client_order_id
     except Exception as e: print(f'Error buying {ticker}: {e}')
 
 # Submit a sell order 
-def sell(ticker, quantity, id=None):
+def sell(ticker, quantity):
     try:
         order = api.submit_order(
         symbol=ticker,
@@ -34,7 +43,7 @@ def sell(ticker, quantity, id=None):
         side='sell',
         type='market',
         time_in_force='fok',
-        client_order_id=id)
+        client_order_id=get_order_id(ticker))
         print(f'Order Submitted: Sell {ticker} x{quantity}.')
         return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')
