@@ -2,7 +2,7 @@ import numpy as np
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
-from execute_orders import buy, sell, get_order_data
+from execute_orders import buy, sell, get_order_data, save_trade_to_csv
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
 
@@ -41,6 +41,9 @@ def execute_trades():
         if order_data.status  == 'filled':
             current_position == 'bought'
             bought_price = order_data.filled_avg_price
+            save_trade_to_csv(order_data)
+        
+        save_trade_to_csv(order_data)
         print(order_data.status)
         
     # Execute sell 
@@ -50,6 +53,7 @@ def execute_trades():
         if order_data.status  == 'filled':
             current_position == 'sold'
             bought_price = None
+            save_trade_to_csv(order_data)
         print(order_data.status)
     else: print('No trade available:', close_prices[-1], lower_band, upper_band)
 

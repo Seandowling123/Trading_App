@@ -1,7 +1,12 @@
 from datetime import datetime
 import time
+import csv
+import os
+from pathlib import Path
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Create a string of the current date and time
 def current_datetime_string():
@@ -10,6 +15,31 @@ def current_datetime_string():
 # Create an order ID
 def get_order_id(ticker, side):
     return f'{side}-{ticker}-{current_datetime_string()}'
+
+# Save order details to csv
+def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools/Trade_history\Trade_history.csv')):
+    fieldnames = ['side', 'client_order_id', 'datetime', 'symbol', 'qty', 'filled_avg_price']
+
+    # Check if the CSV file already exists
+    file_exists = Path(csv_path).exists()
+
+    with open(csv_path, mode='a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+        # Write headers if the file is newly created
+        if not file_exists:
+            writer.writeheader()
+
+        # Write order data to the CSV file
+        writer.writerow({
+            'side': order_data.side,
+            'client_order_id': order_data.client_order_id,
+            'datetime': order_data.created_at,
+            'symbol': order_data.symbol,
+            'qty': order_data.qty,
+            'filled_avg_price': order_data.filled_avg_price
+        })
+
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
