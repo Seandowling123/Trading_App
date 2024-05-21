@@ -4,11 +4,11 @@ from API_keys import API_KEY, SECRET_KEY
 
 # Create a string of the current date and time
 def current_datetime_string():
-    return datetime.now().strftime('%Y-%m-%d %H:%M')
+    return datetime.now().strftime('%Y-%m-%d-%H:%M')
 
 # Create an order ID
-def get_order_id(ticker):
-    return f'{ticker} {current_datetime_string()}'
+def get_order_id(ticker, side):
+    return f'{side}-{ticker}-{current_datetime_string()}'
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
@@ -29,7 +29,7 @@ def buy(ticker, quantity):
         side='buy',
         type='market',
         time_in_force='fok',
-        client_order_id=get_order_id(ticker))
+        client_order_id=get_order_id(ticker, 'buy'))
         print(f'Order Submitted: Buy {ticker} x{quantity}.')
         return order.client_order_id
     except Exception as e: print(f'Error buying {ticker}: {e}')
@@ -43,7 +43,7 @@ def sell(ticker, quantity):
         side='sell',
         type='market',
         time_in_force='fok',
-        client_order_id=get_order_id(ticker))
+        client_order_id=get_order_id(ticker, 'sell'))
         print(f'Order Submitted: Sell {ticker} x{quantity}.')
         return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')

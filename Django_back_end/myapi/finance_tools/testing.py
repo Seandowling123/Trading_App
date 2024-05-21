@@ -31,7 +31,7 @@ def schedule():
 
 id = '123test'
  
-order_id = buy('SPY', 1, current_datetime_string())
+order_id = buy('SPY', 1)
 print(order_id)
 
 sts = get_order_status(order_id)
