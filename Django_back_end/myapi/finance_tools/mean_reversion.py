@@ -2,7 +2,7 @@ import numpy as np
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
-from execute_orders import buy, sell, get_order_data, save_trade_to_csv
+from execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
 import alpaca_trade_api as tradeapi
 from API_keys import API_KEY, SECRET_KEY
 
@@ -43,7 +43,7 @@ def execute_trades():
             bought_price = order_data.filled_avg_price
             save_trade_to_csv(order_data)
         
-        save_trade_to_csv(order_data)
+        save_trade_to_json(order_data)
         print(order_data.status)
         
     # Execute sell 
