@@ -122,8 +122,8 @@ const StockChart = ({ historical_data, markersData }) => {
     };
   
     return (
-      <div id="trade-info-container">
-        <div id="#plot-container">
+      <div id="#plot-container">
+        <div>
           <Plot
             data={traces}
             layout={layout}

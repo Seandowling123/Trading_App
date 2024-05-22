@@ -47,7 +47,7 @@ function Get_stock_chart() {
   console.log(account_details);
 
   return (
-    <div id="page-container">
+    <div id="trade-data-container">
       <StockChart historical_data={historical_data} markersData={trade_history}/>
       <AccountDetails account_details={account_details}/>
     </div>

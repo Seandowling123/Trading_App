@@ -38,8 +38,12 @@
 }
 
 #page-container {
-  display: flex;
   align-items: flex-start;
+}
+
+#title{
+  font-size: large;
+  margin-left: 75px;
 }
 
 #account-detail-container {
@@ -47,19 +51,20 @@
   margin-top: 75px;
 }
 
-#trade-info-container {
-  max-width: 1500px;
+#trade-data-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+#plot-container {
   margin: 0 auto;
   margin-left: 75px;
   justify-content: left;
 }
 
-#plot-container {
-  width: 500px;
-}
-
 #trade-marker {
   width: 500px;
+  margin-left: 75px;
   overflow-x: auto;
   align-self: end;
 }
