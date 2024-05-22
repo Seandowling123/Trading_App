@@ -41,15 +41,13 @@
 }
 
 #title{
-  font-size: large;
+  font-size: x-large;
   margin-left: 100px;
-  background-color: orange;
 }
 
 #account-detail-container {
-  font-size: large;
-  margin-top: 75px;
-  background-color: green;
+  font-size: larger;
+  margin-top: 50px;
 }
 
 #trade-data-container {
@@ -61,7 +59,6 @@
   margin: 0 auto;
   margin-left: 75px;
   justify-content: left;
-  background-color: yellow;
 }
 
 #trade-marker {

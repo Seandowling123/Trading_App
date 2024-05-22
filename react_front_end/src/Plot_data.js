@@ -22,7 +22,7 @@ const MarkerDetails = ({ marker }) => {
 
   return (
     <div className="marker-details">
-      <h3>Trade Details - {marker.side === 'buy' ? 'Buy' : 'Sold'}</h3>
+      <h3>Trade Details - {marker.side === 'buy' ? 'Buy' : 'Sold'} - {marker.symbol}</h3>
       <p><strong>Price:</strong> {formattedPrice}</p>
       <p><strong>Date:</strong> {formattedDate}</p>
     </div>
@@ -72,11 +72,14 @@ const StockChart = ({ historical_data, markersData }) => {
     // Array containing all trace objects
     const traces = [close_trace, upper_trace, lower_trace];
 
+    console.log(markersData)
+
     // Convert markersData to an array of objects
     const markerArray = markersData.datetime.map((datetime, index) => ({
       datetime,
       side: markersData.side[index],
-      filled_avg_price: markersData.filled_avg_price[index]
+      symbol: markersData.symbol[index],
+      filled_avg_price: markersData.filled_avg_price[index],
     }));
 
     // Add shapes for buy and sell points
