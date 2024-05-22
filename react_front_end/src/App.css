@@ -39,6 +39,7 @@
 
 #page-container {
   display: flex;
+  align-items: flex-start;
 }
 
 #account-detail-container {
@@ -55,7 +56,6 @@
 
 #plot-container {
   width: 500px;
-  display: flex;
 }
 
 #trade-marker {

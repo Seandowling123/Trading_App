@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const StockChart = ({ account_details }) => {
+const AccountDetails = ({ account_details }) => {
 
     return (
         <div id="account-detail-container">
@@ -10,4 +10,4 @@ const StockChart = ({ account_details }) => {
         );
 };
 
-export default StockChart;
+export default AccountDetails;

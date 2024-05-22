@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StockChart from './Plot_data.js';
+import AccountDetails from './account_details.js';
 
 function Get_stock_chart() {
   const [historical_data, setHistorical_data] = useState('');
@@ -46,8 +47,9 @@ function Get_stock_chart() {
   console.log(account_details);
 
   return (
-    <div>
+    <div id="page-container">
       <StockChart historical_data={historical_data} markersData={trade_history}/>
+      <AccountDetails account_details={account_details}/>
     </div>
   );
 }
