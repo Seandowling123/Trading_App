@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime
 import os
 from pathlib import Path
+from mean_reversion import current_position
+from execute_orders import api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,3 +19,8 @@ def get_trade_history():
     df = pd.read_csv(file_path)
     df['datetime'] = df['datetime'].apply(get_datetime_from_string)  
     return df
+
+# Get trading acccount details
+def get_account_details():
+    account = api.get_account()
+    return {'portfolio_value': account.portfolio_value, 'current_position': current_position}

@@ -27,6 +27,11 @@ def trade_history(request):
     return Response({'trade_history': response})
 
 @api_view(['GET'])
+def account_details(request):
+    response = get_trade_history.get_account_details()
+    return Response({'account_details': response})
+
+@api_view(['GET'])
 def index(request):
     react_app_path = os.path.join(BASE_DIR, 'build/index.html')
     # Read the HTML file

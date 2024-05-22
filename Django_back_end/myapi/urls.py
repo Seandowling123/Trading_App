@@ -10,5 +10,6 @@ urlpatterns = [
     path('asdf/', views.asdf),
     path('historical_data/<str:ticker>', views.historical_data),
     path('trade_history/', views.trade_history),
+    path('account_details/', views.account_details),
     path('index/', views.index)
 ]

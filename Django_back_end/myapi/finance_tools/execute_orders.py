@@ -5,7 +5,6 @@ import json
 import os
 from pathlib import Path
 import alpaca_trade_api as tradeapi
-from mean_reversion import current_position
 from API_keys import API_KEY, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,11 +144,6 @@ def get_prev_orders():
                                     direction='desc',)
     return order_chunk
 
-def get_account_details():
-    account = api.get_account()
-    return {'portfolio_value': account.portfolio_value, 'current_position': current_position}
-
 account = api.get_account()
-print(account)
 print('Cash:', account.cash)
 print('Buying Power:', account.buying_power)
