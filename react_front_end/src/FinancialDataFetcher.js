@@ -11,7 +11,7 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/historical_data/SPY')
       .then(response => {
         setHistorical_data(response.data.financial_data);
-        console.log(historical_data);
+        //console.log(historical_data);
       })
       .catch(error => {
         console.log(error);
@@ -33,7 +33,7 @@ function Get_stock_chart() {
   return (
     <div>
       <h1>Trading Activity</h1>
-      <StockChart historical_data={historical_data}/>
+      <StockChart historical_data={historical_data} markersData={trade_history}/>
     </div>
   );
 }

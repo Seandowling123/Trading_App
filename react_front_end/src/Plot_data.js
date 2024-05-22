@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
-const StockChart = ({ historical_data }) => {
+// MarkerDetails component to display marker information
+const MarkerDetails = ({ marker }) => (
+  <div>
+    <h3>Marker Details</h3>
+    <p>Type: {marker.side}</p>
+    <p>Datetime: {Date(marker.datetime)}</p>
+  </div>
+);
+
+const StockChart = ({ historical_data, markersData }) => {
+
+    const [clickedMarker, setClickedMarker] = useState(null);
+
     if (!historical_data || historical_data.length === 0) {
-      return <div>No data available</div>;
+      return <div>Loading Trading Data.</div>;
     }
 
     // Convert strings to Date objects
@@ -41,26 +53,27 @@ const StockChart = ({ historical_data }) => {
     // Array containing all trace objects
     const traces = [close_trace, upper_trace, lower_trace];
 
-    // Buy + sell markers
-    const ex_buy_date_string = ["2024-05-21T13:11:00-04:00"];
-    const ex_buy_date = ex_buy_date_string.map(dateString => new Date(dateString));
+    // Convert markersData to an array of objects
+    const markerArray = markersData.datetime.map((datetime, index) => ({
+      datetime,
+      side: markersData.side[index]
+    }));
 
     // Add shapes for buy and sell points
-    const shapes = ex_buy_date.map((date) => ({
+    const shapes = markerArray.map((trade) => ({
       type: 'line',
       xref: 'x',
       yref: 'paper',
-      x0: date,
-      x1: date,
+      x0: new Date(trade.datetime),
+      x1: new Date(trade.datetime),
       y0: 0,
       y1: 1,
       line: {
-        //color: date.type === 'buy' ? 'green' : 'red', // Green for buy, red for sell
-        color: 'green',
+        color: trade.side === 'buy' ? 'green' : 'red', // Green for buy, red for sell
         width: 2,
         dash: 'dot'
       },
-      name: date.type === 'buy' ? 'Buy Point' : 'Sell Point'
+      name: trade.side === 'buy' ? 'Buy Point' : 'Sell Point'
     }));
 
     const layout = {
@@ -93,13 +106,29 @@ const StockChart = ({ historical_data }) => {
       paper_bgcolor: '#fff', // White paper background color
       autosize: true, // Automatically adjust size based on container
     };
+
+    // Handle click events
+    const handleClick = (event) => {
+      if (event.points) {
+        event.points.forEach(point => {
+          const clickedMarker = markerArray.find(marker => new Date(marker.datetime).getTime() === new Date(point.x).getTime());
+          if (clickedMarker) {
+            setClickedMarker(clickedMarker); // Update state with clicked marker
+          }
+        });
+      }
+    };
   
     return (
-      <Plot
-        data={traces}
-        layout={layout}
-        style={{ width: '100%', height: '600px' }} // Increase height for better visualization
-      />
+      <div>
+        <Plot
+          data={traces}
+          layout={layout}
+          style={{ width: '100%', height: '600px' }}
+          onClick={handleClick}
+        />
+        {clickedMarker && <MarkerDetails marker={clickedMarker} />} {/* Render MarkerDetails if a marker is clicked */}
+      </div>
     );
   };
 
