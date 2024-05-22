@@ -1,4 +1,2 @@
 side,client_order_id,datetime,symbol,qty,filled_avg_price
-buy,Buy-SPY-2024-05-21-14:57,2024-05-21-14:57,SPY,1,529.6
-sell,Sell-SPY-2024-05-21-15:01,2024-05-21-15:01,SPY,1,529.67
-buy,Buy-SPY-2024-05-21-15:02,2024-05-21-15:02,SPY,1,529.66
+buy,Buy-SPY-2024-05-22-15:12,2024-05-22-15:12,SPY,1,531.07

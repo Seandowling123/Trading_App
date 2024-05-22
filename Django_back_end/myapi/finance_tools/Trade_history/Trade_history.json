@@ -118,5 +118,13 @@
         "symbol": "SPY",
         "qty": "1",
         "filled_avg_price": "529.66"
+    },
+    {
+        "side": "buy",
+        "client_order_id": "Buy-SPY-2024-05-22-15:12",
+        "datetime": "2024-05-22-15:12",
+        "symbol": "SPY",
+        "qty": "1",
+        "filled_avg_price": "531.07"
     }
 ]
