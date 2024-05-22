@@ -22,8 +22,8 @@ function Get_stock_chart() {
     axios.get('http://127.0.0.1:8000/api/trade_history')
     //axios.get('http://51.20.79.10:8000/api/trade_history')
       .then(response => {
-        setTrade_history(response.data.financial_data);
-        console.log(trade_history);
+        setTrade_history(response.data.trade_history);
+        //console.log(trade_history);
       })
       .catch(error => {
         console.log(error);
@@ -33,7 +33,7 @@ function Get_stock_chart() {
   return (
     <div>
       <h1>Trading Activity</h1>
-      <StockChart data={historical_data}/>
+      <StockChart historical_data={historical_data}/>
     </div>
   );
 }

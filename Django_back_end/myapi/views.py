@@ -22,8 +22,8 @@ def historical_data(request, ticker):
     return Response({'financial_data': response})
 
 @api_view(['GET'])
-def trade_history(request, ticker):
-    response = get_trade_history.get_trade_history(ticker)
+def trade_history(request):
+    response = get_trade_history.get_trade_history()
     return Response({'trade_history': response})
 
 @api_view(['GET'])

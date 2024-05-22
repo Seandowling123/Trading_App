@@ -1,17 +1,17 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 
-const StockChart = ({ data }) => {
-    if (!data || data.length === 0) {
+const StockChart = ({ historical_data }) => {
+    if (!historical_data || historical_data.length === 0) {
       return <div>No data available</div>;
     }
 
     // Convert strings to Date objects
-    const dateObjects = data['Datetime'].map(dateString => new Date(dateString));
+    const dateObjects = historical_data['Datetime'].map(dateString => new Date(dateString));
   
     const close_trace = {
       x: dateObjects,
-      y: data['Close'],
+      y: historical_data['Close'],
       type: 'scatter',
       mode: 'lines',
       line: { color: '#007bff', width: 2 },
@@ -19,7 +19,7 @@ const StockChart = ({ data }) => {
     };
     const upper_trace = {
       x: dateObjects,
-      y: data['Lower Band'],
+      y: historical_data['Lower Band'],
       type: 'scatter',
       mode: 'lines',
       line: { color: '#FFC06B', width: 1.5 },
@@ -29,7 +29,7 @@ const StockChart = ({ data }) => {
     };
     const lower_trace = {
       x: dateObjects,
-      y: data['Upper Band'],
+      y: historical_data['Upper Band'],
       type: 'scatter',
       mode: 'lines',
       line: { color: '#FFC06B', width: 1.5 },
