@@ -3,11 +3,6 @@ import time
 from apscheduler.schedulers.background import BackgroundScheduler
 from get_financial_data import get_close_prices
 from execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
-import alpaca_trade_api as tradeapi
-from API_keys import API_KEY, SECRET_KEY
-
-# Initialize Alpaca API
-api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
 # Position tracking
 current_position = 'sold'

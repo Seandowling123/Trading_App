@@ -5,9 +5,11 @@ import json
 import os
 from pathlib import Path
 import alpaca_trade_api as tradeapi
+from mean_reversion import current_position
 from API_keys import API_KEY, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
 # Create a string of the current date and time
 def current_datetime_string():
@@ -145,10 +147,7 @@ def get_prev_orders():
 
 def get_account_details():
     account = api.get_account()
-    print('Cash:', account.cash)
-    print('Buying Power:', account.buying_power)
-
-api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
+    return {'portfolio_value': account.portfolio_value, 'current_position': current_position}
 
 account = api.get_account()
 print(account)
