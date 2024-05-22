@@ -2,8 +2,8 @@ import pandas as pd
 from datetime import datetime
 import os
 from pathlib import Path
-from mean_reversion import current_position
-from execute_orders import api
+from .mean_reversion import current_position
+from .execute_orders import api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,3 +24,5 @@ def get_trade_history():
 def get_account_details():
     account = api.get_account()
     return {'portfolio_value': account.portfolio_value, 'current_position': current_position}
+
+print('here')

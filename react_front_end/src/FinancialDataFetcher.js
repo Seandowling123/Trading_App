@@ -5,6 +5,7 @@ import StockChart from './Plot_data.js';
 function Get_stock_chart() {
   const [historical_data, setHistorical_data] = useState('');
   const [trade_history, setTrade_history] = useState('');
+  const [account_details, setAccount_details] = useState('');
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/historical_data/SPY')
@@ -23,7 +24,7 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/trade_history')
       .then(response => {
         setTrade_history(response.data.trade_history);
-        console.log(trade_history);
+        //console.log(trade_history);
       })
       .catch(error => {
         console.log(error);
@@ -31,11 +32,11 @@ function Get_stock_chart() {
   }, []);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/trade_history')
-    //axios.get('http://51.20.79.10:8000/api/trade_history')
+    axios.get('http://127.0.0.1:8000/api/account_details')
+    //axios.get('http://51.20.79.10:8000/api/account_details')
       .then(response => {
-        setTrade_history(response.data.trade_history);
-        console.log(trade_history);
+        setAccount_details(response.data.account_details);
+        console.log(account_details);
       })
       .catch(error => {
         console.log(error);

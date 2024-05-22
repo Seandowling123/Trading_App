@@ -1,8 +1,8 @@
 import numpy as np
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
-from get_financial_data import get_close_prices
-from execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
+from .get_financial_data import get_close_prices
+from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
 
 # Position tracking
 current_position = 'sold'
@@ -72,4 +72,4 @@ def run_trading_algorithm():
 def cock():
     get_close_prices('SPY')
 
-run_trading_algorithm()
+#run_trading_algorithm()
