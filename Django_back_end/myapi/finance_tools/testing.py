@@ -52,6 +52,14 @@ def schedule():
         print("Stopping the scheduler")
         scheduler.shutdown()
 
-json_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.json')
-df = load_trade_data_as_dataframe(json_path)
-print(df)
+from datetime import datetime
+
+# Your string
+date_string = "2024-05-21-15:02"
+
+# Convert the string to a datetime object
+date_format = "%Y-%m-%d-%H:%M"
+datetime_obj = datetime.strptime(date_string, date_format)
+
+# Print the datetime object
+print(datetime_obj)

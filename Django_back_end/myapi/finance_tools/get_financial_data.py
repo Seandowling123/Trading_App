@@ -24,6 +24,7 @@ def get_historical_data(ticker, timescale):
         print(f'Error getting data for {ticker}: {e}')
         return None
 
+# Get stock closing prices
 def get_close_prices(ticker, timescale='day'):
     data = get_historical_data(ticker, timescale)
     close_prices = data['Close']
@@ -46,5 +47,3 @@ def get_close_with_bands(ticker, timescale='day'):
     dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
     dataframe.reset_index(inplace=True)
     return dataframe[20:]
-
-#get_close_with_bands('AAPL')

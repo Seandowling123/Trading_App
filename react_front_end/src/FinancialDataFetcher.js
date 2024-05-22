@@ -3,14 +3,27 @@ import axios from 'axios';
 import StockChart from './Plot_data.js';
 
 function Get_stock_chart() {
-  const [message, setMessage] = useState('');
+  const [historical_data, setHistorical_data] = useState('');
+  const [trade_history, setTrade_history] = useState('');
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/historical_data/SPY')
     //axios.get('http://51.20.79.10:8000/api/historical_data/SPY')
       .then(response => {
-        setMessage(response.data.financial_data);
-        console.log(message);
+        setHistorical_data(response.data.financial_data);
+        console.log(historical_data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/trade_history')
+    //axios.get('http://51.20.79.10:8000/api/trade_history')
+      .then(response => {
+        setTrade_history(response.data.financial_data);
+        console.log(trade_history);
       })
       .catch(error => {
         console.log(error);
@@ -19,12 +32,12 @@ function Get_stock_chart() {
 
   return (
     <div>
-      <h1>Historical Stock Chart</h1>
-      <StockChart data={message}/>
+      <h1>Trading Activity</h1>
+      <StockChart data={historical_data}/>
     </div>
   );
 }
 
 export default Get_stock_chart;
 //export default HelloWorld;
-// <StockChart data={message} />
+// <StockChart data={historical_data} />

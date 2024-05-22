@@ -44,15 +44,14 @@ const StockChart = ({ data }) => {
     // Buy + sell markers
     const ex_buy_date_string = ["2024-05-21T13:11:00-04:00"];
     const ex_buy_date = ex_buy_date_string.map(dateString => new Date(dateString));
-    console.log(ex_buy_date)
 
     // Add shapes for buy and sell points
     const shapes = ex_buy_date.map((date) => ({
       type: 'line',
       xref: 'x',
       yref: 'paper',
-      x0: date.date,
-      x1: date.date,
+      x0: date,
+      x1: date,
       y0: 0,
       y1: 1,
       line: {
