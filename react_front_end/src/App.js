@@ -9,7 +9,7 @@ import Get_stock_chart from './FinancialDataFetcher';
 
 function App() {
   return (
-    <div id="plot-container">
+    <div>
       <Get_stock_chart />
     </div>
   );

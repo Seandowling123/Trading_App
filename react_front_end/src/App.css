@@ -38,7 +38,14 @@
 }
 
 #plot-container {
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto;
   margin-left: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#trade-marker {
+  overflow-x: auto;
 }

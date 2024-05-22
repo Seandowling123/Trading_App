@@ -120,14 +120,16 @@ const StockChart = ({ historical_data, markersData }) => {
     };
   
     return (
-      <div>
+      <div id="plot-container">
         <Plot
           data={traces}
           layout={layout}
           style={{ width: '100%', height: '600px' }}
           onClick={handleClick}
         />
-        {clickedMarker && <MarkerDetails marker={clickedMarker} />} {/* Render MarkerDetails if a marker is clicked */}
+        <div id="trade-marker">
+          {clickedMarker && <MarkerDetails marker={clickedMarker} />} {/* Render MarkerDetails if a marker is clicked */}
+        </div>
       </div>
     );
   };
