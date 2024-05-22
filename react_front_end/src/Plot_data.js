@@ -41,6 +41,29 @@ const StockChart = ({ data }) => {
     // Array containing all trace objects
     const traces = [close_trace, upper_trace, lower_trace];
 
+    // Buy + sell markers
+    const ex_buy_date_string = ["2024-05-21T13:11:00-04:00"];
+    const ex_buy_date = ex_buy_date_string.map(dateString => new Date(dateString));
+    console.log(ex_buy_date)
+
+    // Add shapes for buy and sell points
+    const shapes = ex_buy_date.map((date) => ({
+      type: 'line',
+      xref: 'x',
+      yref: 'paper',
+      x0: date.date,
+      x1: date.date,
+      y0: 0,
+      y1: 1,
+      line: {
+        //color: date.type === 'buy' ? 'green' : 'red', // Green for buy, red for sell
+        color: 'green',
+        width: 2,
+        dash: 'dot'
+      },
+      name: date.type === 'buy' ? 'Buy Point' : 'Sell Point'
+    }));
+
     const layout = {
       xaxis: {
         tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
@@ -64,6 +87,7 @@ const StockChart = ({ data }) => {
         spikethickness: 2, // Increase spike thickness for solid line
         spikesnap: 'data', 
       },
+      shapes: shapes, // Add shapes for buy and sell points
       showlegend: false, // Hide the legend
       hovermode: 'x unified', // Show hover information for all traces at the same x-axis value
       plot_bgcolor: '#fff', // White background color

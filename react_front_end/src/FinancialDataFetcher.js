@@ -10,7 +10,6 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/historical_data/SPY')
       .then(response => {
         setMessage(response.data.financial_data);
-        console.log('here');
         console.log(message);
       })
       .catch(error => {
