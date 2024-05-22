@@ -5,7 +5,7 @@ from .get_financial_data import get_close_prices
 from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
 
 # Position tracking
-current_position = 'sold'
+current_position = 'Sold'
 bought_price = None
 
 # Calculate the bollinger bands for the current data
@@ -30,11 +30,11 @@ def execute_trades():
     
     # Execute buy
     print(current_position)
-    if current_position == 'sold' and (close_prices[-1] <= lower_band):
+    if current_position == 'Sold' and (close_prices[-1] <= lower_band):
         order_id = buy('SPY', 1)
         order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
-            current_position = 'bought'
+            current_position = 'Bought'
             bought_price = float(order_data.filled_avg_price)
             save_trade_to_csv(order_data)
         
@@ -42,12 +42,12 @@ def execute_trades():
         print(order_data.status)
         
     # Execute sell 
-    elif current_position == 'bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
+    elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
         order_id = sell('SPY', 1)
         order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
-            current_position = 'sold'
-            bought_price = None
+            current_position = 'Sold'
+            Bought_price = None
             save_trade_to_csv(order_data)
         print(order_data.status)
     else: print('No trade available:', close_prices[-1], lower_band, upper_band)
