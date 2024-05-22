@@ -37,11 +37,19 @@
   }
 }
 
+#page-container {
+  display: flex;
+}
+
+#account-detail-container {
+  font-size: large;
+  margin-top: 75px;
+}
+
 #trade-info-container {
   max-width: 1500px;
   margin: 0 auto;
   margin-left: 75px;
-  display: flex;
   justify-content: left;
 }
 
@@ -51,7 +59,7 @@
 }
 
 #trade-marker {
+  width: 500px;
   overflow-x: auto;
   align-self: end;
-  margin-bottom: 50px;
 }

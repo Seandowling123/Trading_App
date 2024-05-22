@@ -127,7 +127,7 @@ const StockChart = ({ historical_data, markersData }) => {
           <Plot
             data={traces}
             layout={layout}
-            style={{ width: '900px', height: '600px' }}
+            style={{ width: '900px', height: '500px' }}
             onClick={handleClick}
           />
         </div>

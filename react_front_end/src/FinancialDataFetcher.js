@@ -47,12 +47,9 @@ function Get_stock_chart() {
 
   return (
     <div>
-      <h1>Trading Activity</h1>
       <StockChart historical_data={historical_data} markersData={trade_history}/>
     </div>
   );
 }
 
 export default Get_stock_chart;
-//export default HelloWorld;
-// <StockChart data={historical_data} />

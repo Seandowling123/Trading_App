@@ -9,8 +9,9 @@ import Get_stock_chart from './FinancialDataFetcher';
 
 function App() {
   return (
-    <div>
+    <div id="page-container">
       <Get_stock_chart />
+      
     </div>
   );
 }
