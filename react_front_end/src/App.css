@@ -37,15 +37,21 @@
   }
 }
 
-#plot-container {
-  max-width: 1300px;
+#trade-info-container {
+  max-width: 1500px;
   margin: 0 auto;
   margin-left: 75px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+}
+
+#plot-container {
+  width: 500px;
+  display: flex;
 }
 
 #trade-marker {
   overflow-x: auto;
+  align-self: end;
+  margin-bottom: 50px;
 }

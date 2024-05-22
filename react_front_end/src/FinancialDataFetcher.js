@@ -23,7 +23,7 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/trade_history')
       .then(response => {
         setTrade_history(response.data.trade_history);
-        //console.log(trade_history);
+        console.log(trade_history);
       })
       .catch(error => {
         console.log(error);

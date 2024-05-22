@@ -143,8 +143,14 @@ def get_prev_orders():
                                     direction='desc',)
     return order_chunk
 
+def get_account_details():
+    account = api.get_account()
+    print('Cash:', account.cash)
+    print('Buying Power:', account.buying_power)
+
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
 account = api.get_account()
+print(account)
 print('Cash:', account.cash)
 print('Buying Power:', account.buying_power)

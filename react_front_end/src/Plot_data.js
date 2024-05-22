@@ -4,9 +4,10 @@ import Plot from 'react-plotly.js';
 // MarkerDetails component to display marker information
 const MarkerDetails = ({ marker }) => (
   <div>
-    <h3>Marker Details</h3>
-    <p>Type: {marker.side}</p>
-    <p>Datetime: {Date(marker.datetime)}</p>
+    <h3>Trade Details</h3>
+    <p>{marker.side}</p>
+    <p>${marker.filled_avg_price}</p>
+    <p>{Date(marker.datetime)}</p>
   </div>
 );
 
@@ -56,7 +57,8 @@ const StockChart = ({ historical_data, markersData }) => {
     // Convert markersData to an array of objects
     const markerArray = markersData.datetime.map((datetime, index) => ({
       datetime,
-      side: markersData.side[index]
+      side: markersData.side[index],
+      filled_avg_price: markersData.filled_avg_price[index]
     }));
 
     // Add shapes for buy and sell points
@@ -120,13 +122,15 @@ const StockChart = ({ historical_data, markersData }) => {
     };
   
     return (
-      <div id="plot-container">
-        <Plot
-          data={traces}
-          layout={layout}
-          style={{ width: '100%', height: '600px' }}
-          onClick={handleClick}
-        />
+      <div id="trade-info-container">
+        <div id="#plot-container">
+          <Plot
+            data={traces}
+            layout={layout}
+            style={{ width: '900px', height: '600px' }}
+            onClick={handleClick}
+          />
+        </div>
         <div id="trade-marker">
           {clickedMarker && <MarkerDetails marker={clickedMarker} />} {/* Render MarkerDetails if a marker is clicked */}
         </div>
