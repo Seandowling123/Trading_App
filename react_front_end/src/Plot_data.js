@@ -2,14 +2,32 @@ import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
 // MarkerDetails component to display marker information
-const MarkerDetails = ({ marker }) => (
-  <div>
-    <h3>Trade Details</h3>
-    <p>{marker.side}</p>
-    <p>${marker.filled_avg_price}</p>
-    <p>{Date(marker.datetime)}</p>
-  </div>
-);
+const MarkerDetails = ({ marker }) => {
+  // Format date
+  const formattedDate = new Date(marker.datetime).toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false
+  });
+
+  // Format currency
+  const formattedPrice = parseFloat(marker.filled_avg_price).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  return (
+    <div className="marker-details">
+      <h3>Trade Details - {marker.side === 'buy' ? 'Buy' : 'Sold'}</h3>
+      <p><strong>Price:</strong> {formattedPrice}</p>
+      <p><strong>Date:</strong> {formattedDate}</p>
+    </div>
+  );
+};
 
 const StockChart = ({ historical_data, markersData }) => {
 
@@ -123,14 +141,12 @@ const StockChart = ({ historical_data, markersData }) => {
   
     return (
       <div id="#plot-container">
-        <div>
-          <Plot
-            data={traces}
-            layout={layout}
-            style={{ width: '900px', height: '500px' }}
-            onClick={handleClick}
-          />
-        </div>
+        <Plot
+          data={traces}
+          layout={layout}
+          style={{ width: '900px', height: '500px' }}
+          onClick={handleClick}
+        />
         <div id="trade-marker">
           {clickedMarker && <MarkerDetails marker={clickedMarker} />} {/* Render MarkerDetails if a marker is clicked */}
         </div>

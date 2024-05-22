@@ -38,17 +38,18 @@
 }
 
 #page-container {
-  align-items: flex-start;
 }
 
 #title{
   font-size: large;
-  margin-left: 75px;
+  margin-left: 100px;
+  background-color: orange;
 }
 
 #account-detail-container {
   font-size: large;
   margin-top: 75px;
+  background-color: green;
 }
 
 #trade-data-container {
@@ -60,6 +61,7 @@
   margin: 0 auto;
   margin-left: 75px;
   justify-content: left;
+  background-color: yellow;
 }
 
 #trade-marker {
@@ -67,4 +69,34 @@
   margin-left: 75px;
   overflow-x: auto;
   align-self: end;
+}
+
+.marker-details {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.marker-details h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.marker-details p {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.marker-details p strong {
+  font-weight: bold;
+}
+
+.marker-details p:last-child {
+  margin-bottom: 0;
 }
