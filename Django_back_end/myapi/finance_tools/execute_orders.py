@@ -143,7 +143,3 @@ def get_prev_orders():
                                     nested='False', 
                                     direction='desc',)
     return order_chunk
-
-account = api.get_account()
-print('Cash:', account.cash)
-print('Buying Power:', account.buying_power)

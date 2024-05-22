@@ -12,7 +12,6 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/historical_data/SPY')
       .then(response => {
         setHistorical_data(response.data.financial_data);
-        //console.log(historical_data);
       })
       .catch(error => {
         console.log(error);
@@ -24,7 +23,6 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/trade_history')
       .then(response => {
         setTrade_history(response.data.trade_history);
-        //console.log(trade_history);
       })
       .catch(error => {
         console.log(error);
@@ -36,12 +34,16 @@ function Get_stock_chart() {
     //axios.get('http://51.20.79.10:8000/api/account_details')
       .then(response => {
         setAccount_details(response.data.account_details);
-        console.log(account_details);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
+  
+  
+  //console.log(historical_data);
+  //console.log(trade_history);
+  console.log(account_details);
 
   return (
     <div>

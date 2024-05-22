@@ -23,6 +23,6 @@ def get_trade_history():
 # Get trading acccount details
 def get_account_details():
     account = api.get_account()
-    return {'portfolio_value': account.portfolio_value, 'current_position': current_position}
-
-print('here')
+    account_details = {'portfolio_value': account.portfolio_value, 'current_position': current_position}
+    df = pd.DataFrame([account_details])
+    return df
