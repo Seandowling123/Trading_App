@@ -47,7 +47,7 @@ def execute_trades():
         order_data = get_order_data(order_id)
         if order_data.status  == 'filled':
             current_position = 'Sold'
-            Bought_price = None
+            bought_price = None
             save_trade_to_csv(order_data)
         print(order_data.status)
     else: print('No trade available:', close_prices[-1], lower_band, upper_band)
