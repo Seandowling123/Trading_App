@@ -47,3 +47,6 @@ def get_close_with_bands(ticker, timescale='day'):
     dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
     dataframe.reset_index(inplace=True)
     return dataframe[20:]
+
+#data = get_historical_data('SPY', 'day')
+#print(data)

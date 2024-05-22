@@ -1,13 +1,18 @@
 import React from 'react';
 
 const AccountDetails = ({ account_details }) => {
+
+    if (!account_details || account_details.length === 0) {
+        return <div></div>;
+    }
+
     // Calculate profit/loss
     const profit_loss = (parseFloat(account_details.portfolio_value) - parseFloat(account_details.start_balance)).toFixed(2);
   
     // Format currency
     const formattedPortfolioValue = parseFloat(account_details.portfolio_value).toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
+        style: 'currency',
+        currency: 'USD',
     });
 
     const formattedProfitLoss = parseFloat(profit_loss).toLocaleString('en-US', {

@@ -42,7 +42,7 @@ function Get_stock_chart() {
   }, []);
   
   
-  //console.log(historical_data);
+  console.log(historical_data);
   //console.log(trade_history);
   //console.log(account_details);
 

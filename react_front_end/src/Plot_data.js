@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
+// Function to get today's date formatted
+const getFormattedDate = () => {
+  const today = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return today.toLocaleDateString('en-US', options);
+};
+
 // MarkerDetails component to display marker information
 const MarkerDetails = ({ marker }) => {
   // Format date
@@ -72,8 +79,6 @@ const StockChart = ({ historical_data, markersData }) => {
     // Array containing all trace objects
     const traces = [close_trace, upper_trace, lower_trace];
 
-    console.log(markersData)
-
     // Convert markersData to an array of objects
     const markerArray = markersData.datetime.map((datetime, index) => ({
       datetime,
@@ -100,6 +105,16 @@ const StockChart = ({ historical_data, markersData }) => {
     }));
 
     const layout = {
+      title: {
+        text:`SPY - ${getFormattedDate()}`,
+        font: {
+          family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+          size: 24,
+          color: 'black',
+          weight: 'bold'
+        },
+        xref: 'paper',
+      },
       xaxis: {
         tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
         gridcolor: '#f0f0f0', // Light gray gridlines
