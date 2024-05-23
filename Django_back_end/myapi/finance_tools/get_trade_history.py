@@ -6,7 +6,7 @@ from .mean_reversion import current_position
 from .execute_orders import api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-start_balance = 100000
+start_balance = 1000
 
 # Convert the string to a datetime object
 def get_datetime_from_string(date_string):
