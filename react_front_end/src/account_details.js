@@ -21,7 +21,7 @@ const AccountDetails = ({ account_details }) => {
       });
   
     // Add plus sign if profit_loss is positive
-    const formattedProfitLossWithSign = profit_loss >= 0 ? `+${formattedProfitLoss}` : `-${formattedProfitLoss}`;
+    const formattedProfitLossWithSign = profit_loss >= 0 ? `+${formattedProfitLoss}` : `${formattedProfitLoss}`;
   
     return (
       <div id="account-detail-container">
