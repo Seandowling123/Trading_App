@@ -3,6 +3,8 @@ import axios from 'axios';
 import StockChart from './Plot_data.js';
 import AccountDetails from './account_details.js';
 
+
+
 function Get_stock_chart() {
   const [historical_data, setHistorical_data] = useState('');
   const [trade_history, setTrade_history] = useState('');
@@ -42,7 +44,7 @@ function Get_stock_chart() {
   }, []);
   
   
-  console.log(historical_data);
+  //console.log(historical_data);
   //console.log(trade_history);
   //console.log(account_details);
 
