@@ -97,7 +97,7 @@ const StockChart = ({ historical_data, markersData }) => {
       y0: 0,
       y1: 1,
       line: {
-        color: trade.side === 'buy' ? 'green' : 'red', // Green for buy, red for sell
+        color: trade.side === 'buy' ? '#00FF30' : '#FF0000', // Green for buy, red for sell
         width: 2,
         dash: 'dot'
       },
