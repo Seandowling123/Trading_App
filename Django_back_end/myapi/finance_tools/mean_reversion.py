@@ -7,6 +7,7 @@ from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_t
 
 # Position tracking
 current_position = 'Sold'
+#current_position = 'Bought'
 bought_price = None
 
 # Calculate the bollinger bands for the current data
@@ -23,7 +24,12 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=1.2):
 def execute_trades():
     close_prices = list(get_close_prices('SPY'))
     upper_band, lower_band = get_bollinger_bands(close_prices)
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
+    
+    # Format numbers to two decimal places
+    last_close_formatted = "{:.2f}".format(close_prices[-1])
+    lower_band_formatted = "{:.2f}".format(lower_band)
+    upper_band_formatted = "{:.2f}".format(upper_band)
     
     # Make trade decision
     global current_position
@@ -56,10 +62,6 @@ def execute_trades():
                 save_trade_to_csv(order_data)
             print(f"Order status: {order_data.status}")
         else:
-            # Format numbers to two decimal places
-            last_close_formatted = "{:.2f}".format(close_prices[-1])
-            lower_band_formatted = "{:.2f}".format(lower_band)
-            upper_band_formatted = "{:.2f}".format(upper_band)
             print(f"[{current_time}] No trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
 
