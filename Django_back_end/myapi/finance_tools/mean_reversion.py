@@ -11,7 +11,7 @@ current_position = 'Sold'
 bought_price = None
 
 # Calculate the bollinger bands for the current data
-def get_bollinger_bands(close_prices, window=20, num_std_dev=1.2):
+def get_bollinger_bands(close_prices, window=20, num_std_dev=1.5):
     mean = np.mean(close_prices[-window:])
     std_dev = np.std(close_prices[-window:])
     
