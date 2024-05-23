@@ -31,7 +31,7 @@ def get_close_prices(ticker, timescale='day'):
     return close_prices
 
 # Calculate Bollinger Bands
-def calculate_bollinger_bands(close, window_size=20, num_std_dev=1.5):
+def calculate_bollinger_bands(close, window_size=20, num_std_dev=2):
     rolling_mean = close.rolling(window=window_size).mean()
     rolling_std = close.rolling(window=window_size).std()
 
