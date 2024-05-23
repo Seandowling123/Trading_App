@@ -1,1 +1,25 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+react_front_end/node_modules
+react_front_end/.pnp
+react_front_end/.pnp.js
+
+# testing
+react_front_end/coverage
+
+# production
+react_front_end/build
+
+# misc
+react_front_end/.DS_Store
+react_front_end/.env.local
+react_front_end/.env.development.local
+react_front_end/.env.test.local
+react_front_end/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 Django_back_end\myapi\finance_tools\API_keys.py
