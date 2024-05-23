@@ -32,9 +32,12 @@ const Get_stock_chart = () => {
 
   return (
     <div id="trade-data-container">
-      <button onClick={updateData}>Refresh Data</button>
       <StockChart historical_data={historical_data} markersData={trade_history} />
-      <AccountDetails account_details={account_details} />
+      <div>
+        <button className="refresh-button" onClick={updateData}>Refresh</button>
+        <AccountDetails account_details={account_details} />
+      </div>
+      
     </div>
   );
 };

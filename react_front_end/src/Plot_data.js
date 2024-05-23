@@ -110,14 +110,14 @@ const StockChart = ({ historical_data, markersData }) => {
         font: {
           family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
           size: 24,
-          color: 'black',
+          color: 'white',
           weight: 'bold'
         },
         xref: 'paper',
       },
       xaxis: {
-        tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
-        gridcolor: '#f0f0f0', // Light gray gridlines
+        tickfont: { size: 14, family: 'Arial, sans-serif', color: '#CFCFCF' }, // Larger tick font size and custom font family
+        gridcolor: '#454545', // Light gray gridlines
         gridwidth: 1, // Gridline width
         showspikes: true, // Show spikes on hover
         spikemode: 'across', // Show spikes across all traces
@@ -127,8 +127,8 @@ const StockChart = ({ historical_data, markersData }) => {
         spikesnap: 'data', // Snap to cursor position
       },
       yaxis: {
-        tickfont: { size: 14, family: 'Arial, sans-serif', color: '#777' }, // Larger tick font size and custom font family
-        gridcolor: '#f0f0f0', // Light gray gridlines
+        tickfont: { size: 14, family: 'Arial, sans-serif', color: '#CFCFCF' }, // Larger tick font size and custom font family
+        gridcolor: '#454545', // Light gray gridlines
         gridwidth: 1, // Gridline width
         showspikes: true, // Show spikes on hover
         spikemode: 'across', // Show spikes to axis
@@ -140,9 +140,18 @@ const StockChart = ({ historical_data, markersData }) => {
       shapes: shapes, // Add shapes for buy and sell points
       showlegend: false, // Hide the legend
       hovermode: 'x unified', // Show hover information for all traces at the same x-axis value
-      plot_bgcolor: '#fff', // White background color
-      paper_bgcolor: '#fff', // White paper background color
+      plot_bgcolor: '#121212', // White background color
+      paper_bgcolor: '#121212', // White paper background color
       autosize: true, // Automatically adjust size based on container
+      hoverlabel: {
+        font: {
+          color: '#CFCFCF', // Change to your desired font color
+          size: 14, // Adjust font size as needed
+          family: '-apple-system, BlinkMacSystemFont, sans-serif' // Font family to match the rest of the app
+        },
+        bgcolor: 'black', // Background color of the hover label
+        bordercolor: '#CFCFCF' // Border color of the hover label
+      }
     };
 
     // Handle click events
