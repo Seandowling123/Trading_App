@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 
 // Function to get today's date formatted
-const getFormattedDate = () => {
-  const today = new Date();
+const getFormattedDate = ( start_date ) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return today.toLocaleDateString('en-US', options);
+  return start_date.toLocaleDateString('en-US', options);
 };
 
 // MarkerDetails component to display marker information
@@ -104,9 +103,14 @@ const StockChart = ({ historical_data, markersData }) => {
       name: trade.side === 'buy' ? 'Buy Point' : 'Sell Point'
     }));
 
+    // Determine the date range for the plot
+    const startDate = new Date(dateObjects[0]);
+    const endDate = new Date(startDate[dateObjects.length]);
+    endDate.setDate(startDate.getDate() + 1);
+
     const layout = {
       title: {
-        text:`SPY - ${getFormattedDate()}`,
+        text:`SPY - ${getFormattedDate(startDate)}`,
         font: {
           family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
           size: 24,
@@ -125,6 +129,7 @@ const StockChart = ({ historical_data, markersData }) => {
         spikecolor: '#d3d3d3',
         spikethickness: 1, // Spike thickness
         spikesnap: 'data', // Snap to cursor position
+        range: [startDate, endDate]
       },
       yaxis: {
         tickfont: { size: 14, family: 'Arial, sans-serif', color: '#CFCFCF' }, // Larger tick font size and custom font family
