@@ -18,12 +18,12 @@ const Get_stock_chart = () => {
   const [account_details, setAccount_details] = useState('');
 
   const updateData = () => {
-    fetchData('http://127.0.0.1:8000/api/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
-    fetchData('http://127.0.0.1:8000/api/trade_history', (data) => setTrade_history(data.trade_history));
-    fetchData('http://127.0.0.1:8000/api/account_details', (data) => setAccount_details(data.account_details));
-    //fetchData('http://51.20.79.10:8000/api/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
-    //fetchData('http://51.20.79.10:8000/api/trade_history', (data) => setTrade_history(data.trade_history));
-    //fetchData('http://51.20.79.10:8000/api/account_details', (data) => setAccount_details(data.account_details));
+    //fetchData('http://127.0.0.1:8000/api/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
+    //fetchData('http://127.0.0.1:8000/api/trade_history', (data) => setTrade_history(data.trade_history));
+    //fetchData('http://127.0.0.1:8000/api/account_details', (data) => setAccount_details(data.account_details));
+    fetchData('http://13.60.72.202:8000/api/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
+    fetchData('http://13.60.72.202:8000/api/trade_history', (data) => setTrade_history(data.trade_history));
+    fetchData('http://13.60.72.202:8000/api/account_details', (data) => setAccount_details(data.account_details));
   };
 
   useEffect(() => {
