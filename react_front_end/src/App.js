@@ -13,9 +13,6 @@ function App() {
     <div id="page-container">
       <div id="title">
         <h1>Trading Activity</h1>
-        <div>
-          < PopupButton />
-        </div>
       </div>
       < Get_stock_chart />
     </div>
