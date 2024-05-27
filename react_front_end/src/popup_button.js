@@ -23,8 +23,8 @@ function PopupButton() {
 }
 
 const buttonStyles = {
-    backgroundColor: 'black', // Bootstrap primary color
-    color: 'black', // White text color
+    backgroundColor: '#121212', // Bootstrap primary color
+    color: '#121212', // White text color
     fontWeight: 'bold',
     border: 'none', // Remove default border
     padding: '10px 20px', // Add padding
