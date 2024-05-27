@@ -47,6 +47,7 @@ const popupStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  zIndex: 1000,
 };
 
 const popupInnerStyles = {
@@ -55,6 +56,7 @@ const popupInnerStyles = {
   borderRadius: '10px',
   textAlign: 'center',
   color: 'black',
+  zIndex: 1001,
 };
 
 export default PopupButton;
