@@ -34,7 +34,7 @@ const buttonStyles = {
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
     transition: 'background-color 0.3s ease', // Smooth transition for background color
     height: '130px',
-    width: '150px',
+    width: '130px',
   };
 
 const popupStyles = {
