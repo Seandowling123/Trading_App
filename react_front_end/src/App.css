@@ -64,6 +64,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  min-width: 1200px;
 }
 
 #account-detail-container {
