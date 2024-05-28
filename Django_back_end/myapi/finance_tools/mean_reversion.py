@@ -8,10 +8,10 @@ from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_t
 import os
 
 ################# testing ####################
-def write_current_time_to_csv(file_path):
+def write_current_time_to_csv(file_path='var/Trading_App/Django_back_end/test_file.csv'):
     try:
         # Ensure directory exists
-        directory = os.path.dirname(file_path='var/Trading_App/Django_back_end/test_file.csv')
+        directory = os.path.dirname(file_path)
         if not os.path.exists(directory):
             print(f"Directory {directory} does not exist. Creating it.")
             os.makedirs(directory, exist_ok=True)
