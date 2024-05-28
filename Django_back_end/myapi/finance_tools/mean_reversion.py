@@ -5,15 +5,32 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from .get_financial_data import get_close_prices
 from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
+import os
 
 ################# testing ####################
-def write_current_time_to_csv(file_path='test_fule.csv'):
-    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    with open(file_path, mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow([current_time+'dvdv'])
-    
-    print(f"Current time {current_time} written to {file_path}")
+def write_current_time_to_csv(file_path):
+    try:
+        # Ensure directory exists
+        directory = os.path.dirname(file_path='var/Trading_App/Django_back_end/test_file.csv')
+        if not os.path.exists(directory):
+            print(f"Directory {directory} does not exist. Creating it.")
+            os.makedirs(directory, exist_ok=True)
+
+        # Get the current time
+        current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        print(f"Current time: {current_time}")
+        
+        # Write the current time to the CSV file
+        with open(file_path, mode='a', newline='') as file:
+            print(f"Writing to file {file_path}")
+            writer = csv.writer(file)
+            writer.writerow([current_time])
+            print(f"Write successful")
+
+    except PermissionError as e:
+        print(f"PermissionError: {e}. Check the file and directory permissions.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 ##############################################
 
 # Position tracking
