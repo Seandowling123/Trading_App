@@ -1,9 +1,20 @@
 import numpy as np
 import time
+import csv
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from .get_financial_data import get_close_prices
 from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, save_trade_to_json
+
+################# testing ####################
+def write_current_time_to_csv(file_path='test_fule.csv'):
+    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    with open(file_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([current_time])
+    
+    print(f"Current time {current_time} written to {file_path}")
+##############################################
 
 # Position tracking
 current_position = 'Sold'
@@ -22,6 +33,10 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
 
 # Make the trading decisions
 def execute_trades():
+    
+    # testing
+    write_current_time_to_csv()
+    
     close_prices = list(get_close_prices('SPY'))
     upper_band, lower_band = get_bollinger_bands(close_prices)
     current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
