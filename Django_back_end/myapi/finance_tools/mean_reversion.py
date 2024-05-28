@@ -97,8 +97,5 @@ def run_trading_algorithm():
     except KeyboardInterrupt:
         print("Stopping the scheduler")
         scheduler.shutdown()
-
-def cock():
-    get_close_prices('SPY')
-
+        
 #run_trading_algorithm()
