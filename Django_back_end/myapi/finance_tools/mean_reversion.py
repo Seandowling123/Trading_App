@@ -10,6 +10,13 @@ current_position = 'Sold'
 #current_position = 'Bought'
 bought_price = None
 
+################################################
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+def test():
+    print(BASE_DIR)
+################################################
+
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
     mean = np.mean(close_prices[-window:])
@@ -22,6 +29,9 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
 
 # Make the trading decisions
 def execute_trades():
+    
+    #testing
+    test()
     
     close_prices = list(get_close_prices('SPY'))
     upper_band, lower_band = get_bollinger_bands(close_prices)
