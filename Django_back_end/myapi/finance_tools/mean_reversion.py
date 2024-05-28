@@ -11,7 +11,7 @@ def write_current_time_to_csv(file_path='test_fule.csv'):
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     with open(file_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([current_time])
+        writer.writerow([current_time+'dvdv'])
     
     print(f"Current time {current_time} written to {file_path}")
 ##############################################
