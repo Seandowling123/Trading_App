@@ -77,14 +77,17 @@ const StockChart = ({ historical_data, markersData }) => {
   
     // Array containing all trace objects
     const traces = [close_trace, upper_trace, lower_trace];
+    let markerArray = []
 
     // Convert markersData to an array of objects
-    const markerArray = markersData.datetime.map((datetime, index) => ({
-      datetime,
-      side: markersData.side[index],
-      symbol: markersData.symbol[index],
-      filled_avg_price: markersData.filled_avg_price[index],
-    }));
+    if (markersData.length !== 0) {
+      markerArray = markersData.datetime.map((datetime, index) => ({
+        datetime,
+        side: markersData.side[index],
+        symbol: markersData.symbol[index],
+        filled_avg_price: markersData.filled_avg_price[index],
+      }));
+    }
 
     // Add shapes for buy and sell points
     const shapes = markerArray.map((trade) => ({
