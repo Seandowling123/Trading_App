@@ -10,6 +10,11 @@ from .API_keys import API_KEY, SECRET_KEY
 BASE_DIR = Path(__file__).resolve().parent.parent
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
+# Check if the stock market is open
+def market_open():
+    clock = api.get_clock()
+    return clock.is_open
+
 # Create a string of the current date and time
 def current_datetime_string():
     return datetime.now().strftime('%Y-%m-%d-%H:%M')
