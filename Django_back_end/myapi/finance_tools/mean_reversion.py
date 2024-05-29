@@ -1,4 +1,5 @@
 import numpy as np
+import logging
 import time
 import pytz
 from datetime import datetime
@@ -42,39 +43,42 @@ def execute_trades():
         # Execute buy
         if current_position == 'Sold' and (close_prices[-1] <= lower_band):
             order_id = buy('SPY', 1)
-            print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
+            logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
             order_data = get_order_data(order_id)
             if order_data.status  == 'filled':
                 current_position = 'Bought'
                 bought_price = float(order_data.filled_avg_price)
                 save_trade_to_csv(order_data)
-            print(f"Order status: {order_data.status}")
+            logging.info(f"Order status: {order_data.status}")
             
         # Execute sell 
         elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
             order_id = sell('SPY', 1)
-            print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
+            logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
             order_data = get_order_data(order_id)
             if order_data.status  == 'filled':
                 current_position = 'Sold'
                 bought_price = None
                 save_trade_to_csv(order_data)
-            print(f"Order status: {order_data.status}")
+            logging.info(f"Order status: {order_data.status}")
         else:
-            print(f"[{current_time}] No trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
+            logging.info(f"[{current_time}] No trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
 
 
 # Execute trades every minute
 def run_trading_algorithm():
-    print('Running trading algorithm.')
+    logging.info('Running trading algorithm.')
+    
+    # Example usage
+    example_logging_function()
+    
     scheduler = BackgroundScheduler()
     
     # Check if the market is open
     if market_open():
-        print("Market is currently open.")
         
          # Add the job to execute my_function at 1 second past each minute
         scheduler.add_job(execute_trades, 'cron', second='1')
@@ -83,11 +87,10 @@ def run_trading_algorithm():
         clock = api.get_clock()
         eastern = pytz.timezone('EST')
         next_opening_time = clock.next_open.replace(tzinfo=eastern).astimezone(pytz.utc)
-        #next_opening_time = datetime(2024,5,29,11,14)
-        print(next_opening_time)
+        #next_opening_time = datetime(2024,5,29,11,14))
         
         scheduler.add_job(execute_trades, 'date', run_date=next_opening_time)
-        print(f"Market is closed. Scheduled to run when the market opens at [{next_opening_time} UTC].")
+        logging.info(f"Market is closed. Scheduled to run when the market opens at [{next_opening_time} UTC].")
         
     scheduler.start()
 
@@ -96,7 +99,11 @@ def run_trading_algorithm():
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        print("Stopping the scheduler")
+        logging.info("Stopping the scheduler")
         scheduler.shutdown()
         
-run_trading_algorithm()
+def example_logging_function():
+    logging.info("This is an info message")
+    logging.warning("This is a warning message")
+    logging.error("This is an error message")
+    logging.critical("This is a critical message")
