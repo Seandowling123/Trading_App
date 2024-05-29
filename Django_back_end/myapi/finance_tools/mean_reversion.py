@@ -71,10 +71,6 @@ def execute_trades():
 # Execute trades every minute
 def run_trading_algorithm():
     logging.info('Running trading algorithm.')
-    
-    # Example usage
-    example_logging_function()
-    
     scheduler = BackgroundScheduler()
     
     # Check if the market is open
@@ -101,9 +97,3 @@ def run_trading_algorithm():
     except KeyboardInterrupt:
         logging.info("Stopping the scheduler")
         scheduler.shutdown()
-        
-def example_logging_function():
-    logging.info("This is an info message")
-    logging.warning("This is a warning message")
-    logging.error("This is an error message")
-    logging.critical("This is a critical message")
