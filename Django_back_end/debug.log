@@ -64,3 +64,45 @@ INFO 2024-05-29 12:22:22,254 base Scheduler started
 DEBUG 2024-05-29 12:22:22,256 base Looking for jobs to run
 DEBUG 2024-05-29 12:22:22,256 base Next wakeup is due at 2024-05-29 15:30:00+01:00 (in 11257.743802 seconds)
 INFO 2024-05-29 12:22:32,570 autoreload C:\Users\Sean Dowling\Trading_Bot\Django_back_end\myapi\finance_tools\mean_reversion.py changed, reloading.
+INFO 2024-05-29 12:22:34,616 autoreload Watching for file changes with StatReloader
+INFO 2024-05-29 12:22:37,272 mean_reversion Running trading algorithm.
+INFO 2024-05-29 12:22:37,272 mean_reversion This is an info message
+WARNING 2024-05-29 12:22:37,281 mean_reversion This is a warning message
+ERROR 2024-05-29 12:22:37,281 mean_reversion This is an error message
+CRITICAL 2024-05-29 12:22:37,282 mean_reversion This is a critical message
+DEBUG 2024-05-29 12:22:37,282 win32 Looking up time zone info from registry
+DEBUG 2024-05-29 12:22:37,299 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-05-29 12:22:38,662 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-05-29 12:22:38,786 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-05-29 12:22:38,977 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-05-29 12:22:38,979 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-05-29 14:30:00+00:00 UTC].
+INFO 2024-05-29 12:22:38,979 base Added job "execute_trades" to job store "default"
+INFO 2024-05-29 12:22:38,981 base Scheduler started
+DEBUG 2024-05-29 12:22:38,982 base Looking for jobs to run
+DEBUG 2024-05-29 12:22:38,982 base Next wakeup is due at 2024-05-29 15:30:00+01:00 (in 11241.017257 seconds)
+INFO 2024-05-29 12:23:03,944 autoreload C:\Users\Sean Dowling\Trading_Bot\Django_back_end\myapi\finance_tools\execute_orders.py changed, reloading.
+INFO 2024-05-29 12:23:05,797 autoreload Watching for file changes with StatReloader
+INFO 2024-05-29 12:23:08,445 mean_reversion Running trading algorithm.
+INFO 2024-05-29 12:23:08,453 mean_reversion This is an info message
+WARNING 2024-05-29 12:23:08,453 mean_reversion This is a warning message
+ERROR 2024-05-29 12:23:08,453 mean_reversion This is an error message
+CRITICAL 2024-05-29 12:23:08,455 mean_reversion This is a critical message
+DEBUG 2024-05-29 12:23:08,455 win32 Looking up time zone info from registry
+DEBUG 2024-05-29 12:23:08,473 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-05-29 12:23:09,298 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-05-29 12:23:09,421 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-05-29 12:23:09,552 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-05-29 12:23:09,553 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-05-29 14:30:00+00:00 UTC].
+INFO 2024-05-29 12:23:09,553 base Added job "execute_trades" to job store "default"
+INFO 2024-05-29 12:23:09,553 base Scheduler started
+DEBUG 2024-05-29 12:23:09,555 base Looking for jobs to run
+DEBUG 2024-05-29 12:23:09,555 base Next wakeup is due at 2024-05-29 15:30:00+01:00 (in 11210.444783 seconds)
+INFO 2024-05-29 12:24:03,968 autoreload C:\Users\Sean Dowling\Trading_Bot\Django_back_end\myapi\finance_tools\get_financial_data.py changed, reloading.
+INFO 2024-05-29 12:24:06,079 autoreload Watching for file changes with StatReloader
+INFO 2024-05-29 12:24:08,687 mean_reversion Running trading algorithm.
+INFO 2024-05-29 12:24:08,687 mean_reversion This is an info message
+WARNING 2024-05-29 12:24:08,687 mean_reversion This is a warning message
+ERROR 2024-05-29 12:24:08,687 mean_reversion This is an error message
+CRITICAL 2024-05-29 12:24:08,687 mean_reversion This is a critical message
+DEBUG 2024-05-29 12:24:08,693 win32 Looking up time zone info from registry
+DEBUG 2024-05-29 12:24:08,706 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443

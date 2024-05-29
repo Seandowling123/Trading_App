@@ -1,5 +1,6 @@
 import yfinance as yf
 import pandas as pd
+import logging
 
 # Get historical stock data
 def get_historical_data(ticker, timescale):
@@ -21,7 +22,7 @@ def get_historical_data(ticker, timescale):
         data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True, progress=False)
         return data
     except Exception as e: 
-        print(f'Error getting data for {ticker}: {e}')
+        logging.info(f'Error getting data for {ticker}: {e}')
         return None
 
 # Get stock closing prices
@@ -49,4 +50,4 @@ def get_close_with_bands(ticker, timescale='day'):
     return dataframe[20:]
 
 #data = get_historical_data('SPY', 'day')
-#print(data)
+#logging.info(data)

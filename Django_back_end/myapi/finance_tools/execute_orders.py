@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime#
+import logging
 import time
 import csv
 import json
@@ -94,7 +95,7 @@ def buy(ticker, quantity):
             time_in_force='fok',
             client_order_id=get_order_id(ticker, 'Buy')
         )
-        print(f"Order successfully submitted:\n"
+        logging.info(f"Order successfully submitted:\n"
               f"    - Side: Buy\n"
               f"    - Ticker: {ticker}\n"
               f"    - Quantity: {quantity}\n"
@@ -102,7 +103,7 @@ def buy(ticker, quantity):
               f"    - Created at: {order.created_at}\n"
         )
         return order.client_order_id
-    except Exception as e: print(f'Error buying {ticker}: {e}')
+    except Exception as e: logging.info(f'Error buying {ticker}: {e}')
 
 # Submit a sell order 
 def sell(ticker, quantity):
@@ -115,7 +116,7 @@ def sell(ticker, quantity):
             time_in_force='fok',
             client_order_id=get_order_id(ticker, 'Sell')
         )
-        print(f"Order successfully submitted:\n"
+        logging.info(f"Order successfully submitted:\n"
               f"    - Side: Sell\n"
               f"    - Ticker: {ticker}\n"
               f"    - Quantity: {quantity}\n"
@@ -123,7 +124,7 @@ def sell(ticker, quantity):
               f"    - Created at: {order.created_at}\n"
         )
         return order.client_order_id
-    except Exception as e: print(f'Error selling {ticker}: {e}')
+    except Exception as e: logging.info(f'Error selling {ticker}: {e}')
     
 # Get data about an order from its ID
 def get_order_data(order_id, initial_delay=2, polling_interval=2, timeout=30):
