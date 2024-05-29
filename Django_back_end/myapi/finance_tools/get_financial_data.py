@@ -43,11 +43,14 @@ def calculate_bollinger_bands(close, window_size=20, num_std_dev=2):
 
 # Return close price time series with Bollinger Bands
 def get_close_with_bands(ticker, timescale='day'):
-    close = get_close_prices(ticker, timescale)
-    upper_band, lower_band = calculate_bollinger_bands(close)
-    dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
-    dataframe.reset_index(inplace=True)
-    return dataframe[20:]
+    try:
+        close = get_close_prices(ticker, timescale)
+        upper_band, lower_band = calculate_bollinger_bands(close)
+        dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
+        dataframe.reset_index(inplace=True)
+        return dataframe[20:]
+    except Exception as e: 
+        logging.info(f'Error getting data for {ticker}: {e}')
 
 #data = get_historical_data('SPY', 'day')
 #logging.info(data)
