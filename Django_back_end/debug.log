@@ -106,3 +106,11 @@ ERROR 2024-05-29 12:24:08,687 mean_reversion This is an error message
 CRITICAL 2024-05-29 12:24:08,687 mean_reversion This is a critical message
 DEBUG 2024-05-29 12:24:08,693 win32 Looking up time zone info from registry
 DEBUG 2024-05-29 12:24:08,706 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-05-29 12:24:09,584 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-05-29 12:24:09,709 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-05-29 12:24:09,866 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-05-29 12:24:09,867 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-05-29 14:30:00+00:00 UTC].
+INFO 2024-05-29 12:24:09,868 base Added job "execute_trades" to job store "default"
+INFO 2024-05-29 12:24:09,868 base Scheduler started
+DEBUG 2024-05-29 12:24:09,870 base Looking for jobs to run
+DEBUG 2024-05-29 12:24:09,870 base Next wakeup is due at 2024-05-29 15:30:00+01:00 (in 11150.129879 seconds)
