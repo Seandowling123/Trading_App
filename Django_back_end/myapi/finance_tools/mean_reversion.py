@@ -29,7 +29,7 @@ def execute_trades():
     lower_band_formatted = "{:.2f}".format(lower_band)
     upper_band_formatted = "{:.2f}".format(upper_band)
     
-    # Make trade decision
+    # Get current trade position
     current_position, bought_price = get_current_position()
     
     # check if there is enough data
