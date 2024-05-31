@@ -7,7 +7,7 @@ import json
 import os
 from pathlib import Path
 import alpaca_trade_api as tradeapi
-from .API_keys import API_KEY, SECRET_KEY
+from API_keys import API_KEY, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
@@ -152,5 +152,3 @@ def get_prev_orders():
                                     nested='False', 
                                     direction='desc',)
     return order_chunk
-
-print(current_datetime_string())

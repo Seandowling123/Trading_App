@@ -4,13 +4,9 @@ import time
 import pytz
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-from .get_financial_data import get_close_prices
-from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, market_open, api
-
-# Position tracking
-current_position = 'Sold'
-#current_position = 'Bought'
-bought_price = None
+from get_financial_data import get_close_prices
+from get_trade_history import get_current_position
+from execute_orders import buy, sell, get_order_data, save_trade_to_csv, market_open, api
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
@@ -34,8 +30,7 @@ def execute_trades():
     upper_band_formatted = "{:.2f}".format(upper_band)
     
     # Make trade decision
-    global current_position
-    global bought_price
+    current_position, bought_price = get_current_position()
     
     # check if there is enough data
     if len(close_prices) >= 20:
@@ -47,8 +42,6 @@ def execute_trades():
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
             order_data = get_order_data(order_id)
             if order_data.status  == 'filled':
-                current_position = 'Bought'
-                bought_price = float(order_data.filled_avg_price)
                 save_trade_to_csv(order_data)
             logging.info(f"Order status: {order_data.status}")
             
@@ -59,8 +52,6 @@ def execute_trades():
                   f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
             order_data = get_order_data(order_id)
             if order_data.status  == 'filled':
-                current_position = 'Sold'
-                bought_price = None
                 save_trade_to_csv(order_data)
             logging.info(f"Order status: {order_data.status}")
         else:

@@ -51,6 +51,3 @@ def get_close_with_bands(ticker, timescale='day'):
         return dataframe[20:]
     except Exception as e:
         logging.info(f'Error getting data for {ticker}: {e}')
-
-data = get_close_with_bands('SPY', 'day')
-print(data)
