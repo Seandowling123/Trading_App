@@ -4,9 +4,9 @@ import time
 import pytz
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-from get_financial_data import get_close_prices
-from get_trade_history import get_current_position
-from execute_orders import buy, sell, get_order_data, save_trade_to_csv, market_open, api
+from .get_financial_data import get_close_prices
+from .get_trade_history import get_current_position
+from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, market_open, api
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=2):

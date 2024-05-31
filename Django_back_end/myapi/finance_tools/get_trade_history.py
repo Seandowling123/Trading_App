@@ -4,7 +4,7 @@ from datetime import datetime
 import pytz
 import os
 from pathlib import Path
-from execute_orders import api
+from .execute_orders import api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 start_balance = 1000
