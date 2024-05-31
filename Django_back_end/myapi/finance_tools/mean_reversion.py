@@ -1,7 +1,6 @@
 import numpy as np
 import logging
 import time
-import pytz
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from .get_financial_data import get_close_prices
@@ -72,12 +71,11 @@ def run_trading_algorithm():
         scheduler.start()
     else:
         clock = api.get_clock()
-        eastern = pytz.timezone('EST')
-        next_opening_time = clock.next_open.replace(tzinfo=eastern).astimezone(pytz.utc)
+        next_opening_time = clock.next_open.astimezone('Europe/Dublin')
         #next_opening_time = datetime(2024,5,29,11,14))
         
         scheduler.add_job(execute_trades, 'date', run_date=next_opening_time)
-        logging.info(f"Market is closed. Scheduled to run when the market opens at [{next_opening_time} UTC].")
+        logging.info(f"Market is closed. Scheduled to run when the market opens at [{next_opening_time} Dublin time].")
         
     scheduler.start()
 
