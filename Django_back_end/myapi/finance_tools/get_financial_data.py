@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import logging
 
 # Get historical stock data
-def get_historical_data(ticker, timescale='day'):
+def get_historical_data(ticker, timescale='day', include_prev_day=False):
     try:
         if timescale == 'day':
             prd = '1d'
@@ -23,10 +23,10 @@ def get_historical_data(ticker, timescale='day'):
         current_day_data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True, progress=False)
         
         # Check if the current day data has less than 20 data points and append the last 20 data points from the previous day
-        if len(current_day_data) < 20:
+        if include_prev_day or len(current_day_data) < 20:
             previous_day = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
             previous_day_data = yf.download(ticker, start=previous_day, end=datetime.now().strftime('%Y-%m-%d'), interval=itrvl, auto_adjust=True, progress=False)
-            last_20_previous_day = previous_day_data.tail(20-len(current_day_data))
+            last_20_previous_day = previous_day_data.tail(20)
             combined_data = pd.concat([last_20_previous_day, current_day_data])
         else:
             combined_data = current_day_data
@@ -62,7 +62,7 @@ def calculate_bollinger_bands(close, window_size=20, num_std_dev=2):
 # Return close price time series with Bollinger Bands
 def get_close_with_bands(ticker, timescale='day'):
     try:
-        close = get_close_prices(ticker, timescale)
+        close = get_close_prices(ticker, timescale, include_prev_day=True)
         upper_band, lower_band = calculate_bollinger_bands(close)
         dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
         dataframe.reset_index(inplace=True)
