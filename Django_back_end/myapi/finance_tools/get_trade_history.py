@@ -18,15 +18,18 @@ def get_datetime_from_string(date_string):
 # Read a CSV file containing trade data into a pandas DataFrame
 def get_trade_history():
     file_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')
-    df = pd.read_csv(file_path)
-    #df['datetime'] = df['datetime'].apply(get_datetime_from_string)
-    df['datetime'] = pd.to_datetime(df['datetime'])
     
-    # Get today's trades
-    irish_tz = pytz.timezone('Europe/Dublin')
-    now_in_irish_tz = datetime.now(irish_tz)
-    filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
-    return filtered_df
+    if Path(file_path).exists():
+        df = pd.read_csv(file_path)
+        #df['datetime'] = df['datetime'].apply(get_datetime_from_string)
+        df['datetime'] = pd.to_datetime(df['datetime'])
+        
+        # Get today's trades
+        irish_tz = pytz.timezone('Europe/Dublin')
+        now_in_irish_tz = datetime.now(irish_tz)
+        filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+        return filtered_df
+    else: return []
 
 # Get the current bought/sold position
 def get_current_position():
