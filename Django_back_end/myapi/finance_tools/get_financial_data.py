@@ -56,7 +56,7 @@ def calculate_bollinger_bands(close, window_size=20, num_std_dev=2):
         lower_band = rolling_mean - num_std_dev * rolling_std
         return upper_band, lower_band
     except Exception as e: 
-        logging.info(f'Error calculating Bollinger Bands: {e}')
+        logging.info(f'Error calculating Bollinger Bands for plot: {e}')
         return None
 
 # Return close price time series with Bollinger Bands
@@ -68,4 +68,4 @@ def get_close_with_bands(ticker, timescale='day'):
         dataframe.reset_index(inplace=True)
         return dataframe[20:]
     except Exception as e:
-        logging.info(f'Error getting data for {ticker}: {e}')
+        logging.info(f'Error getting data with Bollinger Bands for {ticker}: {e}')

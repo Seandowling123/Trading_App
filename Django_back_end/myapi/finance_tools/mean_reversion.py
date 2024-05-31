@@ -9,13 +9,17 @@ from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, market
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
-    mean = np.mean(close_prices[-window:])
-    std_dev = np.std(close_prices[-window:])
-    
-    # Calculate the upper and lower bands
-    upper_band = mean + num_std_dev * std_dev
-    lower_band = mean - num_std_dev * std_dev
-    return upper_band, lower_band
+    try:
+        mean = np.mean(close_prices[-window:])
+        std_dev = np.std(close_prices[-window:])
+        
+        # Calculate the upper and lower bands
+        upper_band = mean + num_std_dev * std_dev
+        lower_band = mean - num_std_dev * std_dev
+        return upper_band, lower_band
+    except Exception as e: 
+        logging.info(f'Error calculating Bollinger Bands for trade: {e}')
+        return None
 
 # Make the trading decisions
 def execute_trades():
