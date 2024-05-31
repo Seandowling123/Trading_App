@@ -34,18 +34,22 @@ def get_trade_history():
 # Get the current bought/sold position
 def get_current_position():
     file_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')
-    trade_history = pd.read_csv(file_path)
     
-    # Get the side of the last placed trade
-    if len(trade_history) > 0:
-        last_trade = trade_history.iloc[-1]
-        if last_trade['side'] == 'buy':
-            return 'Bought', last_trade['filled_avg_price']
-        elif last_trade['side'] == 'sell':
-            return 'Sold', None
+    if Path(file_path).exists():
+        trade_history = pd.read_csv(file_path)
+        
+        # Get the side of the last placed trade
+        if len(trade_history) > 0:
+            last_trade = trade_history.iloc[-1]
+            if last_trade['side'] == 'buy':
+                return 'Bought', last_trade['filled_avg_price']
+            elif last_trade['side'] == 'sell':
+                return 'Sold', None
+            else:
+                logging.info(f"Error getting current position")
+                return None, None
         else:
-            logging.info(f"Error getting current position")
-            return None, None
+            return 'Sold', None
     else:
         return 'Sold', None
 
