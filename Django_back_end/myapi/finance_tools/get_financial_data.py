@@ -26,7 +26,7 @@ def get_historical_data(ticker, timescale='day'):
         if len(current_day_data) < 20:
             previous_day = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
             previous_day_data = yf.download(ticker, start=previous_day, end=datetime.now().strftime('%Y-%m-%d'), interval=itrvl, auto_adjust=True, progress=False)
-            last_20_previous_day = previous_day_data.tail(20)
+            last_20_previous_day = previous_day_data.tail(20-len(current_day_data))
             combined_data = pd.concat([last_20_previous_day, current_day_data])
         else:
             combined_data = current_day_data
