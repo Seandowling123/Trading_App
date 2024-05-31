@@ -49,8 +49,8 @@ def get_close_with_bands(ticker, timescale='day'):
         dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
         dataframe.reset_index(inplace=True)
         return dataframe[20:]
-    except Exception as e: 
+    except Exception as e:
         logging.info(f'Error getting data for {ticker}: {e}')
 
-#data = get_historical_data('SPY', 'day')
-#logging.info(data)
+data = get_close_with_bands('SPY', 'day')
+print(data)

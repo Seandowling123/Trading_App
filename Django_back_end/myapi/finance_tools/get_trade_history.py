@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+import pytz
 import os
 from pathlib import Path
 from .mean_reversion import current_position
@@ -18,8 +19,13 @@ def get_datetime_from_string(date_string):
 def get_trade_history():
     file_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')
     df = pd.read_csv(file_path)
-    df['datetime'] = df['datetime'].apply(get_datetime_from_string)  
-    return df
+    df['datetime'] = df['datetime'].apply(get_datetime_from_string)
+    
+    # Get today's trades
+    irish_tz = pytz.timezone('Europe/Dublin')
+    now_in_irish_tz = datetime.now(irish_tz)
+    filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+    return filtered_df
 
 # Get trading acccount details
 def get_account_details():

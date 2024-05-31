@@ -1,4 +1,5 @@
-from datetime import datetime#
+from datetime import datetime
+import pytz
 import logging
 import time
 import csv
@@ -16,9 +17,11 @@ def market_open():
     clock = api.get_clock()
     return clock.is_open
 
-# Create a string of the current date and time
+# Create a string of the current date and time in Irish Time
 def current_datetime_string():
-    return datetime.now().strftime('%Y-%m-%d-%H:%M')
+    irish_tz = pytz.timezone('Europe/Dublin')
+    now_in_irish_tz = datetime.now(irish_tz)
+    return now_in_irish_tz.strftime('%Y-%m-%d-%H:%M %Z')
 
 # Create an order ID
 def get_order_id(ticker, side):
@@ -149,3 +152,5 @@ def get_prev_orders():
                                     nested='False', 
                                     direction='desc',)
     return order_chunk
+
+print(current_datetime_string())
