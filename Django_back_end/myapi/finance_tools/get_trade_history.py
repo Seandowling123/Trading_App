@@ -4,7 +4,6 @@ from datetime import datetime
 import pytz
 import os
 from pathlib import Path
-from mean_reversion import current_position
 from execute_orders import api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,8 +49,6 @@ def get_current_position():
 # Get trading acccount details
 def get_account_details():
     account = api.get_account()
-    account_details = {'start_balance': start_balance, 'portfolio_value': account.portfolio_value, 'current_position': current_position}
+    account_details = {'start_balance': start_balance, 'portfolio_value': account.portfolio_value, 'current_position': get_current_position()[0]}
     df = pd.DataFrame([account_details])
     return df
-
-print(get_current_position())
