@@ -28,10 +28,6 @@ def execute_trades():
         upper_band, lower_band = get_bollinger_bands(close_prices)
         current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
         
-        #
-        save_trade_to_csv('order_data')
-        #
-        
         # Format numbers to two decimal places
         last_close_formatted = "{:.2f}".format(close_prices[-1])
         lower_band_formatted = "{:.2f}".format(lower_band)
@@ -53,6 +49,7 @@ def execute_trades():
                 # Order status
                 logging.info(f"Order status: {order_data.status}")
                 if order_data.status  == 'filled':
+                    logging.info('Order filled.')
                     save_trade_to_csv(order_data)
                 
             # Execute sell 
