@@ -10,3 +10,16 @@ INFO 2024-06-12 10:28:13,108 base Added job "execute_trades" to job store "defau
 INFO 2024-06-12 10:28:13,109 base Scheduler started
 DEBUG 2024-06-12 10:28:13,110 base Looking for jobs to run
 DEBUG 2024-06-12 10:28:13,110 base Next wakeup is due at 2024-06-12 14:30:00+01:00 (in 14506.889590 seconds)
+INFO 2024-06-12 10:30:42,343 autoreload C:\Users\Sean Dowling\Trading_Bot\Django_back_end\myapi\finance_tools\mean_reversion.py changed, reloading.
+INFO 2024-06-12 10:30:43,064 autoreload Watching for file changes with StatReloader
+INFO 2024-06-12 10:30:44,229 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 10:30:44,230 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 10:30:44,235 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 10:30:44,811 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-06-12 10:30:44,912 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-06-12 10:30:44,991 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 10:30:44,991 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-06-12 14:30:00+01:00 Dublin time].
+INFO 2024-06-12 10:30:44,991 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-06-12 10:30:44,991 base Scheduler started
+DEBUG 2024-06-12 10:30:44,991 base Looking for jobs to run
+DEBUG 2024-06-12 10:30:44,991 base Next wakeup is due at 2024-06-12 14:30:00+01:00 (in 14355.008469 seconds)

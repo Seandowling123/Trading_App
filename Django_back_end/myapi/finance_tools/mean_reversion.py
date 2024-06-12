@@ -86,7 +86,7 @@ def run_trading_algorithm():
         next_opening_time = clock.next_open.astimezone('Europe/Dublin')
         #next_opening_time = datetime(2024,5,29,11,14))
         
-        scheduler.add_job(execute_trades, 'date', run_date=next_opening_time)
+        scheduler.add_job(run_trading_algorithm, 'date', run_date=next_opening_time)
         logging.info(f"Market is closed. Scheduled to run when the market opens at [{next_opening_time} Dublin time].")
         
     scheduler.start()
