@@ -30,6 +30,9 @@ def get_order_id(ticker, side):
 # Save order details to CSV
 def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')):
     fieldnames = ['side', 'client_order_id', 'datetime', 'symbol', 'qty', 'filled_avg_price']
+    
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
 
     # Check if the CSV file already exists
     file_exists = Path(csv_path).exists()
