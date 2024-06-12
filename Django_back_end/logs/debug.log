@@ -138,3 +138,81 @@ DEBUG 2024-06-12 15:28:02,877 connectionpool https://paper-api.alpaca.markets:44
 DEBUG 2024-06-12 15:28:05,107 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/orders:by_client_order_id?client_order_id=Buy-SPY-2024-06-12-15%3A28+IST HTTP/1.1" 200 808
 INFO 2024-06-12 15:28:05,115 mean_reversion Order status: filled
 INFO 2024-06-12 15:28:05,119 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-06-12 15:29:01 BST)" executed successfully
+INFO 2024-06-12 15:39:03,157 autoreload Watching for file changes with StatReloader
+DEBUG 2024-06-12 15:39:06,463 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 15:39:07,283 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 403 80
+INFO 2024-06-12 15:39:07,283 execute_orders Error selling SPY: trade denied due to pattern day trading protection
+INFO 2024-06-12 15:39:07,772 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 15:39:07,772 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 15:39:07,883 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 146
+INFO 2024-06-12 15:39:07,883 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 15:39:07,883 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 15:39:07,883 base Scheduler started
+DEBUG 2024-06-12 15:39:07,883 base Looking for jobs to run
+DEBUG 2024-06-12 15:39:07,883 base Next wakeup is due at 2024-06-12 15:40:01+01:00 (in 53.116510 seconds)
+INFO 2024-06-12 15:40:34,854 autoreload Watching for file changes with StatReloader
+DEBUG 2024-06-12 15:40:36,633 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 15:40:37,370 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 403 101
+INFO 2024-06-12 15:40:37,370 execute_orders Error buying SPY: insufficient buying power
+INFO 2024-06-12 15:40:37,771 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 15:40:37,777 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 15:40:37,887 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 146
+INFO 2024-06-12 15:40:37,887 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 15:40:37,898 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 15:40:37,898 base Scheduler started
+DEBUG 2024-06-12 15:40:37,899 base Looking for jobs to run
+DEBUG 2024-06-12 15:40:37,900 base Next wakeup is due at 2024-06-12 15:41:01+01:00 (in 23.099752 seconds)
+INFO 2024-06-12 15:40:46,894 autoreload Watching for file changes with StatReloader
+DEBUG 2024-06-12 15:40:49,372 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 15:40:50,525 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 403 80
+INFO 2024-06-12 15:40:50,530 execute_orders Error selling SPY: trade denied due to pattern day trading protection
+INFO 2024-06-12 15:40:51,030 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 15:40:51,030 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 15:40:51,146 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 147
+INFO 2024-06-12 15:40:51,147 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 15:40:51,147 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 15:40:51,147 base Scheduler started
+DEBUG 2024-06-12 15:40:51,147 base Looking for jobs to run
+DEBUG 2024-06-12 15:40:51,160 base Next wakeup is due at 2024-06-12 15:41:01+01:00 (in 9.839687 seconds)
+DEBUG 2024-06-12 15:41:01,005 base Looking for jobs to run
+INFO 2024-06-12 15:41:01,005 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-06-12 15:41:01 BST)" (scheduled at 2024-06-12 15:41:01+01:00)
+DEBUG 2024-06-12 15:41:01,005 base Next wakeup is due at 2024-06-12 15:42:01+01:00 (in 59.994143 seconds)
+DEBUG 2024-06-12 15:41:01,005 utils Entering download()
+DEBUG 2024-06-12 15:41:01,005 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-06-12 15:41:01,005 utils  Entering history()
+DEBUG 2024-06-12 15:41:01,020 peewee ('CREATE TABLE IF NOT EXISTS "_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+DEBUG 2024-06-12 15:41:01,022 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-06-12 15:41:01,028 utils   Entering history()
+DEBUG 2024-06-12 15:41:01,028 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-06-12 15:41:01,031 utils    Entering get()
+DEBUG 2024-06-12 15:41:01,031 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-06-12 15:41:01,031 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-06-12 15:41:01,036 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-06-12 15:41:01,037 data cookie_mode = 'basic'
+DEBUG 2024-06-12 15:41:01,037 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-06-12 15:41:01,046 peewee ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+DEBUG 2024-06-12 15:41:01,049 peewee ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+DEBUG 2024-06-12 15:41:01,049 data loaded persistent cookie
+DEBUG 2024-06-12 15:41:01,049 data reusing cookie
+DEBUG 2024-06-12 15:41:01,058 connectionpool Starting new HTTPS connection (1): query1.finance.yahoo.com:443
+DEBUG 2024-06-12 15:41:01,681 connectionpool https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 200 11
+DEBUG 2024-06-12 15:41:01,681 data crumb = 'hSydCCDa2Lm'
+DEBUG 2024-06-12 15:41:01,681 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-06-12 15:41:01,681 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-06-12 15:41:01,681 connectionpool Starting new HTTPS connection (1): query2.finance.yahoo.com:443
+DEBUG 2024-06-12 15:41:02,222 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=hSydCCDa2Lm HTTP/1.1" 200 2024
+DEBUG 2024-06-12 15:41:02,222 data response code=200
+DEBUG 2024-06-12 15:41:02,222 utils    Exiting get()
+DEBUG 2024-06-12 15:41:02,238 history SPY: yfinance received OHLC data: 2024-06-12 13:30:00 -> 2024-06-12 14:40:55
+DEBUG 2024-06-12 15:41:02,286 history SPY: OHLC after cleaning: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:40:00-04:00
+DEBUG 2024-06-12 15:41:02,298 history SPY: OHLC after combining events: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:40:00-04:00
+DEBUG 2024-06-12 15:41:02,328 history SPY: yfinance returning OHLC: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:40:00-04:00
+DEBUG 2024-06-12 15:41:02,328 utils   Exiting history()
+DEBUG 2024-06-12 15:41:02,328 utils  Exiting history()
+DEBUG 2024-06-12 15:41:02,328 utils Exiting download()
+DEBUG 2024-06-12 15:41:02,443 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 403 101
+INFO 2024-06-12 15:41:02,443 execute_orders Error buying SPY: insufficient buying power
+INFO 2024-06-12 15:41:02,447 mean_reversion [12/Jun/2024 15:41:02] Trade available. Last close: 5.00, Lower Band: 5.00, Upper Band: 6.00, Current Position: Sold
+DEBUG 2024-06-12 15:41:02,568 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/orders:by_client_order_id HTTP/1.1" 422 56
+INFO 2024-06-12 15:41:02,568 mean_reversion Error executing trade: client_order_id is missing
+INFO 2024-06-12 15:41:02,568 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-06-12 15:42:01 BST)" executed successfully
