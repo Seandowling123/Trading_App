@@ -49,9 +49,11 @@ def execute_trades():
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = get_order_data(order_id)
+                
+                # Order status
+                logging.info(f"Order status: {order_data.status}")
                 if order_data.status  == 'filled':
                     save_trade_to_csv(order_data)
-                logging.info(f"Order status: {order_data.status}")
                 
             # Execute sell 
             elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
@@ -59,9 +61,13 @@ def execute_trades():
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = get_order_data(order_id)
+                
+                # Order status
+                logging.info(f"Order status: {order_data.status}")
                 if order_data.status  == 'filled':
                     save_trade_to_csv(order_data)
-                logging.info(f"Order status: {order_data.status}")
+            
+            # No available trades
             else:
                 logging.info(f"[{current_time}] No trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
