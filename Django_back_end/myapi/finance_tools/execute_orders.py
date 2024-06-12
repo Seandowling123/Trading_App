@@ -28,7 +28,7 @@ def get_order_id(ticker, side):
     return f'{side}-{ticker}-{current_datetime_string()}'
 
 # Save order details to CSV
-def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')):
+def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'myapi/finance_tools/Trade_history/Trade_history.csv')):
     fieldnames = ['side', 'client_order_id', 'datetime', 'symbol', 'qty', 'filled_avg_price']
     
     # Ensure the directory exists
