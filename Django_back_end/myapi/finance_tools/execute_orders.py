@@ -10,6 +10,7 @@ import alpaca_trade_api as tradeapi
 from .API_keys import API_KEY, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+logging.info(BASE_DIR)
 api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.markets')
 
 # Check if the stock market is open

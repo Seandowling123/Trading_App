@@ -77,3 +77,64 @@ INFO 2024-06-12 15:25:13,187 base Added job "execute_trades" to job store "defau
 INFO 2024-06-12 15:25:13,187 base Scheduler started
 DEBUG 2024-06-12 15:25:13,193 base Looking for jobs to run
 DEBUG 2024-06-12 15:25:13,194 base Next wakeup is due at 2024-06-12 15:26:01+01:00 (in 47.805004 seconds)
+INFO 2024-06-12 15:27:47,615 autoreload Watching for file changes with StatReloader
+DEBUG 2024-06-12 15:27:50,135 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 15:27:51,094 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 403 61
+INFO 2024-06-12 15:27:51,094 execute_orders Error selling SPY: account is not allowed to short
+INFO 2024-06-12 15:27:51,675 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 15:27:51,675 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 15:27:51,783 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 147
+INFO 2024-06-12 15:27:51,791 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 15:27:51,791 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 15:27:51,791 base Scheduler started
+DEBUG 2024-06-12 15:27:51,795 base Looking for jobs to run
+DEBUG 2024-06-12 15:27:51,796 base Next wakeup is due at 2024-06-12 15:28:01+01:00 (in 9.203526 seconds)
+DEBUG 2024-06-12 15:28:01,014 base Looking for jobs to run
+INFO 2024-06-12 15:28:01,014 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-06-12 15:28:01 BST)" (scheduled at 2024-06-12 15:28:01+01:00)
+DEBUG 2024-06-12 15:28:01,014 base Next wakeup is due at 2024-06-12 15:29:01+01:00 (in 59.985045 seconds)
+DEBUG 2024-06-12 15:28:01,014 utils Entering download()
+DEBUG 2024-06-12 15:28:01,019 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-06-12 15:28:01,020 utils  Entering history()
+DEBUG 2024-06-12 15:28:01,064 peewee ('CREATE TABLE IF NOT EXISTS "_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+DEBUG 2024-06-12 15:28:01,065 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-06-12 15:28:01,070 utils   Entering history()
+DEBUG 2024-06-12 15:28:01,070 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-06-12 15:28:01,070 utils    Entering get()
+DEBUG 2024-06-12 15:28:01,073 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-06-12 15:28:01,073 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-06-12 15:28:01,076 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-06-12 15:28:01,076 data cookie_mode = 'basic'
+DEBUG 2024-06-12 15:28:01,079 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-06-12 15:28:01,085 peewee ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+DEBUG 2024-06-12 15:28:01,088 peewee ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['basic', 1, 0])
+DEBUG 2024-06-12 15:28:01,089 data loaded persistent cookie
+DEBUG 2024-06-12 15:28:01,091 data reusing cookie
+DEBUG 2024-06-12 15:28:01,096 connectionpool Starting new HTTPS connection (1): query1.finance.yahoo.com:443
+DEBUG 2024-06-12 15:28:01,706 connectionpool https://query1.finance.yahoo.com:443 "GET /v1/test/getcrumb HTTP/1.1" 200 11
+DEBUG 2024-06-12 15:28:01,721 data crumb = 'hSydCCDa2Lm'
+DEBUG 2024-06-12 15:28:01,722 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-06-12 15:28:01,723 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-06-12 15:28:01,724 connectionpool Starting new HTTPS connection (1): query2.finance.yahoo.com:443
+DEBUG 2024-06-12 15:28:02,425 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=hSydCCDa2Lm HTTP/1.1" 200 1819
+DEBUG 2024-06-12 15:28:02,478 data response code=200
+DEBUG 2024-06-12 15:28:02,478 utils    Exiting get()
+DEBUG 2024-06-12 15:28:02,520 history SPY: yfinance received OHLC data: 2024-06-12 13:30:00 -> 2024-06-12 14:27:55
+DEBUG 2024-06-12 15:28:02,608 history SPY: OHLC after cleaning: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:27:00-04:00
+DEBUG 2024-06-12 15:28:02,619 history SPY: OHLC after combining events: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:27:00-04:00
+DEBUG 2024-06-12 15:28:02,640 history SPY: yfinance returning OHLC: 2024-06-12 09:30:00-04:00 -> 2024-06-12 10:27:00-04:00
+DEBUG 2024-06-12 15:28:02,648 utils   Exiting history()
+DEBUG 2024-06-12 15:28:02,648 utils  Exiting history()
+DEBUG 2024-06-12 15:28:02,650 utils Exiting download()
+DEBUG 2024-06-12 15:28:02,756 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 200 781
+INFO 2024-06-12 15:28:02,766 execute_orders Order successfully submitted:
+    - Side: Buy
+    - Ticker: SPY
+    - Quantity: 1
+    - Order ID: Buy-SPY-2024-06-12-15:28 IST
+    - Created at: 2024-06-12 14:27:57.737972712+00:00
+
+INFO 2024-06-12 15:28:02,768 mean_reversion [12/Jun/2024 15:28:02] Trade available. Last close: 5.00, Lower Band: 5.00, Upper Band: 6.00, Current Position: Sold
+DEBUG 2024-06-12 15:28:02,877 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/orders:by_client_order_id?client_order_id=Buy-SPY-2024-06-12-15%3A28+IST HTTP/1.1" 200 772
+DEBUG 2024-06-12 15:28:05,107 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/orders:by_client_order_id?client_order_id=Buy-SPY-2024-06-12-15%3A28+IST HTTP/1.1" 200 808
+INFO 2024-06-12 15:28:05,115 mean_reversion Order status: filled
+INFO 2024-06-12 15:28:05,119 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-06-12 15:29:01 BST)" executed successfully
