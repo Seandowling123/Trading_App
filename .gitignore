@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-Django_back_end/myapi/finance_tools/Trade_history/
+Django_back_end/myapi/finance_tools/Trade_history/Trade_history.csv
 Django_back_end/myapi/finance_tools/API_keys.py
 
 # dependencies

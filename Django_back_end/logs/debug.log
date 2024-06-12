@@ -23,3 +23,21 @@ INFO 2024-06-12 10:30:44,991 base Added job "run_trading_algorithm" to job store
 INFO 2024-06-12 10:30:44,991 base Scheduler started
 DEBUG 2024-06-12 10:30:44,991 base Looking for jobs to run
 DEBUG 2024-06-12 10:30:44,991 base Next wakeup is due at 2024-06-12 14:30:00+01:00 (in 14355.008469 seconds)
+INFO 2024-06-12 15:16:12,232 autoreload Watching for file changes with StatReloader
+DEBUG 2024-06-12 15:16:15,950 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 15:16:17,099 connectionpool https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 200 783
+INFO 2024-06-12 15:16:17,117 execute_orders Order successfully submitted:
+    - Side: Sell
+    - Ticker: SPY
+    - Quantity: 1
+    - Order ID: Sell-SPY-2024-06-12-15:16 IST
+    - Created at: 2024-06-12 14:16:12.046190207+00:00
+
+INFO 2024-06-12 15:16:17,514 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 15:16:17,514 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 15:16:17,718 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 147
+INFO 2024-06-12 15:16:17,768 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 15:16:17,768 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 15:16:17,770 base Scheduler started
+DEBUG 2024-06-12 15:16:17,772 base Looking for jobs to run
+DEBUG 2024-06-12 15:16:17,772 base Next wakeup is due at 2024-06-12 15:17:01+01:00 (in 43.227786 seconds)
