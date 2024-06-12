@@ -46,12 +46,7 @@ def save_trade_to_csv(order_data, csv_path=os.path.join(BASE_DIR, 'finance_tools
 
         # Write order data to the CSV file
         writer.writerow({
-            'side': order_data.side,
-            'client_order_id': order_data.client_order_id,
-            'datetime': current_datetime_string(),
-            'symbol': order_data.symbol,
-            'qty': order_data.qty,
-            'filled_avg_price': order_data.filled_avg_price
+            'side': 'here'
         })
         
 # Save order details to JSON

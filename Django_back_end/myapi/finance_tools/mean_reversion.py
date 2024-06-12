@@ -28,9 +28,9 @@ def execute_trades():
         upper_band, lower_band = get_bollinger_bands(close_prices)
         current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
         
-        close_prices = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5]
-        lower_band = 5
-        upper_band = 6
+        #
+        save_trade_to_csv(order_data)
+        #
         
         # Format numbers to two decimal places
         last_close_formatted = "{:.2f}".format(close_prices[-1])
