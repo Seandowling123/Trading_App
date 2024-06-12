@@ -29,7 +29,7 @@ def execute_trades():
         current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
         
         #
-        save_trade_to_csv(order_data)
+        save_trade_to_csv('order_data')
         #
         
         # Format numbers to two decimal places
