@@ -1,0 +1,12 @@
+INFO 2024-06-12 10:28:11,105 autoreload Watching for file changes with StatReloader
+INFO 2024-06-12 10:28:12,233 mean_reversion Running trading algorithm.
+DEBUG 2024-06-12 10:28:12,233 win32 Looking up time zone info from registry
+DEBUG 2024-06-12 10:28:12,239 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-06-12 10:28:12,907 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-06-12 10:28:13,020 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-06-12 10:28:13,093 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-06-12 10:28:13,093 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-06-12 14:30:00+01:00 Dublin time].
+INFO 2024-06-12 10:28:13,108 base Added job "execute_trades" to job store "default"
+INFO 2024-06-12 10:28:13,109 base Scheduler started
+DEBUG 2024-06-12 10:28:13,110 base Looking for jobs to run
+DEBUG 2024-06-12 10:28:13,110 base Next wakeup is due at 2024-06-12 14:30:00+01:00 (in 14506.889590 seconds)

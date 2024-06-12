@@ -28,6 +28,10 @@ def execute_trades():
         upper_band, lower_band = get_bollinger_bands(close_prices)
         current_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
         
+        close_prices = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5]
+        lower_band = 5
+        upper_band = 6
+        
         # Format numbers to two decimal places
         last_close_formatted = "{:.2f}".format(close_prices[-1])
         lower_band_formatted = "{:.2f}".format(lower_band)
@@ -77,7 +81,6 @@ def run_trading_algorithm():
         
          # Add the job to execute my_function at 1 second past each minute
         scheduler.add_job(execute_trades, 'cron', second='1')
-        scheduler.start()
     else:
         clock = api.get_clock()
         next_opening_time = clock.next_open.astimezone('Europe/Dublin')
@@ -95,3 +98,4 @@ def run_trading_algorithm():
     except KeyboardInterrupt:
         logging.info("Stopping the scheduler")
         scheduler.shutdown()
+        

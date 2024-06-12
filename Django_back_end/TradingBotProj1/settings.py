@@ -153,7 +153,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
             'when': 'midnight',  # Rotate logs at midnight
             'backupCount': 7,    # Keep logs for 7 days
             'formatter': 'verbose',
