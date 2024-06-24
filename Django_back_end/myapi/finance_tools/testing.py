@@ -56,4 +56,14 @@ def sell(ticker, quantity):
         return order.client_order_id
     except Exception as e: print(f'Error selling {ticker}: {e}')
     
-sell('SPY', 1)
+# Check if an asset is available by ticker
+def ticker_available(ticker):
+    try:
+        asset = api.get_asset(ticker)
+        if asset and asset.tradable: 
+            return True
+        return False
+    except:
+        return False
+    
+print(ticker_available('SPLG'))
