@@ -142,10 +142,11 @@ def backtest():
     
     historical_data = get_loaded_historical_data()
     historical_data.iloc[::-1]
-    start_value = float(list(historical_data['close'])[0])
     
     historical_data['close'] = historical_data['close'].astype(float)
+    start_value = (list(historical_data['close'])[-1])
     grouped = historical_data.groupby(historical_data.index.date)
+    start_value = grouped.last().iloc[0]['close']
     
     global total_profit
     global num_trades
@@ -162,7 +163,7 @@ def backtest():
         print(f'Testing std deviation: {std_dev}')
         
         # Test each day in the period
-        for date, group in grouped:
+        for date, group in (grouped):
             start_profit = total_profit
             num_trades = 0
 
