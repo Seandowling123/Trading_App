@@ -59,7 +59,7 @@ def execute_trades(historical_data, num_std_dev=2):
         # Get current trade position
         global current_position
         global bought_price
-        latest_price = latest_price
+        latest_price = close_prices[-1]
     
         # Execute buy
         if current_position == 'Sold' and (latest_price <= lower_band):
