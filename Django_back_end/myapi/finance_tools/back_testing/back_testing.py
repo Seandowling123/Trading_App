@@ -118,15 +118,14 @@ def plot(historical_data):
         break
 
 # Plot profits over time
-def plot_profit(dates, profits):
+def plot_profit(dates, profits, close_prices):
     plt.figure(figsize=(12, 6))
     for std_dev in profits:
         plt.plot(dates, profits[std_dev], linewidth=1, label=str(std_dev))
+    plt.plot(dates, close_prices, linewidth=1, label='Buy & Hold')
     plt.title('Profit Over Time For Trading Algorithm with Different Bollinger Band Standard Deviations')
-    plt.xlabel('Date')
-    plt.ylabel('Pofit')
     plt.xlabel('Date', fontsize=15, fontname='Times New Roman')
-    plt.ylabel('Close', fontsize=15, fontname='Times New Roman')
+    plt.ylabel('Pofit', fontsize=15, fontname='Times New Roman')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tick_params(axis='both', which='major', labelsize=12)
     plt.legend(loc='upper left', prop={'family': 'serif', 'size': 12})
@@ -149,11 +148,16 @@ def backtest():
     
     global total_profit
     global num_trades
+    global current_position
+    global bought_price
     
     # Back test
     for std_dev in std_devs:
         total_profit = 0
+        current_position = 'Sold'
+        bought_price = None
         dates = []
+        close_prices = []
         print(f'Testing std deviation: {std_dev}')
         
         # Test each day in the period
@@ -167,17 +171,21 @@ def backtest():
                 elapsed_time = execute_trades(group[:i], num_std_dev=std_dev)
             end_time = time.time()
             
+            # Update some variables on the last run
+            if std_dev == std_devs[-1]:
+                dates.append(date)
+                close_prices.append(list(group['close'])[-1])
+            
             # Print the results
             elapsed_time = end_time - start_time
             daily_profit = total_profit - start_profit
-            dates.append(date)
             profits[std_dev].append(total_profit)
             print(f'\rBacktested date: {date}. Num trades: {num_trades}. Daily profit: {"{:.2f}".format(daily_profit)}. Elapsed time: {"{:.4f}".format(elapsed_time)}', end='', flush=True)
                 
         print(f'\nTotal profit for std dev {std_dev}: {total_profit}')
     
     # Plot results
-    plot_profit(dates, profits)
+    plot_profit(dates, profits, close_prices)
 
 backtest()
         
