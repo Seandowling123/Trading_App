@@ -18,6 +18,10 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, base_url='https://paper-api.alpaca.mark
 total_profit = 0
 num_trades = 0
 
+# Track position
+current_position = 'Sold'
+bought_price = None
+
 # Trade order class
 class Order:
     def __init__(self, status, side, symbol, qty, filled_avg_price):
@@ -59,28 +63,33 @@ def execute_trades(historical_data):
             upper_band_formatted = "{:.2f}".format(upper_band)
             
             # Get current trade position
-            current_position, bought_price = get_current_position()
+            global current_position
+            global bought_price
         
             # Execute buy
             if current_position == 'Sold' and (close_prices[-1] <= lower_band):
-                print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
-                    f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
+                #print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
+                    #f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = Order('filled', 'buy', 'SPY', 1, close_prices[-1])
                 
                 # Order status
                 if order_data.status  == 'filled':
                     num_trades = num_trades+1
+                    current_position = 'Bought'
+                    bought_price = close_prices[-1]
                     save_trade_to_csv(order_data)
                 
             # Execute sell 
             elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
-                print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
-                    f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
+                #print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
+                    #f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = Order('filled', 'sell', 'SPY', 1, close_prices[-1])
                 
                 # Order status
                 if order_data.status  == 'filled':
                     num_trades = num_trades+1
+                    current_position = 'Sold'
+                    bought_price = None
                     save_trade_to_csv(order_data)
                     global total_profit
                     total_profit = total_profit + order_data.filled_avg_price - bought_price
