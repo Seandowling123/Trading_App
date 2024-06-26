@@ -127,14 +127,14 @@ def plot_profit(dates, profits):
     plt.figure(figsize=(12, 6))
     for std_dev in profits:
         plt.plot(dates, profits[std_dev], linewidth=1, label=str(std_dev))
-    plt.title('Profit at dif. Bollinger bands standard deviations')
+    plt.title('Profit Over Time For Trading Algorithm with Different Bollinger Band Standard Deviations')
     plt.xlabel('Date')
-    plt.ylabel('Value')
+    plt.ylabel('Pofit')
     plt.xlabel('Date', fontsize=15, fontname='Times New Roman')
     plt.ylabel('Close', fontsize=15, fontname='Times New Roman')
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tick_params(axis='both', which='major', labelsize=12)
-    plt.legend(loc='upper left', prop={'family': 'serif', 'size': 13})
+    plt.legend(loc='upper left', prop={'family': 'serif', 'size': 12})
     plt.show()
 
 historical_data = get_loaded_historical_data()
@@ -157,17 +157,18 @@ def backtest():
     # Back test
     for std_dev in std_devs:
         total_profit = 0
+        dates = []
         print(f'Testing std deviation: {std_dev}')
         
         # Test each day in the period
-        for date, group in list(grouped)[:30]:
+        for date, group in (grouped):
             start_profit = total_profit
             num_trades = 0
 
             # Backtest each individual day
             start_time = time.time()
             for i in range(len(group)):
-                elapsed_time = execute_trades(group[:i], num_std_dev=)
+                elapsed_time = execute_trades(group[:i], num_std_dev=std_dev)
             end_time = time.time()
             
             # Print the results
@@ -177,7 +178,7 @@ def backtest():
             profits[std_dev].append(total_profit)
             print(f'\rBacktested date: {date}. Num trades: {num_trades}. Daily profit: {"{:.2f}".format(daily_profit)}. Elapsed time: {"{:.4f}".format(elapsed_time)}', end='', flush=True)
                 
-        print(f'\nTotal std dev:: {std_dev} profit: {total_profit}')
+        print(f'\nTotal profit for std dev {std_dev}: {total_profit}')
     
     # Plot results
     plot_profit(dates, profits)
