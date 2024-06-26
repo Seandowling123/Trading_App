@@ -49,10 +49,11 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
 
 # Make the trading decisions
 def execute_trades(historical_data, num_std_dev=2):
+    close_prices =  list(historical_data['close'])
+    
     # check if there is enough data
     if len(close_prices) >= 20:
         global num_trades
-        close_prices =  list(historical_data['close'])
         upper_band, lower_band = get_bollinger_bands(close_prices, num_std_dev=num_std_dev)
         
         # Get current trade position
