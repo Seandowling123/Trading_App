@@ -77,7 +77,7 @@ def execute_trades(historical_data, num_std_dev=2):
                 num_trades = num_trades+1
                 current_position = 'Bought'
                 bought_price = close_prices[-1]
-                save_trade_to_csv(order_data)
+                #save_trade_to_csv(order_data)
             
         # Execute sell 
         elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
@@ -88,7 +88,7 @@ def execute_trades(historical_data, num_std_dev=2):
             # Order status
             if order_data.status  == 'filled':
                 num_trades = num_trades+1
-                save_trade_to_csv(order_data)
+                #save_trade_to_csv(order_data)
                 global total_profit
                 total_profit = total_profit + order_data.filled_avg_price - bought_price
                 current_position = 'Sold'
@@ -156,7 +156,10 @@ def backtest():
     
     # Back test
     for std_dev in std_devs:
+        total_profit = 0
         print(f'Testing std deviation: {std_dev}')
+        
+        # Test each day in the period
         for date, group in list(grouped)[:30]:
             start_profit = total_profit
             num_trades = 0
