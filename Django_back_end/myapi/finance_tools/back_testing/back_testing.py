@@ -49,41 +49,35 @@ def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
 
 # Make the trading decisions
 def execute_trades(historical_data, num_std_dev=2):
-    global num_trades
-    close_prices =  list(historical_data['close'])
-    
     # check if there is enough data
     if len(close_prices) >= 20:
+        global num_trades
+        close_prices =  list(historical_data['close'])
         upper_band, lower_band = get_bollinger_bands(close_prices, num_std_dev=num_std_dev)
-        current_time = list(historical_data.index)[-1]
-        
-        # Format numbers to two decimal places
-        last_close_formatted = "{:.2f}".format(close_prices[-1])
-        lower_band_formatted = "{:.2f}".format(lower_band)
-        upper_band_formatted = "{:.2f}".format(upper_band)
         
         # Get current trade position
         global current_position
         global bought_price
+        latest_price = latest_price
     
         # Execute buy
-        if current_position == 'Sold' and (close_prices[-1] <= lower_band):
+        if current_position == 'Sold' and (latest_price <= lower_band):
             #print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                 #f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
-            order_data = Order('filled', 'buy', 'SPY', 1, close_prices[-1])
+            order_data = Order('filled', 'buy', 'SPY', 1, latest_price)
             
             # Order status
             if order_data.status  == 'filled':
                 num_trades = num_trades+1
                 current_position = 'Bought'
-                bought_price = close_prices[-1]
+                bought_price = latest_price
                 #save_trade_to_csv(order_data)
             
         # Execute sell 
-        elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
+        elif current_position == 'Bought' and (latest_price >= bought_price) and (latest_price >= upper_band):
             #print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                 #f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
-            order_data = Order('filled', 'sell', 'SPY', 1, close_prices[-1])
+            order_data = Order('filled', 'sell', 'SPY', 1, latest_price)
             
             # Order status
             if order_data.status  == 'filled':
@@ -135,6 +129,7 @@ def plot_profit(dates, profits):
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tick_params(axis='both', which='major', labelsize=12)
     plt.legend(loc='upper left', prop={'family': 'serif', 'size': 12})
+    plt.savefig('Profits_over_time.png', bbox_inches='tight')
     plt.show()
 
 historical_data = get_loaded_historical_data()
