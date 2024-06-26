@@ -75,7 +75,7 @@ def execute_trades(historical_data, num_std_dev=2):
                 #save_trade_to_csv(order_data)
             
         # Execute sell 
-        elif current_position == 'Bought' and (latest_price >= bought_price) and (latest_price >= upper_band):
+        elif current_position == 'Bought' and (latest_price >= upper_band):
             #print(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                 #f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
             order_data = Order('filled', 'sell', 'SPY', 1, latest_price)
@@ -130,7 +130,7 @@ def plot_profit(dates, profits):
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tick_params(axis='both', which='major', labelsize=12)
     plt.legend(loc='upper left', prop={'family': 'serif', 'size': 12})
-    plt.savefig('Profits_over_time.png', bbox_inches='tight')
+    plt.savefig('Profits_over_time_without_loss_avoidance.png', bbox_inches='tight')
     plt.show()
 
 historical_data = get_loaded_historical_data()
