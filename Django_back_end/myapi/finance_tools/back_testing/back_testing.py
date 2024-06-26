@@ -122,7 +122,7 @@ def plot_profit(dates, profits, buy_and_hold):
     plt.figure(figsize=(12, 6))
     for std_dev in profits:
         plt.plot(dates, profits[std_dev], linewidth=1, label=str(std_dev))
-    plt.plot(dates, buy_and_hold, linewidth=2, label='Buy & Hold')
+    plt.plot(dates, buy_and_hold, linewidth=2, label='Buy & Hold', color='red')
     plt.title('Profit Over Time For Trading Algorithm with Different Bollinger Band Standard Deviations')
     plt.xlabel('Date', fontsize=15, fontname='Times New Roman')
     plt.ylabel('Pofit', fontsize=15, fontname='Times New Roman')
@@ -142,6 +142,7 @@ def backtest():
     
     historical_data = get_loaded_historical_data()
     historical_data.iloc[::-1]
+    start_value = list(historical_data['close'])[0]
     
     historical_data['close'] = historical_data['close'].astype(float)
     grouped = historical_data.groupby(historical_data.index.date)
@@ -161,7 +162,7 @@ def backtest():
         print(f'Testing std deviation: {std_dev}')
         
         # Test each day in the period
-        for date, group in list(grouped)[:30]:
+        for date, group in grouped:
             start_profit = total_profit
             num_trades = 0
 
@@ -174,7 +175,7 @@ def backtest():
             # Update some variables on the last run
             if std_dev == std_devs[-1]:
                 dates.append(date)
-                buy_and_hold.append(list(group['close'])[-1]-list(group['close'])[0])
+                buy_and_hold.append(list(group['close'])[-1]-start_value)
             
             # Print the results
             elapsed_time = end_time - start_time
