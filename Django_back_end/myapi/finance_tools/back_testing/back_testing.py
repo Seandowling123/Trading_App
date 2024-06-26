@@ -122,7 +122,7 @@ def plot_profit(dates, profits, buy_and_hold):
     plt.figure(figsize=(12, 6))
     for std_dev in profits:
         plt.plot(dates, profits[std_dev], linewidth=1, label=str(std_dev))
-    plt.plot(dates, buy_and_hold, linewidth=1, label='Buy & Hold')
+    plt.plot(dates, buy_and_hold, linewidth=2, label='Buy & Hold')
     plt.title('Profit Over Time For Trading Algorithm with Different Bollinger Band Standard Deviations')
     plt.xlabel('Date', fontsize=15, fontname='Times New Roman')
     plt.ylabel('Pofit', fontsize=15, fontname='Times New Roman')
