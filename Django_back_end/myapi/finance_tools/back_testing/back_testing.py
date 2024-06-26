@@ -142,7 +142,7 @@ def backtest():
     
     historical_data = get_loaded_historical_data()
     historical_data.iloc[::-1]
-    start_value = list(historical_data['close'])[0]
+    start_value = float(list(historical_data['close'])[0])
     
     historical_data['close'] = historical_data['close'].astype(float)
     grouped = historical_data.groupby(historical_data.index.date)
