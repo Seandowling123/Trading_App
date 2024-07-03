@@ -21,16 +21,7 @@ def get_historical_data(ticker, timescale='day', include_prev_day=False):
             
         # Fetch historical stock data using yfinance
         current_day_data = yf.download(ticker, period=prd, interval=itrvl, auto_adjust=True, progress=False)
-        
-        # Check if the current day data has less than 20 data points and append the last 20 data points from the previous day
-        if include_prev_day or len(current_day_data) < 20:
-            previous_day = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-            previous_day_data = yf.download(ticker, start=previous_day, end=datetime.now().strftime('%Y-%m-%d'), interval=itrvl, auto_adjust=True, progress=False)
-            last_20_previous_day = previous_day_data.tail(20)
-            combined_data = pd.concat([last_20_previous_day, current_day_data])
-        else:
-            combined_data = current_day_data
-        return combined_data
+        return current_day_data
     except Exception as e: 
         logging.info(f'Error getting data for {ticker}: {e}')
         return None

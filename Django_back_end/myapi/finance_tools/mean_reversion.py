@@ -35,12 +35,13 @@ def execute_trades():
         
         # Get current trade position
         current_position, bought_price = get_current_position()
+        latest_close = latest_close
         
         # check if there is enough data
         if len(close_prices) >= 20:
         
             # Execute buy
-            if current_position == 'Sold' and (close_prices[-1] <= lower_band):
+            if current_position == 'Sold' and (latest_close <= lower_band):
                 order_id = buy('SPY', 1)
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
@@ -53,7 +54,7 @@ def execute_trades():
                     save_trade_to_csv(order_data)
                 
             # Execute sell 
-            elif current_position == 'Bought' and (close_prices[-1] >= bought_price) and (close_prices[-1] >= upper_band):
+            elif current_position == 'Bought' and (latest_close >= bought_price) and (latest_close >= upper_band):
                 order_id = sell('SPY', 1)
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
