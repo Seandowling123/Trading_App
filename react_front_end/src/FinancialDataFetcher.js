@@ -18,9 +18,9 @@ const Get_stock_chart = () => {
   const [account_details, setAccount_details] = useState('');
 
   const updateData = () => {
-    fetchData('https://seand.ie/api/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
-    fetchData('https://seand.ie/api/trade_history', (data) => setTrade_history(data.trade_history));
-    fetchData('https://seand.ie/api/account_details', (data) => setAccount_details(data.account_details));
+    fetchData('https://seand.ie/tradebot/historical_data/SPY', (data) => setHistorical_data(data.financial_data));
+    fetchData('https://seand.ie/tradebot/trade_history', (data) => setTrade_history(data.trade_history));
+    fetchData('https://seand.ie/tradebot/account_details', (data) => setAccount_details(data.account_details));
   };
 
   useEffect(() => {
