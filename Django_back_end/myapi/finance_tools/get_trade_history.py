@@ -1,5 +1,6 @@
 import pandas as pd
 import logging
+import psycopg2
 from datetime import datetime
 import pytz
 import os
@@ -15,28 +16,57 @@ def get_datetime_from_string(date_string):
     datetime_obj = datetime.strptime(date_string, date_format)
     return datetime_obj
 
-# Read a CSV file containing trade data into a pandas DataFrame
+# Get trade history from PostgrSQL database
 def get_trade_history():
-    file_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')
-    
-    if Path(file_path).exists():
-        df = pd.read_csv(file_path)
-        #df['datetime'] = df['datetime'].apply(get_datetime_from_string)
+    try:
+        # Connect to PostgreSQL
+        conn = psycopg2.connect(
+            dbname="trade_history",
+            user="postgres",
+            password="test_password",
+            host="127.0.0.1",
+            port="5432"
+        )
+
+        # Load data into Pandas DataFrame
+        query = "SELECT * FROM trades;"
+        df = pd.read_sql_query(query, conn)
+
+        # Print the first few rows of the DataFrame
+        print(df.head())
         df['datetime'] = pd.to_datetime(df['datetime'])
         
         # Get today's trades
         irish_tz = pytz.timezone('Europe/Dublin')
         now_in_irish_tz = datetime.now(irish_tz)
         filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+        
+        # Close the connection
+        if conn:
+            conn.close()
         return filtered_df
-    else: return []
+    except (Exception, psycopg2.Error) as error:
+        print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
 # Get the current bought/sold position
 def get_current_position():
-    file_path = os.path.join(BASE_DIR, 'finance_tools/Trade_history/Trade_history.csv')
-    
-    if Path(file_path).exists():
-        trade_history = pd.read_csv(file_path)
+    try:
+        # Connect to PostgreSQL
+        conn = psycopg2.connect(
+            dbname="trade_history",
+            user="postgres",
+            password="test_password",
+            host="127.0.0.1",
+            port="5432"
+        )
+
+        # Load data into Pandas DataFrame
+        query = "SELECT * FROM trades;"
+        trade_history = pd.read_sql_query(query, conn)
+        
+        # Close the connection
+        if conn:
+            conn.close()
         
         # Get the side of the last placed trade
         if len(trade_history) > 0:
@@ -50,8 +80,8 @@ def get_current_position():
                 return None, None
         else:
             return 'Sold', None
-    else:
-        return 'Sold', None
+    except (Exception, psycopg2.Error) as error:
+        print("Error while connecting to PostgreSQL or fetching data for current position:", error)
 
 # Get trading acccount details
 def get_account_details():
