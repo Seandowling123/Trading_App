@@ -115,19 +115,15 @@ def save_trade_to_database(order_data):
         """
         trade_data = (order_data.side, order_data.client_order_id, current_datetime_string(), order_data.symbol, order_data.qty, order_data.filled_avg_price)
         cursor.execute(insert_query, trade_data)
-
-        # Commit changes to the database
         conn.commit()
-        print("Data inserted successfully")
         
         # Close cursor and connection
         if conn:
             cursor.close()
             conn.close()
-            print("PostgreSQL connection is closed")
 
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL or inserting data:", error)
+        logging.info("Error while connecting to PostgreSQL or inserting data:", error)
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):

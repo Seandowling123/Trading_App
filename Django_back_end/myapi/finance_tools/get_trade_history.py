@@ -31,9 +31,6 @@ def get_trade_history():
         # Load data into Pandas DataFrame
         query = "SELECT * FROM trades;"
         df = pd.read_sql_query(query, conn)
-
-        # Print the first few rows of the DataFrame
-        print(df.head())
         df['datetime'] = pd.to_datetime(df['datetime'])
         
         # Get today's trades
@@ -46,7 +43,7 @@ def get_trade_history():
             conn.close()
         return filtered_df
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
+        logging.info("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
 # Get the current bought/sold position
 def get_current_position():
@@ -81,7 +78,7 @@ def get_current_position():
         else:
             return 'Sold', None
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL or fetching data for current position:", error)
+        logging.info("Error while connecting to PostgreSQL or fetching data for current position:", error)
 
 # Get trading acccount details
 def get_account_details():
