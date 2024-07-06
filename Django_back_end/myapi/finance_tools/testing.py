@@ -177,5 +177,5 @@ def get_trade_history():
 
 # Example usage:
 #create_database("trade_history", "postgres", "test_password", "localhost", "5432")
-save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
+#save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
 print(get_trade_history())
