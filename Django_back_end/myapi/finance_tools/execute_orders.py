@@ -92,20 +92,14 @@ def save_trade_to_database(order_data):
             host="127.0.0.1",
             port="5432"
         )
-        
-        # Create a cursor object using the connection
         cursor = conn.cursor()
         
-        # Prepare SQL insert statement
+        # Execute the SQL query
         insert_query = """
-        INSERT INTO trades (side, client_order_id, trade_datetime, symbol, qty, filled_avg_price)
+        INSERT INTO trades (side, client_order_id, datetime, symbol, qty, filled_avg_price)
         VALUES (%s, %s, %s, %s, %s, %s);
         """
-        
-        # Example data
         trade_data = (order_data.side, order_data.client_order_id, current_datetime_string(), order_data.symbol, order_data.qty, order_data.filled_avg_price)
-
-        # Execute the SQL query
         cursor.execute(insert_query, trade_data)
 
         # Commit changes to the database

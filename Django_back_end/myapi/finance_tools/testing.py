@@ -85,20 +85,6 @@ def create_database(dbname, user, password, host, port):
         cursor.execute(create_db_query)
         print(f"Database '{dbname}' created successfully")
         
-        # Insert table
-        table_query = """
-        CREATE TABLE trades (
-            id SERIAL PRIMARY KEY,
-            side VARCHAR(10) NOT NULL,
-            client_order_id VARCHAR(50) NOT NULL,
-            trade_datetime TIMESTAMP NOT NULL,
-            symbol VARCHAR(20) NOT NULL,
-            qty INTEGER NOT NULL,
-            filled_avg_price NUMERIC(12, 6) NOT NULL
-        );
-        """
-        cursor.execute(table_query)
-        
         # Close connection and cursor
         if conn:
             cursor.close()
@@ -109,7 +95,7 @@ def create_database(dbname, user, password, host, port):
         print(f"Error while connecting to PostgreSQL or creating database '{dbname}':", error)
 
 # Save trading data to PostgrSQL database
-def save_trading_data(side, client_order_id, symbol, qty, filled_avg_price):
+def save_trade_to_database(side, client_order_id, symbol, qty, filled_avg_price):
     try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
@@ -119,20 +105,28 @@ def save_trading_data(side, client_order_id, symbol, qty, filled_avg_price):
             host="127.0.0.1",
             port="5432"
         )
-        
-        # Create a cursor object using the connection
         cursor = conn.cursor()
         
-        # Prepare SQL insert statement
+        # Insert table
+        table_query = """
+        CREATE TABLE IF NOT EXISTS trades (
+            id SERIAL PRIMARY KEY,
+            side VARCHAR(10) NOT NULL,
+            client_order_id VARCHAR(50) NOT NULL,
+            datetime VARCHAR(20) NOT NULL,
+            symbol VARCHAR(20) NOT NULL,
+            qty INTEGER NOT NULL,
+            filled_avg_price NUMERIC(12, 6) NOT NULL
+        );
+        """
+        cursor.execute(table_query)
+        
+        # Execute the SQL query
         insert_query = """
-        INSERT INTO trades (side, client_order_id, trade_datetime, symbol, qty, filled_avg_price)
+        INSERT INTO trades (side, client_order_id, datetime, symbol, qty, filled_avg_price)
         VALUES (%s, %s, %s, %s, %s, %s);
         """
-        
-        # Example data
-        trade_data = (side, client_order_id, datetime.now(), symbol, qty, filled_avg_price)
-
-        # Execute the SQL query
+        trade_data = (side, client_order_id, current_datetime_string(), symbol, qty, filled_avg_price)
         cursor.execute(insert_query, trade_data)
 
         # Commit changes to the database
@@ -148,8 +142,8 @@ def save_trading_data(side, client_order_id, symbol, qty, filled_avg_price):
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL or inserting data:", error)
 
-# Function to connect to PostgreSQL and fetch data
-def fetch_data():
+# Get trade history from PostgrSQL database
+def get_trade_history():
     try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
@@ -160,21 +154,28 @@ def fetch_data():
             port="5432"
         )
 
-        query = "SELECT * FROM trades;"
-
         # Load data into Pandas DataFrame
+        query = "SELECT * FROM trades;"
         df = pd.read_sql_query(query, conn)
 
         # Print the first few rows of the DataFrame
         print(df.head())
-
+        df['datetime'] = pd.to_datetime(df['datetime'])
+        
+        # Get today's trades
+        irish_tz = pytz.timezone('Europe/Dublin')
+        now_in_irish_tz = datetime.now(irish_tz).date()
+        filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+        
+        # Close the connection
+        if conn:
+            conn.close()
+        return filtered_df
     except (Exception, psycopg2.Error) as error:
-        print("Error while connecting to PostgreSQL or fetching data:", error)
-
-# Example usage:
-fetch_data()
+        print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
 
 # Example usage:
-#create_database("Trade_history", "postgres", "test_password", "localhost", "5432")
-#save_trading_data('Sell', '123456', 'AAPL', 100, 158.25)
+create_database("trade_history", "postgres", "test_password", "localhost", "5432")
+save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
+print(get_trade_history())
