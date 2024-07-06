@@ -5,7 +5,7 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from .get_financial_data import get_close_prices
 from .get_trade_history import get_current_position
-from .execute_orders import buy, sell, get_order_data, save_trade_to_csv, market_open, api
+from .execute_orders import buy, sell, get_order_data, save_trade_to_database, market_open, api
 
 # Calculate the bollinger bands for the current data
 def get_bollinger_bands(close_prices, window=20, num_std_dev=2):
@@ -51,7 +51,7 @@ def execute_trades():
                 logging.info(f"Order status: {order_data.status}")
                 if order_data.status  == 'filled':
                     logging.info('Order filled.')
-                    save_trade_to_csv(order_data)
+                    save_trade_to_database(order_data)
                 
             # Execute sell 
             elif current_position == 'Bought' and (latest_close >= bought_price) and (latest_close >= upper_band):
@@ -63,7 +63,7 @@ def execute_trades():
                 # Order status
                 logging.info(f"Order status: {order_data.status}")
                 if order_data.status  == 'filled':
-                    save_trade_to_csv(order_data)
+                    save_trade_to_database(order_data)
             
             # No available trades
             else:

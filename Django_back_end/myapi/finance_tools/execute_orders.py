@@ -1,4 +1,5 @@
 from datetime import datetime
+import psycopg2
 import pytz
 import logging
 import time
@@ -79,6 +80,46 @@ def save_trade_to_json(order_data, json_path=os.path.join(BASE_DIR, 'finance_too
     # Write the updated data back to the JSON file
     with open(json_path, 'w') as file:
         json.dump(data, file, indent=4)
+        
+# Save trading data to PostgrSQL database
+def save_trade_to_database(order_data):
+    try:
+        # Connect to PostgreSQL
+        conn = psycopg2.connect(
+            dbname="trade_history",
+            user="postgres",
+            password="test_password",
+            host="127.0.0.1",
+            port="5432"
+        )
+        
+        # Create a cursor object using the connection
+        cursor = conn.cursor()
+        
+        # Prepare SQL insert statement
+        insert_query = """
+        INSERT INTO trades (side, client_order_id, trade_datetime, symbol, qty, filled_avg_price)
+        VALUES (%s, %s, %s, %s, %s, %s);
+        """
+        
+        # Example data
+        trade_data = (order_data.side, order_data.client_order_id, current_datetime_string(), order_data.symbol, order_data.qty, order_data.filled_avg_price)
+
+        # Execute the SQL query
+        cursor.execute(insert_query, trade_data)
+
+        # Commit changes to the database
+        conn.commit()
+        print("Data inserted successfully")
+        
+        # Close cursor and connection
+        if conn:
+            cursor.close()
+            conn.close()
+            print("PostgreSQL connection is closed")
+
+    except (Exception, psycopg2.Error) as error:
+        print("Error while connecting to PostgreSQL or inserting data:", error)
 
 # Check if an asset is available by ticker
 def ticker_available(ticker):
