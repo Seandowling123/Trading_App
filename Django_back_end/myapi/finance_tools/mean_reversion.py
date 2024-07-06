@@ -35,7 +35,7 @@ def execute_trades():
         
         # Get current trade position
         current_position, bought_price = get_current_position()
-        latest_close = latest_close
+        latest_close = close_prices[-1]
         
         # check if there is enough data
         if len(close_prices) >= 20:
