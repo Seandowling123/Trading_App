@@ -11,7 +11,7 @@ function App() {
   return (
     <div id="page-container">
       <div id="title">
-        <h1>Trading Activity</h1>
+        <h1>Daily Trading Activity</h1>
       </div>
       < Get_stock_chart />
     </div>
