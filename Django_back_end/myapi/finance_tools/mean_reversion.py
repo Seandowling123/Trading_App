@@ -69,11 +69,10 @@ def execute_trades():
             else:
                 logging.info(f"[{current_time}] No trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
-                
+                        
     except Exception as e: 
         logging.info(f'Error executing trade: {e}')
         return None
-
 
 # Execute trades every minute
 def run_trading_algorithm():

@@ -79,6 +79,7 @@ def get_current_position():
             return 'Sold', None
     except (Exception, psycopg2.Error) as error:
         logging.info("Error while connecting to PostgreSQL or fetching data for current position:", error)
+        return 'Sold', None
 
 # Get trading acccount details
 def get_account_details():
