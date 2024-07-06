@@ -38,7 +38,7 @@ def get_trade_history():
         
         # Get today's trades
         irish_tz = pytz.timezone('Europe/Dublin')
-        now_in_irish_tz = datetime.now(irish_tz)
+        now_in_irish_tz = datetime.now(irish_tz).date()
         filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
         
         # Close the connection

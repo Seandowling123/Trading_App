@@ -175,7 +175,5 @@ def get_trade_history():
         print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
 
-# Example usage:
+# Example create database:
 create_database("trade_history", "postgres", "test_password", "localhost", "5432")
-save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
-print(get_trade_history())
