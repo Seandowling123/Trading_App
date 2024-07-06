@@ -82,7 +82,7 @@ def save_trade_to_json(order_data, json_path=os.path.join(BASE_DIR, 'finance_too
         json.dump(data, file, indent=4)
         
 # Save trading data to PostgrSQL database
-def save_trade_to_database(side, client_order_id, symbol, qty, filled_avg_price):
+def save_trade_to_database(order_data):
     try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
@@ -113,7 +113,7 @@ def save_trade_to_database(side, client_order_id, symbol, qty, filled_avg_price)
         INSERT INTO trades (side, client_order_id, datetime, symbol, qty, filled_avg_price)
         VALUES (%s, %s, %s, %s, %s, %s);
         """
-        trade_data = (side, client_order_id, current_datetime_string(), symbol, qty, filled_avg_price)
+        trade_data = (order_data.side, order_data.client_order_id, current_datetime_string(), order_data.symbol, order_data.qty, order_data.filled_avg_price)
         cursor.execute(insert_query, trade_data)
 
         # Commit changes to the database

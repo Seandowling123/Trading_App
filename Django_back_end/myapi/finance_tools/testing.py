@@ -174,6 +174,5 @@ def get_trade_history():
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
-
 # Example create database:
 create_database("trade_history", "postgres", "test_password", "localhost", "5432")
