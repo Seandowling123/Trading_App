@@ -8,6 +8,7 @@ from datetime import datetime
 import yfinance as yf
 import pandas as pd
 import psycopg2
+from psycopg2 import sql
 from datetime import datetime
 import pytz
 import logging
@@ -205,12 +206,40 @@ def add_table():
         if conn:
             cursor.close()
             conn.close()
+        
+        print(f"Table added successfully.")
 
     except (Exception, psycopg2.Error) as error:
         logging.info("Error while connecting to PostgreSQL or inserting data:", error)
+        
+def drop_database():
+    db_params = {
+        'dbname': 'trade_history',
+        'user': 'postgres',
+        'password': 'test_password',
+        'host': 'localhost',
+        'port': '5432'
+    }
+    
+    # Connect to the default 'postgres' database to execute the DROP DATABASE command
+    connection = psycopg2.connect(dbname='postgres', user=db_params['user'], password=db_params['password'], host=db_params['host'], port=db_params['port'])
+    connection.autocommit = True
+
+    cursor = connection.cursor()
+
+    # Drop the database
+    database_name = 'trade_history'
+    cursor.execute(sql.SQL("DROP DATABASE {}").format(sql.Identifier(database_name)))
+
+    # Close the connection
+    cursor.close()
+    connection.close()
+
+    print(f"Database {database_name} dropped successfully.")
 
 
 # Example usage:
+drop_database()
 create_database("trade_history", "postgres", "test_password", "localhost", "5432")
 add_table()
 #save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
