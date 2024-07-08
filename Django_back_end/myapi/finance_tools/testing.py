@@ -173,9 +173,45 @@ def get_trade_history():
         return filtered_df
     except (Exception, psycopg2.Error) as error:
         print("Error while connecting to PostgreSQL or fetching data for trade history:", error)
+        
+def add_table():
+    try:
+        # Connect to PostgreSQL
+        conn = psycopg2.connect(
+            dbname="trade_history",
+            user="postgres",
+            password="test_password",
+            host="127.0.0.1",
+            port="5432"
+        )
+        cursor = conn.cursor()
+        
+        # Insert table
+        table_query = """
+        CREATE TABLE IF NOT EXISTS trades (
+            id SERIAL PRIMARY KEY,
+            side VARCHAR(10) NOT NULL,
+            client_order_id VARCHAR(50) NOT NULL,
+            datetime VARCHAR(20) NOT NULL,
+            symbol VARCHAR(20) NOT NULL,
+            qty INTEGER NOT NULL,
+            filled_avg_price NUMERIC(12, 6) NOT NULL
+        );
+        """
+        cursor.execute(table_query)
+        conn.commit()
+        
+        # Close cursor and connection
+        if conn:
+            cursor.close()
+            conn.close()
+
+    except (Exception, psycopg2.Error) as error:
+        logging.info("Error while connecting to PostgreSQL or inserting data:", error)
 
 
 # Example usage:
 create_database("trade_history", "postgres", "test_password", "localhost", "5432")
+add_table()
 #save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
 #print(get_trade_history())
