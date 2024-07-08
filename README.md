@@ -18,6 +18,7 @@ This trading app features a trading algorithm written in Python that uses Bollin
 - **Python**: Core language for the trading algorithm.
 - **yfinance**: Library used for fetching live historical data.
 - **Alpaca API**: Used for executing trades.
+- **PostgreSQL**: Database to save and retrieve trading activity.
 - **Django**: Framework for the backend.
 - **Nginx**: Web server and reverse proxy for the backend.
 - **React.js**: Framework for the frontend dashboard.
