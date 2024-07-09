@@ -97,6 +97,6 @@ def get_account_summary():
 def get_buy_qantity(symbol='SPY'):
     account = get_account_details()
     buying_power = float(account.cash)
-    current_price = float(api.get_last_trade(symbol).price)
+    current_price = float(api.get_latest_trade(symbol).price)
     max_shares = int(buying_power // current_price)
     return max_shares
