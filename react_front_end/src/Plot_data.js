@@ -40,7 +40,10 @@ const StockChart = ({ historical_data, markersData }) => {
     const [clickedMarker, setClickedMarker] = useState(null);
 
     if (!historical_data || historical_data.length === 0) {
-      return <div>Loading Trading Data.</div>;
+      return (
+        <div id='loading-notice'>
+            <h3>Loading Trading Data...</h3>
+        </div>);
     }
 
     // Convert strings to Date objects

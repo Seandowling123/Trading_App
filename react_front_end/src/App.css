@@ -95,6 +95,13 @@ html, body {
   background-color: #121212;
 }
 
+/* Loading notice */
+#loading-notice {
+  width: 900px;
+  text-align: center;
+}
+
+
 /* Trade markers*/
 #trade-marker {
   width: 500px;
