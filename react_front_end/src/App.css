@@ -52,7 +52,7 @@ html, body {
   min-height: 100%;
   background-color: #121212;
   color: white;
-  zoom: 95%;
+  zoom: 96%;
 }
 
 #page-container > * {
@@ -81,7 +81,7 @@ html, body {
 }
 
 #trade-data-container {
-  margin-left: 75px;
+  margin-left: 65px;
   display: flex;
   align-items: flex-start;
   background-color: #121212;
