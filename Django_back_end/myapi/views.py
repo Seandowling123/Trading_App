@@ -28,7 +28,7 @@ def trade_history(request):
 
 @api_view(['GET'])
 def account_details(request):
-    response = get_trade_history.get_account_details()
+    response = get_trade_history.get_account_summary()
     return Response({'account_details': response})
 
 @api_view(['GET'])

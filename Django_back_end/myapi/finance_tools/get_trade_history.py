@@ -69,21 +69,34 @@ def get_current_position():
         if len(trade_history) > 0:
             last_trade = trade_history.iloc[-1]
             if last_trade['side'] == 'buy':
-                return 'Bought', last_trade['filled_avg_price']
+                return 'Bought', last_trade['filled_avg_price'], last_trade['qty']
             elif last_trade['side'] == 'sell':
-                return 'Sold', None
+                return 'Sold', None, None
             else:
                 logging.info(f"Error getting current position")
-                return None, None
+                return None, None, None
         else:
             return 'Sold', None
     except (Exception, psycopg2.Error) as error:
         logging.info("Error while connecting to PostgreSQL or fetching data for current position:", error)
-        return 'Sold', None
+        return 'Sold', None, None
 
 # Get trading acccount details
 def get_account_details():
     account = api.get_account()
-    account_details = {'start_balance': start_balance, 'portfolio_value': account.portfolio_value, 'current_position': get_current_position()[0]}
-    df = pd.DataFrame([account_details])
+    return account
+
+# Return an account summary for dashboard
+def get_account_summary():
+    account = get_account_details()
+    account_summary = {'start_balance': start_balance, 'portfolio_value': account.portfolio_value, 'current_position': get_current_position()[0]}
+    df = pd.DataFrame([account_summary])
     return df
+
+# Calculate the maximum number of shares that can be bought
+def get_buy_qantity(symbol='SPY'):
+    account = get_account_details()
+    buying_power = float(account.cash)
+    current_price = float(api.get_last_trade(symbol).price)
+    max_shares = int(buying_power // current_price)
+    return max_shares

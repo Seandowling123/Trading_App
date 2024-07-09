@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from .get_financial_data import get_close_prices
-from .get_trade_history import get_current_position
+from .get_trade_history import get_current_position, get_buy_qantity
 from .execute_orders import buy, sell, get_order_data, save_trade_to_database, market_open, api
 
 # Calculate the bollinger bands for the current data
@@ -34,7 +34,7 @@ def execute_trades():
         upper_band_formatted = "{:.2f}".format(upper_band)
         
         # Get current trade position
-        current_position, bought_price = get_current_position()
+        current_position, bought_price, bought_quantity = get_current_position()
         latest_close = close_prices[-1]
         
         # check if there is enough data
@@ -42,7 +42,8 @@ def execute_trades():
         
             # Execute buy
             if current_position == 'Sold' and (latest_close <= lower_band):
-                order_id = buy('SPY', 1)
+                buy_qantity = get_buy_qantity()
+                order_id = buy('SPY', buy_qantity)
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = get_order_data(order_id)
@@ -55,7 +56,7 @@ def execute_trades():
                 
             # Execute sell 
             elif current_position == 'Bought' and (latest_close >= bought_price) and (latest_close >= upper_band):
-                order_id = sell('SPY', 1)
+                order_id = sell('SPY', bought_quantity)
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = get_order_data(order_id)
