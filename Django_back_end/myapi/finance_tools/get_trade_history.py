@@ -44,6 +44,7 @@ def get_trade_history():
             last_close = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=1), end=clock.timestamp.date())[0].date
             logging.info(df['datetime'].dt.date, last_close)
             filtered_df = df[df['datetime'].dt.date == last_close]
+            logging.info(filtered_df)
         
         # Close the connection
         if conn:
