@@ -52,7 +52,7 @@ def calculate_bollinger_bands(close, window_size=20, num_std_dev=2):
 # Return close price time series with Bollinger Bands
 def get_close_with_bands(ticker, timescale='day'):
     try:
-        data = get_historical_data(ticker, timescale, include_prev_day=True)
+        data = get_historical_data(ticker, timescale)
         close = data['Close']
         upper_band, lower_band = calculate_bollinger_bands(close)
         dataframe = pd.DataFrame({'Close': close, 'Upper Band': upper_band, 'Lower Band': lower_band})
