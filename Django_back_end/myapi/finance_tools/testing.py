@@ -239,8 +239,10 @@ def drop_database():
 
 
 # Example usage:
-drop_database()
-create_database("trade_history", "postgres", "test_password", "localhost", "5432")
-add_table()
+#drop_database()
+#create_database("trade_history", "postgres", "test_password", "localhost", "5432")
+#add_table()
 #save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
 #print(get_trade_history())
+
+print(sell('SPY', 1))
