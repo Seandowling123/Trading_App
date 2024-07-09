@@ -81,6 +81,7 @@ html, body {
 }
 
 #trade-data-container {
+  margin-left: 75px;
   display: flex;
   align-items: flex-start;
   background-color: #121212;
