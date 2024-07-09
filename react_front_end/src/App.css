@@ -52,7 +52,7 @@ html, body {
   min-height: 100%;
   background-color: #121212;
   color: white;
-  zoom: 90%;
+  zoom: 95%;
 }
 
 #page-container > * {
@@ -90,7 +90,7 @@ html, body {
 /* Stock plot */
 #plot-container {
   margin: 0 auto;
-  margin-left: 1000px;
+  margin-left: 1100px;
   justify-content: left;
   background-color: #121212;
 }
