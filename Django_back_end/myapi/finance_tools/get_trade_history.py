@@ -82,7 +82,7 @@ def get_current_position():
                 logging.info(f"Error getting current position")
                 return None, None, None
         else:
-            return 'Sold', None
+            return 'Sold', None, None
     except (Exception, psycopg2.Error) as error:
         logging.info("Error while connecting to PostgreSQL or fetching data for current position:", error)
         return 'Sold', None, None
