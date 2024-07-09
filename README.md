@@ -30,4 +30,4 @@ The frontend dashboard, created using React.js, provides real-time insights into
 
 ## Compliance
 
-Note that the algorithm currently operates on a paper trading account with a high balance to ensure compliance with [trading regulations](https://www.investopedia.com/terms/p/patterndaytrader.asp).
+Note that the algorithm currently operates on a paper trading account with a high balance for compliance with [trading regulations](https://www.investopedia.com/terms/p/patterndaytrader.asp).
