@@ -87,7 +87,6 @@ html, body {
   background-color: #121212;
 }
 
-
 /* Stock plot */
 #plot-container {
   margin: 0 auto;
@@ -145,7 +144,7 @@ html, body {
 /* Chart legend */
 .chart-descriptions {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-right: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

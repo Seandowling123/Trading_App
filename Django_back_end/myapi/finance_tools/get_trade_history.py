@@ -105,5 +105,5 @@ def get_buy_qantity(symbol='SPY'):
     buying_power = float(account.cash)
     current_price = float(api.get_latest_trade(symbol).price)
     max_shares = int(buying_power // current_price)
-    return 100
+    return 10
     #return max_shares
