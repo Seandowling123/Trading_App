@@ -168,7 +168,7 @@ const StockChart = ({ historical_data, markersData }) => {
         event.points.forEach(point => {
           const clickedMarker = markerArray.find(marker => new Date(marker.datetime).getTime() === new Date(point.x).getTime());
           if (clickedMarker) {
-            setClickedMarker(clickedMarker); // Update state with clicked marker
+            setClickedMarker(clickedMarker);
           }
         });
       }

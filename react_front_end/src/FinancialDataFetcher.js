@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StockChart from './Plot_data.js';
 import AccountDetails from './account_details.js';
+import ChartLegend from './Chart_legend.js';
 
 const fetchData = async (url, setData) => {
   try {
@@ -33,6 +34,7 @@ const Get_stock_chart = () => {
       <div>
         <button className="refresh-button" onClick={updateData}>Refresh</button>
         <AccountDetails account_details={account_details} />
+        <ChartLegend />
       </div>
       
     </div>
