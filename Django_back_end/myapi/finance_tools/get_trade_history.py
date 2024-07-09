@@ -5,7 +5,7 @@ from datetime import datetime
 import pytz
 import os
 from pathlib import Path
-from .execute_orders import api
+from .execute_orders import api, market_open
 from .database_creds import user, password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,10 +34,15 @@ def get_trade_history():
         df = pd.read_sql_query(query, conn)
         df['datetime'] = pd.to_datetime(df['datetime'])
         
-        # Get today's trades
-        irish_tz = pytz.timezone('Europe/Dublin')
-        now_in_irish_tz = datetime.now(irish_tz).date()
-        filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+        # Get today's or last trading day's trades
+        if market_open():
+            irish_tz = pytz.timezone('Europe/Dublin')
+            now_in_irish_tz = datetime.now(irish_tz).date()
+            filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
+        else:
+            clock = api.get_clock()
+            last_close = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=1), end=clock.timestamp.date())[0].date
+            filtered_df = df[df['datetime'].dt.date == last_close]
         
         # Close the connection
         if conn:

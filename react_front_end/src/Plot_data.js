@@ -99,7 +99,7 @@ const StockChart = ({ historical_data, markersData }) => {
       y0: 0,
       y1: 1,
       line: {
-        color: trade.side === 'buy' ? '#00FF30' : '#FF0000', // Green for buy, red for sell
+        color: trade.side === 'buy' ? '#00FF30' : '#FF0000',
         width: 3,
         dash: 'dot'
       },
@@ -153,7 +153,7 @@ const StockChart = ({ historical_data, markersData }) => {
       autosize: true, // Automatically adjust size based on container
       hoverlabel: {
         font: {
-          color: '#CFCFCF', // Change to your desired font color
+          color: '#CFCFCF', // Font color
           size: 14, // Adjust font size as needed
           family: '-apple-system, BlinkMacSystemFont, sans-serif' // Font family to match the rest of the app
         },

@@ -1,10 +1,9 @@
 import yfinance as yf
 import pandas as pd
-from datetime import datetime, timedelta
 import logging
 
 # Get historical stock data
-def get_historical_data(ticker, timescale='day', include_prev_day=False):
+def get_historical_data(ticker, timescale='day'):
     try:
         if timescale == 'day':
             prd = '1d'
