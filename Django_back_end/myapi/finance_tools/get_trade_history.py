@@ -6,6 +6,7 @@ import pytz
 import os
 from pathlib import Path
 from .execute_orders import api
+from .database_creds import user, password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 start_balance = 100000
@@ -22,8 +23,8 @@ def get_trade_history():
         # Connect to PostgreSQL
         conn = psycopg2.connect(
             dbname="trade_history",
-            user="postgres",
-            password="test_password",
+            user=user,
+            password=password,
             host="127.0.0.1",
             port="5432"
         )
@@ -51,8 +52,8 @@ def get_current_position():
         # Connect to PostgreSQL
         conn = psycopg2.connect(
             dbname="trade_history",
-            user="postgres",
-            password="test_password",
+            user=user,
+            password=password,
             host="127.0.0.1",
             port="5432"
         )
