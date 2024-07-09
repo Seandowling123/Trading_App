@@ -4,6 +4,7 @@ Django_back_end/myapi/finance_tools/back_testing/
 Django_back_end/myapi/finance_tools/Trade_history/Trade_history.csv
 Django_back_end/myapi/finance_tools/API_keys.py
 Django_back_end/myapi/finance_tools/database_creds.py
+Django_back_end/myapi/finance_tools/testing.py
 
 # dependencies
 react_front_end/node_modules
