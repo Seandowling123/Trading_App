@@ -114,9 +114,13 @@ const StockChart = ({ historical_data, markersData }) => {
     const endDate = new Date(startDate[dateObjects.length]);
     endDate.setDate(startDate.getDate() + 1);
 
+    // Set plot title
+    let num_trades = markerArray.length;
+    let titleText = num_trades > 0 ? `SPY - ${getFormattedDate(startDate)} - ${num_trades} Trades Executed Today` : `SPY - ${getFormattedDate(startDate)} - No Trades Executed Today`;
+
     const layout = {
       title: {
-        text:`SPY - ${getFormattedDate(startDate)}`,
+        text: titleText,
         font: {
           family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
           size: 24,
