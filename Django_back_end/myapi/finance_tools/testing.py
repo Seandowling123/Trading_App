@@ -244,5 +244,3 @@ def drop_database():
 #add_table()
 #save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
 #print(get_trade_history())
-
-print(sell('SPY', 1))
