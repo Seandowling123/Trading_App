@@ -56,7 +56,7 @@ def execute_trades():
                 
             # Execute sell 
             elif current_position == 'Bought' and (latest_close >= bought_price) and (latest_close >= upper_band):
-                order_id = sell('SPY', bought_quantity)
+                order_id = sell('SPY', int(bought_quantity))
                 logging.info(f"[{current_time}] Trade available. Last close: {last_close_formatted}, Lower Band: {lower_band_formatted}, "
                     f"Upper Band: {upper_band_formatted}, Current Position: {current_position}")
                 order_data = get_order_data(order_id)

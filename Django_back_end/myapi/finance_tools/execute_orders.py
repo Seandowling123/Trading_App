@@ -192,6 +192,7 @@ def get_order_data(order_id, initial_delay=2, polling_interval=2, timeout=30):
             if order_data.status != 'new':
                 return order_data
             time.sleep(polling_interval)
+        logging.info('Order timed out')
         return None
     return order_data
 
