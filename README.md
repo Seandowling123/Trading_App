@@ -2,14 +2,14 @@
 
 ## Overview
 
-This trading app features a trading algorithm written in Python that uses Bollinger Bands to generate trade signals. The application collects live historical data using the `yfinance` library and executes trades through the Alpaca API. The algorithm is currently focused on trading the S&P 500 ticker, SPY.
+This trading app features a trading algorithm that uses Bollinger Bands to generate trade signals. The application collects live historical data using the `yfinance` library and executes trades using the Alpaca API. The algorithm is currently focused on trading the S&P 500 ticker, SPY.
 
 ## Features
 
-- **Trading Algorithm**: Uses Bollinger Bands to determine optimal buy and sell signals.
+- **Trading Algorithm**: Uses Bollinger Bands to determine buy and sell signals.
 - **Live Data Collection**: Fetches real-time historical data via the `yfinance` library.
 - **Trade Execution**: Executes trades through the Alpaca API.
-- **Hosting**: The application is currently hosted on an AWS EC2 instance, providing robust performance and uptime.
+- **Hosting**: The application is currently hosted on an AWS EC2 instance.
 - **Backend**: Built with Django and Nginx, the backend supplies live activity and performance data.
 - **Frontend**: A React.js-based dashboard available at [seand.ie](https://seand.ie) for monitoring trading activity and performance metrics.
 
@@ -26,7 +26,7 @@ This trading app features a trading algorithm written in Python that uses Bollin
 
 ## Dashboard
 
-The frontend dashboard, created using React.js, provides real-time insights into the trading algorithm’s performance and activity. Users can monitor the trading operations and analyze performance metrics at [seand.ie](https://seand.ie). An example capture of the dashboard is shown below.
+The frontend dashboard, created using React.js, provides real-time data on the trading algorithm’s performance and activity. The dashboard is viewable [seand.ie](https://seand.ie). An example capture of the dashboard is shown below.
 
 ![dashboard](https://github.com/Seandowling123/Trading_App/assets/61026772/4b8bd7e2-9373-48c5-b172-97c62ec72d49)
 
