@@ -15,7 +15,7 @@ This trading app features a trading algorithm that uses Bollinger Bands to gener
 
 ## Technical Stack
 
-- **Python**: Core language for the trading algorithm & backend.
+- **Python Data Science Stack (NumPy, Pandas, etc)**: Core tools for the trading algorithm.
 - **yfinance**: Library used for fetching live historical data.
 - **Alpaca API**: Used for executing trades.
 - **PostgreSQL**: Database to save and retrieve trading activity.
