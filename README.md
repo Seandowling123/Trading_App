@@ -26,7 +26,7 @@ This trading app features a trading algorithm that uses Bollinger Bands to gener
 
 ## Dashboard
 
-The frontend dashboard, created using React.js, provides real-time data on the trading algorithm’s performance and activity. The dashboard is viewable [seand.ie](https://seand.ie). An example capture of the dashboard is shown below.
+The frontend dashboard, created using React.js, provides real-time data on the trading algorithm’s performance and activity. The dashboard is viewable at [seand.ie](https://seand.ie). An example capture of the dashboard is shown below.
 
 ![dashboard](https://github.com/Seandowling123/Trading_App/assets/61026772/4b8bd7e2-9373-48c5-b172-97c62ec72d49)
 
