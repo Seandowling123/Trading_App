@@ -41,7 +41,7 @@ def get_trade_history():
             filtered_df = df[df['datetime'].dt.date == now_in_irish_tz]
         else:
             clock = api.get_clock()
-            last_close = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=1), end=clock.timestamp.date())[1].date
+            last_close = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=1), end=clock.timestamp.date())[0].date
             filtered_df = df[df['datetime'].dt.date == last_close.date()]
         
         # Close the connection
