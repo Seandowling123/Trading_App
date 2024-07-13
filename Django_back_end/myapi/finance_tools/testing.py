@@ -244,3 +244,9 @@ def drop_database():
 #add_table()
 #save_trade_to_database('buy', '12345', 'AAPL', 100, 148.25)
 #print(get_trade_history())
+
+clock = api.get_clock()
+calendar = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=5), end=clock.timestamp.date())
+last_close = calendar[len(calendar)-1].date
+print(calendar)
+print(last_close.date())
