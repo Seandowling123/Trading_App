@@ -115,7 +115,7 @@ const StockChart = ({ historical_data, markersData }) => {
     endDate.setDate(startDate.getDate() + 1);
 
     // Set plot title
-    let num_trades = markerArray.length;
+    let num_trades = markersData.length;
     let titleText = num_trades > 0 ? 
                 (num_trades === 1 ? `SPY - ${getFormattedDate(startDate)} - 1 Trade Executed Today` : 
                 `SPY - ${getFormattedDate(startDate)} - ${num_trades} Trades Executed Today`) : 
