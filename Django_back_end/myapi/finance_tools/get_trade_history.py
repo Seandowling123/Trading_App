@@ -19,7 +19,7 @@ def get_datetime_from_string(date_string):
 
 # Get trade history from PostgrSQL database
 def get_trade_history():
-    try:
+    #try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
             dbname="trade_history",
@@ -50,8 +50,8 @@ def get_trade_history():
         if conn:
             conn.close()
         return filtered_df
-    except (Exception, psycopg2.Error) as error:
-        logging.info("Error while connecting to PostgreSQL or fetching data for trade history:", error)
+    #except (Exception, psycopg2.Error) as error:
+        #logging.info("Error while connecting to PostgreSQL or fetching data for trade history:", error)
 
 # Get the current bought/sold position
 def get_current_position():
