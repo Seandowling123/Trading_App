@@ -42,6 +42,7 @@ def get_trade_history():
         else:
             clock = api.get_clock()
             calendar = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=5), end=clock.timestamp.date())
+            logging.info(len(calendar))
             prev_close = calendar[len(calendar)-1].date
             filtered_df = df[df['datetime'].dt.date == prev_close.date()]
         
