@@ -13,8 +13,9 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - chmod +x ../../build_and_copy.sh
-      - ../../build_and_copy.sh
+      - cd ..
+      - chmod +x build_and_copy.sh
+      - ./build_and_copy.sh
 artifacts:
   files:
     - '**/*'
