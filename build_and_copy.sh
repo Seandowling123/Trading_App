@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Navigate to the React front end directory
-cd react_front_end || exit
+current_dir=$(pwd)
+echo "Current directory is: $current_dir"
 
-# Build the React app
-npm run build
+# Delete contents of Django_back_end/build/
+rm -r Django_back_end/build/*
 
-# Copy the build files to the Django static directory
-cp -r build/* ../Django_back_end/static/
+# Copy contents of react_front_end/build/ to Django_back_end/build/
+cp -r react_front_end/build/* Django_back_end/build/
