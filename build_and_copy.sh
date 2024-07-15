@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # Navigate to the React front end directory
-cd /var/Trading_App/react_front_end
+cd react_front_end || exit
 
-# Install dependencies and build the React app
-npm install
+# Build the React app
 npm run build
 
-# Copy the build files to the Django back end directory
-cp -r build/* /var/Trading_App/Django_back_end/static/
+# Copy the build files to the Django static directory
+cp -r build/* ../Django_back_end/static/

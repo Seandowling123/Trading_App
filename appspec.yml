@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/Trading_App/Django_back_end/static
+    destination: /Django_back_end/static
 hooks:
   AfterInstall:
     - location: scripts/after_install.sh
