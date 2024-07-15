@@ -6,6 +6,7 @@ phases:
       - echo Installing dependencies...
       - cd react_front_end
       - npm install
+      - npm install react-plotly.js plotly.js
   build:
     commands:
       - echo Build started on `date`
