@@ -12,11 +12,10 @@ phases:
       - npm run build
   post_build:
     commands:
-      - cd ..
       - echo Build completed on `date`
-      - chmod +x ../build_and_copy.sh
-      - ../build_and_copy.sh
+      - chmod +x ../../build_and_copy.sh
+      - ../../build_and_copy.sh
 artifacts:
   files:
     - '**/*'
-  base-directory: Django_back_end/static
+  base-directory: react_front_end/build
