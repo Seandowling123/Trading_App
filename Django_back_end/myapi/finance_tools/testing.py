@@ -247,6 +247,11 @@ def drop_database():
 
 clock = api.get_clock()
 calendar = api.get_calendar(start=clock.timestamp.date() - pd.Timedelta(days=5), end=clock.timestamp.date())
-last_close = calendar[len(calendar)-1].date
-print(calendar)
-print(last_close.date())
+
+if calendar[len(calendar)-1].date.date() == clock.timestamp.date() and clock.timestamp.time() < calendar[len(calendar)-1].open:
+    prev_close = calendar[len(calendar)-2].date
+else:
+    prev_close = calendar[len(calendar)-1].date
+    
+print(prev_close.date() == clock.timestamp.date())
+print(prev_close.date(), clock.timestamp.date())
