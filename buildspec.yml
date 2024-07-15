@@ -12,6 +12,7 @@ phases:
       - npm run build
   post_build:
     commands:
+      - cd ..
       - echo Build completed on `date`
       - chmod +x ../build_and_copy.sh
       - ../build_and_copy.sh
