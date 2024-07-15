@@ -4,10 +4,17 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
+      - cd /var/Trading_App/react_front_end
+      - chmod +x /var/Trading_App/build_and_copy.sh
+      - npm install
   build:
     commands:
       - echo Build started on `date`
-      - ./build_and_copy.sh
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - cp -r build/* /var/Trading_App/Django_back_end/static/
 artifacts:
   files:
     - '**/*'
