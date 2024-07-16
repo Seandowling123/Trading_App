@@ -17,14 +17,7 @@ phases:
       - cd ..
       - chmod +x build_and_copy.sh
       - ./build_and_copy.sh
-
 artifacts:
   files:
     - '**/*'
   base-directory: .
-
-# Only run the build if changes are detected in the react_front_end directory
-filter_groups:
-  - filter_group:
-      - type: PATH
-        pattern: react_front_end/**
