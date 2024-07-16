@@ -1,8 +1,5 @@
 #!/bin/bash
 
-current_dir=$(pwd)
-echo "Current directory is: $current_dir"
-
 # Delete contents of Django_back_end/build/
 rm -r Django_back_end/build/*
 

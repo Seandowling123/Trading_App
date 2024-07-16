@@ -9,24 +9,22 @@ phases:
       - npm install react-plotly.js plotly.js
   build:
     commands:
-      - |
-        if git diff --quiet --exit-code react_front_end; then
-          echo "No changes in react_front_end directory. Skipping npm install."
-        else
-          echo Build started on `date`
-          npm run build
-        fi
+      - echo Build started on `date`
+      - npm run build
   post_build:
     commands:
-      - |
-        if git diff --quiet --exit-code react_front_end; then
-          echo "No changes in react_front_end directory. Skipping post build."
-        else
-          echo Build completed on `date`
-          cd ..
-          chmod +x build_and_copy.sh
-          ./build_and_copy.sh
+      - echo Build completed on `date`
+      - cd ..
+      - chmod +x build_and_copy.sh
+      - ./build_and_copy.sh
+
 artifacts:
   files:
     - '**/*'
   base-directory: .
+
+# Only run the build if changes are detected in the react_front_end directory
+filter_groups:
+  - filter_group:
+      - type: PATH
+        pattern: react_front_end/**
