@@ -1,0 +1,27 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore environment directories
+venv/
+env/
+
+# Ignore logs
+Django_back_end/logs/
+*.log
+
+# Ignore Git files and directories
+.git/
+.gitignore
+
+# Ignore Docker-specific files
+Dockerfile
+.dockerignore
+
+# Ignore other build artifacts
+*.tar
+*.gz

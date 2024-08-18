@@ -29868,3 +29868,819 @@ DEBUG 2024-08-18 15:55:01,091 utils  Exiting history()
 DEBUG 2024-08-18 15:55:01,091 utils Exiting download()
 INFO 2024-08-18 15:55:01,104 mean_reversion [18/Aug/2024 15:55:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
 INFO 2024-08-18 15:55:01,104 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:56:01 UTC)" executed successfully
+DEBUG 2024-08-18 15:56:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 15:56:01,004 base Next wakeup is due at 2024-08-18 15:57:01+00:00 (in 59.995387 seconds)
+INFO 2024-08-18 15:56:01,004 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:57:01 UTC)" (scheduled at 2024-08-18 15:56:01+00:00)
+DEBUG 2024-08-18 15:56:01,005 utils Entering download()
+DEBUG 2024-08-18 15:56:01,005 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 15:56:01,005 utils  Entering history()
+DEBUG 2024-08-18 15:56:01,005 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 15:56:01,007 utils   Entering history()
+DEBUG 2024-08-18 15:56:01,007 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:56:01,007 utils    Entering get()
+DEBUG 2024-08-18 15:56:01,007 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 15:56:01,007 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:56:01,007 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:56:01,007 data cookie_mode = 'basic'
+DEBUG 2024-08-18 15:56:01,007 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:56:01,007 data reusing cookie
+DEBUG 2024-08-18 15:56:01,007 data reusing crumb
+DEBUG 2024-08-18 15:56:01,007 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:56:01,007 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:56:01,086 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 15:56:01,087 data response code=200
+DEBUG 2024-08-18 15:56:01,087 utils    Exiting get()
+DEBUG 2024-08-18 15:56:01,090 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 15:56:01,114 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:56:01,118 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:56:01,140 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:56:01,141 utils   Exiting history()
+DEBUG 2024-08-18 15:56:01,141 utils  Exiting history()
+DEBUG 2024-08-18 15:56:01,141 utils Exiting download()
+INFO 2024-08-18 15:56:01,171 mean_reversion [18/Aug/2024 15:56:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 15:56:01,172 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:57:01 UTC)" executed successfully
+DEBUG 2024-08-18 15:57:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 15:57:01,001 base Next wakeup is due at 2024-08-18 15:58:01+00:00 (in 59.998692 seconds)
+INFO 2024-08-18 15:57:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:58:01 UTC)" (scheduled at 2024-08-18 15:57:01+00:00)
+DEBUG 2024-08-18 15:57:01,002 utils Entering download()
+DEBUG 2024-08-18 15:57:01,002 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 15:57:01,002 utils  Entering history()
+DEBUG 2024-08-18 15:57:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 15:57:01,002 utils   Entering history()
+DEBUG 2024-08-18 15:57:01,003 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:57:01,003 utils    Entering get()
+DEBUG 2024-08-18 15:57:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 15:57:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:57:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:57:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 15:57:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:57:01,003 data reusing cookie
+DEBUG 2024-08-18 15:57:01,003 data reusing crumb
+DEBUG 2024-08-18 15:57:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:57:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:57:01,080 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 15:57:01,081 data response code=200
+DEBUG 2024-08-18 15:57:01,081 utils    Exiting get()
+DEBUG 2024-08-18 15:57:01,083 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 15:57:01,093 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:57:01,096 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:57:01,104 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:57:01,105 utils   Exiting history()
+DEBUG 2024-08-18 15:57:01,105 utils  Exiting history()
+DEBUG 2024-08-18 15:57:01,105 utils Exiting download()
+INFO 2024-08-18 15:57:01,117 mean_reversion [18/Aug/2024 15:57:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 15:57:01,118 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:58:01 UTC)" executed successfully
+DEBUG 2024-08-18 15:58:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 15:58:01,001 base Next wakeup is due at 2024-08-18 15:59:01+00:00 (in 59.998364 seconds)
+INFO 2024-08-18 15:58:01,002 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:59:01 UTC)" (scheduled at 2024-08-18 15:58:01+00:00)
+DEBUG 2024-08-18 15:58:01,002 utils Entering download()
+DEBUG 2024-08-18 15:58:01,002 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 15:58:01,002 utils  Entering history()
+DEBUG 2024-08-18 15:58:01,003 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 15:58:01,003 utils   Entering history()
+DEBUG 2024-08-18 15:58:01,003 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:58:01,003 utils    Entering get()
+DEBUG 2024-08-18 15:58:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 15:58:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:58:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:58:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 15:58:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:58:01,003 data reusing cookie
+DEBUG 2024-08-18 15:58:01,003 data reusing crumb
+DEBUG 2024-08-18 15:58:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:58:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:58:01,087 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 15:58:01,088 data response code=200
+DEBUG 2024-08-18 15:58:01,088 utils    Exiting get()
+DEBUG 2024-08-18 15:58:01,092 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 15:58:01,135 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:58:01,147 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:58:01,168 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:58:01,169 utils   Exiting history()
+DEBUG 2024-08-18 15:58:01,169 utils  Exiting history()
+DEBUG 2024-08-18 15:58:01,169 utils Exiting download()
+INFO 2024-08-18 15:58:01,193 mean_reversion [18/Aug/2024 15:58:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 15:58:01,193 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 15:59:01 UTC)" executed successfully
+DEBUG 2024-08-18 15:59:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 15:59:01,002 base Next wakeup is due at 2024-08-18 16:00:01+00:00 (in 59.997800 seconds)
+INFO 2024-08-18 15:59:01,004 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:00:01 UTC)" (scheduled at 2024-08-18 15:59:01+00:00)
+DEBUG 2024-08-18 15:59:01,004 utils Entering download()
+DEBUG 2024-08-18 15:59:01,004 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 15:59:01,005 utils  Entering history()
+DEBUG 2024-08-18 15:59:01,005 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 15:59:01,005 utils   Entering history()
+DEBUG 2024-08-18 15:59:01,005 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:59:01,005 utils    Entering get()
+DEBUG 2024-08-18 15:59:01,006 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 15:59:01,006 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 15:59:01,006 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:59:01,006 data cookie_mode = 'basic'
+DEBUG 2024-08-18 15:59:01,006 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:59:01,006 data reusing cookie
+DEBUG 2024-08-18 15:59:01,006 data reusing crumb
+DEBUG 2024-08-18 15:59:01,006 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 15:59:01,006 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 15:59:01,082 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 15:59:01,083 data response code=200
+DEBUG 2024-08-18 15:59:01,083 utils    Exiting get()
+DEBUG 2024-08-18 15:59:01,085 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 15:59:01,093 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:59:01,097 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:59:01,106 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 15:59:01,106 utils   Exiting history()
+DEBUG 2024-08-18 15:59:01,107 utils  Exiting history()
+DEBUG 2024-08-18 15:59:01,107 utils Exiting download()
+INFO 2024-08-18 15:59:01,120 mean_reversion [18/Aug/2024 15:59:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 15:59:01,120 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:00:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:00:01,002 base Looking for jobs to run
+DEBUG 2024-08-18 16:00:01,003 base Next wakeup is due at 2024-08-18 16:01:01+00:00 (in 59.996851 seconds)
+INFO 2024-08-18 16:00:01,003 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:01:01 UTC)" (scheduled at 2024-08-18 16:00:01+00:00)
+DEBUG 2024-08-18 16:00:01,003 utils Entering download()
+DEBUG 2024-08-18 16:00:01,003 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:00:01,003 utils  Entering history()
+DEBUG 2024-08-18 16:00:01,004 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:00:01,004 utils   Entering history()
+DEBUG 2024-08-18 16:00:01,004 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:00:01,004 utils    Entering get()
+DEBUG 2024-08-18 16:00:01,005 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:00:01,005 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:00:01,005 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:00:01,005 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:00:01,005 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:00:01,005 data reusing cookie
+DEBUG 2024-08-18 16:00:01,005 data reusing crumb
+DEBUG 2024-08-18 16:00:01,005 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:00:01,005 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:00:01,117 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:00:01,118 data response code=200
+DEBUG 2024-08-18 16:00:01,118 utils    Exiting get()
+DEBUG 2024-08-18 16:00:01,123 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:00:01,141 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:00:01,146 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:00:01,155 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:00:01,155 utils   Exiting history()
+DEBUG 2024-08-18 16:00:01,155 utils  Exiting history()
+DEBUG 2024-08-18 16:00:01,155 utils Exiting download()
+INFO 2024-08-18 16:00:01,180 mean_reversion [18/Aug/2024 16:00:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:00:01,181 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:01:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:01:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:01:01,001 base Next wakeup is due at 2024-08-18 16:02:01+00:00 (in 59.998826 seconds)
+INFO 2024-08-18 16:01:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:02:01 UTC)" (scheduled at 2024-08-18 16:01:01+00:00)
+DEBUG 2024-08-18 16:01:01,001 utils Entering download()
+DEBUG 2024-08-18 16:01:01,001 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:01:01,002 utils  Entering history()
+DEBUG 2024-08-18 16:01:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:01:01,002 utils   Entering history()
+DEBUG 2024-08-18 16:01:01,002 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:01:01,002 utils    Entering get()
+DEBUG 2024-08-18 16:01:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:01:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:01:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:01:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:01:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:01:01,003 data reusing cookie
+DEBUG 2024-08-18 16:01:01,003 data reusing crumb
+DEBUG 2024-08-18 16:01:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:01:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:01:01,077 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:01:01,078 data response code=200
+DEBUG 2024-08-18 16:01:01,078 utils    Exiting get()
+DEBUG 2024-08-18 16:01:01,083 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:01:01,109 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:01:01,113 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:01:01,130 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:01:01,130 utils   Exiting history()
+DEBUG 2024-08-18 16:01:01,131 utils  Exiting history()
+DEBUG 2024-08-18 16:01:01,131 utils Exiting download()
+INFO 2024-08-18 16:01:01,145 mean_reversion [18/Aug/2024 16:01:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:01:01,145 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:02:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:02:01,001 base Looking for jobs to run
+DEBUG 2024-08-18 16:02:01,001 base Next wakeup is due at 2024-08-18 16:03:01+00:00 (in 59.998326 seconds)
+INFO 2024-08-18 16:02:01,002 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:03:01 UTC)" (scheduled at 2024-08-18 16:02:01+00:00)
+DEBUG 2024-08-18 16:02:01,002 utils Entering download()
+DEBUG 2024-08-18 16:02:01,002 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:02:01,003 utils  Entering history()
+DEBUG 2024-08-18 16:02:01,003 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:02:01,003 utils   Entering history()
+DEBUG 2024-08-18 16:02:01,003 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:02:01,003 utils    Entering get()
+DEBUG 2024-08-18 16:02:01,004 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:02:01,004 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:02:01,004 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:02:01,004 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:02:01,004 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:02:01,004 data reusing cookie
+DEBUG 2024-08-18 16:02:01,006 data reusing crumb
+DEBUG 2024-08-18 16:02:01,006 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:02:01,006 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:02:01,079 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:02:01,080 data response code=200
+DEBUG 2024-08-18 16:02:01,080 utils    Exiting get()
+DEBUG 2024-08-18 16:02:01,082 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:02:01,093 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:02:01,103 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:02:01,116 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:02:01,117 utils   Exiting history()
+DEBUG 2024-08-18 16:02:01,117 utils  Exiting history()
+DEBUG 2024-08-18 16:02:01,117 utils Exiting download()
+INFO 2024-08-18 16:02:01,139 mean_reversion [18/Aug/2024 16:02:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:02:01,140 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:03:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:03:01,002 base Looking for jobs to run
+DEBUG 2024-08-18 16:03:01,006 base Next wakeup is due at 2024-08-18 16:04:01+00:00 (in 59.993931 seconds)
+INFO 2024-08-18 16:03:01,006 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:04:01 UTC)" (scheduled at 2024-08-18 16:03:01+00:00)
+DEBUG 2024-08-18 16:03:01,006 utils Entering download()
+DEBUG 2024-08-18 16:03:01,006 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:03:01,024 utils  Entering history()
+DEBUG 2024-08-18 16:03:01,025 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:03:01,026 utils   Entering history()
+DEBUG 2024-08-18 16:03:01,026 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:03:01,026 utils    Entering get()
+DEBUG 2024-08-18 16:03:01,026 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:03:01,026 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:03:01,026 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:03:01,026 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:03:01,026 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:03:01,027 data reusing cookie
+DEBUG 2024-08-18 16:03:01,027 data reusing crumb
+DEBUG 2024-08-18 16:03:01,027 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:03:01,027 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:03:01,111 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:03:01,111 data response code=200
+DEBUG 2024-08-18 16:03:01,112 utils    Exiting get()
+DEBUG 2024-08-18 16:03:01,199 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:03:01,254 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:03:01,260 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:03:01,280 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:03:01,281 utils   Exiting history()
+DEBUG 2024-08-18 16:03:01,281 utils  Exiting history()
+DEBUG 2024-08-18 16:03:01,281 utils Exiting download()
+INFO 2024-08-18 16:03:01,389 mean_reversion [18/Aug/2024 16:03:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:03:01,389 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:04:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:04:01,005 base Looking for jobs to run
+DEBUG 2024-08-18 16:04:01,018 base Next wakeup is due at 2024-08-18 16:05:01+00:00 (in 59.981045 seconds)
+INFO 2024-08-18 16:04:01,019 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:05:01 UTC)" (scheduled at 2024-08-18 16:04:01+00:00)
+DEBUG 2024-08-18 16:04:01,021 utils Entering download()
+DEBUG 2024-08-18 16:04:01,021 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:04:01,038 utils  Entering history()
+DEBUG 2024-08-18 16:04:01,040 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:04:01,049 utils   Entering history()
+DEBUG 2024-08-18 16:04:01,049 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:04:01,049 utils    Entering get()
+DEBUG 2024-08-18 16:04:01,049 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:04:01,049 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:04:01,049 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:04:01,049 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:04:01,049 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:04:01,049 data reusing cookie
+DEBUG 2024-08-18 16:04:01,050 data reusing crumb
+DEBUG 2024-08-18 16:04:01,050 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:04:01,050 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:04:01,122 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:04:01,124 data response code=200
+DEBUG 2024-08-18 16:04:01,124 utils    Exiting get()
+DEBUG 2024-08-18 16:04:01,192 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:04:01,260 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:04:01,265 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:04:01,288 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:04:01,289 utils   Exiting history()
+DEBUG 2024-08-18 16:04:01,289 utils  Exiting history()
+DEBUG 2024-08-18 16:04:01,289 utils Exiting download()
+INFO 2024-08-18 16:04:01,392 mean_reversion [18/Aug/2024 16:04:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:04:01,392 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:05:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:05:01,001 base Looking for jobs to run
+DEBUG 2024-08-18 16:05:01,006 base Next wakeup is due at 2024-08-18 16:06:01+00:00 (in 59.993982 seconds)
+INFO 2024-08-18 16:05:01,006 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:06:01 UTC)" (scheduled at 2024-08-18 16:05:01+00:00)
+DEBUG 2024-08-18 16:05:01,008 utils Entering download()
+DEBUG 2024-08-18 16:05:01,008 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:05:01,010 utils  Entering history()
+DEBUG 2024-08-18 16:05:01,010 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:05:01,018 utils   Entering history()
+DEBUG 2024-08-18 16:05:01,019 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:05:01,019 utils    Entering get()
+DEBUG 2024-08-18 16:05:01,019 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:05:01,019 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:05:01,019 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:05:01,019 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:05:01,019 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:05:01,019 data reusing cookie
+DEBUG 2024-08-18 16:05:01,019 data reusing crumb
+DEBUG 2024-08-18 16:05:01,020 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:05:01,020 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:05:01,100 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:05:01,103 data response code=200
+DEBUG 2024-08-18 16:05:01,103 utils    Exiting get()
+DEBUG 2024-08-18 16:05:01,127 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:05:01,158 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:05:01,161 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:05:01,168 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:05:01,169 utils   Exiting history()
+DEBUG 2024-08-18 16:05:01,169 utils  Exiting history()
+DEBUG 2024-08-18 16:05:01,169 utils Exiting download()
+INFO 2024-08-18 16:05:01,220 mean_reversion [18/Aug/2024 16:05:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:05:01,220 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:06:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:06:01,001 base Looking for jobs to run
+DEBUG 2024-08-18 16:06:01,001 base Next wakeup is due at 2024-08-18 16:07:01+00:00 (in 59.998191 seconds)
+INFO 2024-08-18 16:06:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:07:01 UTC)" (scheduled at 2024-08-18 16:06:01+00:00)
+DEBUG 2024-08-18 16:06:01,002 utils Entering download()
+DEBUG 2024-08-18 16:06:01,002 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:06:01,002 utils  Entering history()
+DEBUG 2024-08-18 16:06:01,003 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:06:01,003 utils   Entering history()
+DEBUG 2024-08-18 16:06:01,003 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:06:01,003 utils    Entering get()
+DEBUG 2024-08-18 16:06:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:06:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:06:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:06:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:06:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:06:01,003 data reusing cookie
+DEBUG 2024-08-18 16:06:01,003 data reusing crumb
+DEBUG 2024-08-18 16:06:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:06:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:06:01,084 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:06:01,084 data response code=200
+DEBUG 2024-08-18 16:06:01,085 utils    Exiting get()
+DEBUG 2024-08-18 16:06:01,087 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:06:01,099 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:06:01,102 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:06:01,113 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:06:01,113 utils   Exiting history()
+DEBUG 2024-08-18 16:06:01,114 utils  Exiting history()
+DEBUG 2024-08-18 16:06:01,114 utils Exiting download()
+INFO 2024-08-18 16:06:01,130 mean_reversion [18/Aug/2024 16:06:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:06:01,131 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:07:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:07:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:07:01,001 base Next wakeup is due at 2024-08-18 16:08:01+00:00 (in 59.998881 seconds)
+INFO 2024-08-18 16:07:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:08:01 UTC)" (scheduled at 2024-08-18 16:07:01+00:00)
+DEBUG 2024-08-18 16:07:01,001 utils Entering download()
+DEBUG 2024-08-18 16:07:01,001 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:07:01,002 utils  Entering history()
+DEBUG 2024-08-18 16:07:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:07:01,004 utils   Entering history()
+DEBUG 2024-08-18 16:07:01,004 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:07:01,004 utils    Entering get()
+DEBUG 2024-08-18 16:07:01,004 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:07:01,004 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:07:01,004 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:07:01,004 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:07:01,004 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:07:01,004 data reusing cookie
+DEBUG 2024-08-18 16:07:01,004 data reusing crumb
+DEBUG 2024-08-18 16:07:01,005 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:07:01,005 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:07:01,091 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:07:01,093 data response code=200
+DEBUG 2024-08-18 16:07:01,094 utils    Exiting get()
+DEBUG 2024-08-18 16:07:01,097 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:07:01,112 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:07:01,118 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:07:01,141 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:07:01,141 utils   Exiting history()
+DEBUG 2024-08-18 16:07:01,142 utils  Exiting history()
+DEBUG 2024-08-18 16:07:01,142 utils Exiting download()
+INFO 2024-08-18 16:07:01,169 mean_reversion [18/Aug/2024 16:07:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:07:01,170 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:08:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:08:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:08:01,001 base Next wakeup is due at 2024-08-18 16:09:01+00:00 (in 59.998866 seconds)
+INFO 2024-08-18 16:08:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:09:01 UTC)" (scheduled at 2024-08-18 16:08:01+00:00)
+DEBUG 2024-08-18 16:08:01,001 utils Entering download()
+DEBUG 2024-08-18 16:08:01,001 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:08:01,001 utils  Entering history()
+DEBUG 2024-08-18 16:08:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:08:01,002 utils   Entering history()
+DEBUG 2024-08-18 16:08:01,002 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:08:01,003 utils    Entering get()
+DEBUG 2024-08-18 16:08:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:08:01,004 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:08:01,004 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:08:01,004 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:08:01,004 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:08:01,004 data reusing cookie
+DEBUG 2024-08-18 16:08:01,004 data reusing crumb
+DEBUG 2024-08-18 16:08:01,005 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:08:01,005 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:08:01,080 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:08:01,080 data response code=200
+DEBUG 2024-08-18 16:08:01,081 utils    Exiting get()
+DEBUG 2024-08-18 16:08:01,083 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:08:01,100 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:08:01,106 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:08:01,115 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:08:01,116 utils   Exiting history()
+DEBUG 2024-08-18 16:08:01,116 utils  Exiting history()
+DEBUG 2024-08-18 16:08:01,116 utils Exiting download()
+INFO 2024-08-18 16:08:01,142 mean_reversion [18/Aug/2024 16:08:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:08:01,143 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:09:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:09:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:09:01,001 base Next wakeup is due at 2024-08-18 16:10:01+00:00 (in 59.998980 seconds)
+INFO 2024-08-18 16:09:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:10:01 UTC)" (scheduled at 2024-08-18 16:09:01+00:00)
+DEBUG 2024-08-18 16:09:01,001 utils Entering download()
+DEBUG 2024-08-18 16:09:01,001 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:09:01,001 utils  Entering history()
+DEBUG 2024-08-18 16:09:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:09:01,002 utils   Entering history()
+DEBUG 2024-08-18 16:09:01,002 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:09:01,002 utils    Entering get()
+DEBUG 2024-08-18 16:09:01,002 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:09:01,002 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:09:01,002 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:09:01,002 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:09:01,002 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:09:01,002 data reusing cookie
+DEBUG 2024-08-18 16:09:01,003 data reusing crumb
+DEBUG 2024-08-18 16:09:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:09:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:09:01,074 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:09:01,075 data response code=200
+DEBUG 2024-08-18 16:09:01,075 utils    Exiting get()
+DEBUG 2024-08-18 16:09:01,078 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:09:01,086 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:09:01,090 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:09:01,097 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:09:01,097 utils   Exiting history()
+DEBUG 2024-08-18 16:09:01,098 utils  Exiting history()
+DEBUG 2024-08-18 16:09:01,098 utils Exiting download()
+INFO 2024-08-18 16:09:01,114 mean_reversion [18/Aug/2024 16:09:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:09:01,114 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:10:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:10:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:10:01,002 base Next wakeup is due at 2024-08-18 16:11:01+00:00 (in 59.997368 seconds)
+INFO 2024-08-18 16:10:01,002 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:11:01 UTC)" (scheduled at 2024-08-18 16:10:01+00:00)
+DEBUG 2024-08-18 16:10:01,003 utils Entering download()
+DEBUG 2024-08-18 16:10:01,003 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:10:01,003 utils  Entering history()
+DEBUG 2024-08-18 16:10:01,004 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:10:01,004 utils   Entering history()
+DEBUG 2024-08-18 16:10:01,004 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:10:01,005 utils    Entering get()
+DEBUG 2024-08-18 16:10:01,005 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:10:01,005 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:10:01,005 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:10:01,006 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:10:01,006 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:10:01,006 data reusing cookie
+DEBUG 2024-08-18 16:10:01,006 data reusing crumb
+DEBUG 2024-08-18 16:10:01,006 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:10:01,006 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:10:01,077 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:10:01,078 data response code=200
+DEBUG 2024-08-18 16:10:01,078 utils    Exiting get()
+DEBUG 2024-08-18 16:10:01,082 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:10:01,106 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:10:01,112 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:10:01,123 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:10:01,124 utils   Exiting history()
+DEBUG 2024-08-18 16:10:01,124 utils  Exiting history()
+DEBUG 2024-08-18 16:10:01,124 utils Exiting download()
+INFO 2024-08-18 16:10:01,143 mean_reversion [18/Aug/2024 16:10:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:10:01,143 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:11:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:11:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:11:01,001 base Next wakeup is due at 2024-08-18 16:12:01+00:00 (in 59.998416 seconds)
+INFO 2024-08-18 16:11:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:12:01 UTC)" (scheduled at 2024-08-18 16:11:01+00:00)
+DEBUG 2024-08-18 16:11:01,002 utils Entering download()
+DEBUG 2024-08-18 16:11:01,002 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:11:01,002 utils  Entering history()
+DEBUG 2024-08-18 16:11:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:11:01,003 utils   Entering history()
+DEBUG 2024-08-18 16:11:01,003 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:11:01,003 utils    Entering get()
+DEBUG 2024-08-18 16:11:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:11:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:11:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:11:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:11:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:11:01,004 data reusing cookie
+DEBUG 2024-08-18 16:11:01,004 data reusing crumb
+DEBUG 2024-08-18 16:11:01,004 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:11:01,004 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:11:01,072 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:11:01,073 data response code=200
+DEBUG 2024-08-18 16:11:01,073 utils    Exiting get()
+DEBUG 2024-08-18 16:11:01,075 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:11:01,087 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:11:01,093 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:11:01,100 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:11:01,100 utils   Exiting history()
+DEBUG 2024-08-18 16:11:01,100 utils  Exiting history()
+DEBUG 2024-08-18 16:11:01,100 utils Exiting download()
+INFO 2024-08-18 16:11:01,126 mean_reversion [18/Aug/2024 16:11:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:11:01,127 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:12:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:12:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:12:01,001 base Next wakeup is due at 2024-08-18 16:13:01+00:00 (in 59.998347 seconds)
+INFO 2024-08-18 16:12:01,004 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:13:01 UTC)" (scheduled at 2024-08-18 16:12:01+00:00)
+DEBUG 2024-08-18 16:12:01,004 utils Entering download()
+DEBUG 2024-08-18 16:12:01,004 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:12:01,004 utils  Entering history()
+DEBUG 2024-08-18 16:12:01,005 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:12:01,005 utils   Entering history()
+DEBUG 2024-08-18 16:12:01,005 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:12:01,005 utils    Entering get()
+DEBUG 2024-08-18 16:12:01,005 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:12:01,005 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:12:01,005 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:12:01,005 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:12:01,006 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:12:01,006 data reusing cookie
+DEBUG 2024-08-18 16:12:01,006 data reusing crumb
+DEBUG 2024-08-18 16:12:01,006 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:12:01,006 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:12:01,101 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:12:01,103 data response code=200
+DEBUG 2024-08-18 16:12:01,103 utils    Exiting get()
+DEBUG 2024-08-18 16:12:01,107 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:12:01,136 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:12:01,144 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:12:01,152 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:12:01,153 utils   Exiting history()
+DEBUG 2024-08-18 16:12:01,153 utils  Exiting history()
+DEBUG 2024-08-18 16:12:01,153 utils Exiting download()
+INFO 2024-08-18 16:12:01,169 mean_reversion [18/Aug/2024 16:12:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:12:01,170 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:13:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:13:01,002 base Looking for jobs to run
+DEBUG 2024-08-18 16:13:01,003 base Next wakeup is due at 2024-08-18 16:14:01+00:00 (in 59.996441 seconds)
+INFO 2024-08-18 16:13:01,003 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:14:01 UTC)" (scheduled at 2024-08-18 16:13:01+00:00)
+DEBUG 2024-08-18 16:13:01,004 utils Entering download()
+DEBUG 2024-08-18 16:13:01,004 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:13:01,004 utils  Entering history()
+DEBUG 2024-08-18 16:13:01,004 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:13:01,005 utils   Entering history()
+DEBUG 2024-08-18 16:13:01,005 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:13:01,005 utils    Entering get()
+DEBUG 2024-08-18 16:13:01,005 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:13:01,005 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:13:01,005 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:13:01,005 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:13:01,005 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:13:01,005 data reusing cookie
+DEBUG 2024-08-18 16:13:01,005 data reusing crumb
+DEBUG 2024-08-18 16:13:01,005 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:13:01,005 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:13:01,080 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:13:01,081 data response code=200
+DEBUG 2024-08-18 16:13:01,081 utils    Exiting get()
+DEBUG 2024-08-18 16:13:01,086 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:13:01,094 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:13:01,099 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:13:01,105 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:13:01,106 utils   Exiting history()
+DEBUG 2024-08-18 16:13:01,106 utils  Exiting history()
+DEBUG 2024-08-18 16:13:01,106 utils Exiting download()
+INFO 2024-08-18 16:13:01,120 mean_reversion [18/Aug/2024 16:13:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:13:01,120 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:14:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:14:01,000 base Looking for jobs to run
+DEBUG 2024-08-18 16:14:01,001 base Next wakeup is due at 2024-08-18 16:15:01+00:00 (in 59.998855 seconds)
+INFO 2024-08-18 16:14:01,001 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:15:01 UTC)" (scheduled at 2024-08-18 16:14:01+00:00)
+DEBUG 2024-08-18 16:14:01,001 utils Entering download()
+DEBUG 2024-08-18 16:14:01,001 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:14:01,002 utils  Entering history()
+DEBUG 2024-08-18 16:14:01,002 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:14:01,002 utils   Entering history()
+DEBUG 2024-08-18 16:14:01,002 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:14:01,002 utils    Entering get()
+DEBUG 2024-08-18 16:14:01,003 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:14:01,003 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:14:01,003 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:14:01,003 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:14:01,003 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:14:01,003 data reusing cookie
+DEBUG 2024-08-18 16:14:01,003 data reusing crumb
+DEBUG 2024-08-18 16:14:01,003 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:14:01,003 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:14:01,073 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:14:01,074 data response code=200
+DEBUG 2024-08-18 16:14:01,074 utils    Exiting get()
+DEBUG 2024-08-18 16:14:01,077 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:14:01,087 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:14:01,092 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:14:01,102 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:14:01,102 utils   Exiting history()
+DEBUG 2024-08-18 16:14:01,102 utils  Exiting history()
+DEBUG 2024-08-18 16:14:01,102 utils Exiting download()
+INFO 2024-08-18 16:14:01,122 mean_reversion [18/Aug/2024 16:14:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:14:01,122 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:15:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:15:01,002 base Looking for jobs to run
+DEBUG 2024-08-18 16:15:01,006 base Next wakeup is due at 2024-08-18 16:16:01+00:00 (in 59.993553 seconds)
+INFO 2024-08-18 16:15:01,006 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:16:01 UTC)" (scheduled at 2024-08-18 16:15:01+00:00)
+DEBUG 2024-08-18 16:15:01,007 utils Entering download()
+DEBUG 2024-08-18 16:15:01,007 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:15:01,012 utils  Entering history()
+DEBUG 2024-08-18 16:15:01,013 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:15:01,013 utils   Entering history()
+DEBUG 2024-08-18 16:15:01,013 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:15:01,013 utils    Entering get()
+DEBUG 2024-08-18 16:15:01,014 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:15:01,014 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:15:01,014 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:15:01,014 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:15:01,014 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:15:01,014 data reusing cookie
+DEBUG 2024-08-18 16:15:01,014 data reusing crumb
+DEBUG 2024-08-18 16:15:01,014 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:15:01,014 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:15:01,084 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:15:01,085 data response code=200
+DEBUG 2024-08-18 16:15:01,085 utils    Exiting get()
+DEBUG 2024-08-18 16:15:01,096 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:15:01,117 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:15:01,128 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:15:01,135 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:15:01,136 utils   Exiting history()
+DEBUG 2024-08-18 16:15:01,136 utils  Exiting history()
+DEBUG 2024-08-18 16:15:01,136 utils Exiting download()
+INFO 2024-08-18 16:15:01,185 mean_reversion [18/Aug/2024 16:15:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:15:01,185 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:16:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:16:01,042 base Looking for jobs to run
+DEBUG 2024-08-18 16:16:01,230 base Next wakeup is due at 2024-08-18 16:17:01+00:00 (in 59.770899 seconds)
+INFO 2024-08-18 16:16:01,236 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:17:01 UTC)" (scheduled at 2024-08-18 16:16:01+00:00)
+DEBUG 2024-08-18 16:16:01,240 utils Entering download()
+DEBUG 2024-08-18 16:16:01,242 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:16:01,311 utils  Entering history()
+DEBUG 2024-08-18 16:16:01,363 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:16:01,518 utils   Entering history()
+DEBUG 2024-08-18 16:16:01,643 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:16:01,644 utils    Entering get()
+DEBUG 2024-08-18 16:16:01,646 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:16:01,646 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:16:01,646 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:16:01,646 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:16:01,646 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:16:01,647 data reusing cookie
+DEBUG 2024-08-18 16:16:01,647 data reusing crumb
+DEBUG 2024-08-18 16:16:01,648 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:16:01,648 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:16:01,943 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:16:02,138 data response code=200
+DEBUG 2024-08-18 16:16:02,178 utils    Exiting get()
+DEBUG 2024-08-18 16:16:04,140 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:16:20,005 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:16:28,198 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:17:01,318 base Looking for jobs to run
+WARNING 2024-08-18 16:17:08,266 base Execution of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:17:01 UTC)" skipped: maximum number of running instances reached (1)
+DEBUG 2024-08-18 16:17:22,836 base Next wakeup is due at 2024-08-18 16:18:01+00:00 (in 40.072552 seconds)
+DEBUG 2024-08-18 16:18:13,541 base Looking for jobs to run
+WARNING 2024-08-18 16:18:26,812 base Execution of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:18:01 UTC)" skipped: maximum number of running instances reached (1)
+DEBUG 2024-08-18 16:18:47,670 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:18:49,947 base Next wakeup is due at 2024-08-18 16:19:01+00:00 (in 11.421397 seconds)
+DEBUG 2024-08-18 16:18:53,365 utils   Exiting history()
+DEBUG 2024-08-18 16:18:57,385 utils  Exiting history()
+DEBUG 2024-08-18 16:18:59,087 utils Exiting download()
+DEBUG 2024-08-18 16:19:08,918 base Looking for jobs to run
+WARNING 2024-08-18 16:19:19,233 base Execution of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:19:01 UTC)" skipped: maximum number of running instances reached (1)
+DEBUG 2024-08-18 16:19:21,642 base Next wakeup is due at 2024-08-18 16:20:01+00:00 (in 39.437636 seconds)
+DEBUG 2024-08-18 16:20:03,043 base Looking for jobs to run
+WARNING 2024-08-18 16:20:08,546 base Execution of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:20:01 UTC)" skipped: maximum number of running instances reached (1)
+DEBUG 2024-08-18 16:20:14,231 base Next wakeup is due at 2024-08-18 16:21:01+00:00 (in 47.985805 seconds)
+INFO 2024-08-18 16:20:35,114 mean_reversion [18/Aug/2024 16:19:14] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:20:36,193 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:21:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:21:08,146 base Looking for jobs to run
+WARNING 2024-08-18 16:21:10,405 base Run time of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:22:01 UTC)" was missed by 0:00:09.245198
+DEBUG 2024-08-18 16:21:10,934 base Next wakeup is due at 2024-08-18 16:22:01+00:00 (in 50.208515 seconds)
+DEBUG 2024-08-18 16:22:01,915 base Looking for jobs to run
+DEBUG 2024-08-18 16:22:01,923 base Next wakeup is due at 2024-08-18 16:23:01+00:00 (in 59.076891 seconds)
+INFO 2024-08-18 16:22:01,923 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:23:01 UTC)" (scheduled at 2024-08-18 16:22:01+00:00)
+DEBUG 2024-08-18 16:22:01,924 utils Entering download()
+DEBUG 2024-08-18 16:22:01,924 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:22:01,942 utils  Entering history()
+DEBUG 2024-08-18 16:22:01,943 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:22:01,954 utils   Entering history()
+DEBUG 2024-08-18 16:22:01,954 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:22:01,954 utils    Entering get()
+DEBUG 2024-08-18 16:22:01,954 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:22:01,954 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:22:01,955 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:22:01,955 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:22:01,955 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:22:01,955 data reusing cookie
+DEBUG 2024-08-18 16:22:01,955 data reusing crumb
+DEBUG 2024-08-18 16:22:01,955 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:22:01,955 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:22:01,964 connectionpool Resetting dropped connection: query2.finance.yahoo.com
+DEBUG 2024-08-18 16:22:02,140 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:22:02,144 data response code=200
+DEBUG 2024-08-18 16:22:02,145 utils    Exiting get()
+DEBUG 2024-08-18 16:22:02,231 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:22:02,300 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:22:02,306 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:22:02,328 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:22:02,329 utils   Exiting history()
+DEBUG 2024-08-18 16:22:02,329 utils  Exiting history()
+DEBUG 2024-08-18 16:22:02,330 utils Exiting download()
+INFO 2024-08-18 16:22:02,442 mean_reversion [18/Aug/2024 16:22:02] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:22:02,442 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:23:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:23:01,005 base Looking for jobs to run
+DEBUG 2024-08-18 16:23:01,016 base Next wakeup is due at 2024-08-18 16:24:01+00:00 (in 59.983960 seconds)
+INFO 2024-08-18 16:23:01,016 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:24:01 UTC)" (scheduled at 2024-08-18 16:23:01+00:00)
+DEBUG 2024-08-18 16:23:01,019 utils Entering download()
+DEBUG 2024-08-18 16:23:01,020 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:23:01,023 utils  Entering history()
+DEBUG 2024-08-18 16:23:01,024 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:23:01,034 utils   Entering history()
+DEBUG 2024-08-18 16:23:01,034 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:23:01,034 utils    Entering get()
+DEBUG 2024-08-18 16:23:01,034 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:23:01,034 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:23:01,034 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:23:01,034 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:23:01,034 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:23:01,035 data reusing cookie
+DEBUG 2024-08-18 16:23:01,035 data reusing crumb
+DEBUG 2024-08-18 16:23:01,035 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:23:01,035 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:23:01,111 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:23:01,113 data response code=200
+DEBUG 2024-08-18 16:23:01,113 utils    Exiting get()
+DEBUG 2024-08-18 16:23:01,177 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:23:01,249 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:23:01,254 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:23:01,274 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:23:01,275 utils   Exiting history()
+DEBUG 2024-08-18 16:23:01,275 utils  Exiting history()
+DEBUG 2024-08-18 16:23:01,275 utils Exiting download()
+INFO 2024-08-18 16:23:01,368 mean_reversion [18/Aug/2024 16:23:01] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:23:01,369 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:24:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:24:01,066 base Looking for jobs to run
+INFO 2024-08-18 16:24:01,679 base Running job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:25:01 UTC)" (scheduled at 2024-08-18 16:24:01+00:00)
+DEBUG 2024-08-18 16:24:01,684 base Next wakeup is due at 2024-08-18 16:25:01+00:00 (in 59.324731 seconds)
+DEBUG 2024-08-18 16:24:02,276 utils Entering download()
+DEBUG 2024-08-18 16:24:02,757 multi Disabling multithreading because DEBUG logging enabled
+DEBUG 2024-08-18 16:24:03,346 utils  Entering history()
+DEBUG 2024-08-18 16:24:03,389 peewee ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['SPY', 1, 0])
+DEBUG 2024-08-18 16:24:03,486 utils   Entering history()
+DEBUG 2024-08-18 16:24:03,634 history SPY: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:24:03,680 utils    Entering get()
+DEBUG 2024-08-18 16:24:03,680 data url=https://query2.finance.yahoo.com/v8/finance/chart/SPY
+DEBUG 2024-08-18 16:24:03,680 data params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+DEBUG 2024-08-18 16:24:03,680 utils     Entering _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:24:03,680 data cookie_mode = 'basic'
+DEBUG 2024-08-18 16:24:03,681 utils      Entering _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:24:03,681 data reusing cookie
+DEBUG 2024-08-18 16:24:03,681 data reusing crumb
+DEBUG 2024-08-18 16:24:03,681 utils      Exiting _get_cookie_and_crumb_basic()
+DEBUG 2024-08-18 16:24:03,681 utils     Exiting _get_cookie_and_crumb()
+DEBUG 2024-08-18 16:24:04,147 connectionpool https://query2.finance.yahoo.com:443 "GET /v8/finance/chart/SPY?range=1d&interval=1m&includePrePost=False&events=div%2Csplits%2CcapitalGains&crumb=H%2FmVchc9vaA HTTP/1.1" 200 None
+DEBUG 2024-08-18 16:24:04,710 data response code=200
+DEBUG 2024-08-18 16:24:04,888 utils    Exiting get()
+DEBUG 2024-08-18 16:24:08,256 history SPY: yfinance received OHLC data: 2024-08-16 13:30:00 -> 2024-08-16 20:00:00
+DEBUG 2024-08-18 16:24:34,936 history SPY: OHLC after cleaning: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:24:54,008 history SPY: OHLC after combining events: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:25:02,172 base Looking for jobs to run
+WARNING 2024-08-18 16:25:04,177 base Execution of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:25:01 UTC)" skipped: maximum number of running instances reached (1)
+DEBUG 2024-08-18 16:25:05,323 base Next wakeup is due at 2024-08-18 16:26:01+00:00 (in 55.676270 seconds)
+DEBUG 2024-08-18 16:25:21,068 history SPY: yfinance returning OHLC: 2024-08-16 09:30:00-04:00 -> 2024-08-16 15:59:00-04:00
+DEBUG 2024-08-18 16:25:21,197 utils   Exiting history()
+DEBUG 2024-08-18 16:25:21,239 utils  Exiting history()
+DEBUG 2024-08-18 16:25:21,244 utils Exiting download()
+INFO 2024-08-18 16:25:26,601 mean_reversion [18/Aug/2024 16:25:21] No trade available. Last close: 554.26, Lower Band: 553.62, Upper Band: 554.39, Current Position: Bought
+INFO 2024-08-18 16:25:26,650 base Job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:26:01 UTC)" executed successfully
+DEBUG 2024-08-18 16:26:01,948 base Looking for jobs to run
+WARNING 2024-08-18 16:26:08,165 base Run time of job "execute_trades (trigger: cron[second='1'], next run at: 2024-08-18 16:27:01 UTC)" was missed by 0:00:05.609024
+DEBUG 2024-08-18 16:26:15,490 base Next wakeup is due at 2024-08-18 16:27:01+00:00 (in 47.290666 seconds)
+INFO 2024-08-18 16:29:33,874 mean_reversion Running trading algorithm.
+DEBUG 2024-08-18 16:29:33,880 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-08-18 16:29:34,298 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-08-18 16:29:34,406 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-08-18 16:29:34,451 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-08-18 16:29:34,452 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-08-19 14:30:00+01:00 Dublin time].
+INFO 2024-08-18 16:29:34,452 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-08-18 16:29:34,452 base Scheduler started
+DEBUG 2024-08-18 16:29:34,453 base Looking for jobs to run
+DEBUG 2024-08-18 16:29:34,454 base Next wakeup is due at 2024-08-19 13:30:00+00:00 (in 75625.546656 seconds)
+INFO 2024-08-18 16:40:42,522 mean_reversion Running trading algorithm.
+DEBUG 2024-08-18 16:40:42,530 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-08-18 16:40:42,983 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-08-18 16:40:43,091 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-08-18 16:40:43,155 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-08-18 16:40:43,155 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-08-19 14:30:00+01:00 Dublin time].
+INFO 2024-08-18 16:40:43,156 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-08-18 16:40:43,156 base Scheduler started
+DEBUG 2024-08-18 16:40:43,156 base Looking for jobs to run
+DEBUG 2024-08-18 16:40:43,157 base Next wakeup is due at 2024-08-19 13:30:00+00:00 (in 74956.843229 seconds)
+INFO 2024-08-18 16:52:38,362 mean_reversion Running trading algorithm.
+DEBUG 2024-08-18 16:52:38,367 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-08-18 16:52:38,752 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-08-18 16:52:38,860 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-08-18 16:52:38,916 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-08-18 16:52:38,916 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-08-19 14:30:00+01:00 Dublin time].
+INFO 2024-08-18 16:52:38,917 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-08-18 16:52:38,917 base Scheduler started
+DEBUG 2024-08-18 16:52:38,917 base Looking for jobs to run
+DEBUG 2024-08-18 16:52:38,918 base Next wakeup is due at 2024-08-19 13:30:00+00:00 (in 74241.082067 seconds)
+INFO 2024-08-18 17:02:35,473 mean_reversion Running trading algorithm.
+DEBUG 2024-08-18 17:02:35,479 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-08-18 17:02:35,909 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-08-18 17:02:36,017 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-08-18 17:02:36,068 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-08-18 17:02:36,068 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-08-19 14:30:00+01:00 Dublin time].
+INFO 2024-08-18 17:02:36,069 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-08-18 17:02:36,069 base Scheduler started
+DEBUG 2024-08-18 17:02:36,069 base Looking for jobs to run
+DEBUG 2024-08-18 17:02:36,070 base Next wakeup is due at 2024-08-19 13:30:00+00:00 (in 73643.930166 seconds)
+INFO 2024-08-18 17:23:25,212 mean_reversion Running trading algorithm.
+DEBUG 2024-08-18 17:23:25,219 connectionpool Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+DEBUG 2024-08-18 17:23:25,599 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+DEBUG 2024-08-18 17:23:25,705 connectionpool https://paper-api.alpaca.markets:443 "GET /v2/clock HTTP/1.1" 200 148
+INFO 2024-08-18 17:23:25,754 base Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO 2024-08-18 17:23:25,754 mean_reversion Market is closed. Scheduled to run when the market opens at [2024-08-19 14:30:00+01:00 Dublin time].
+INFO 2024-08-18 17:23:25,754 base Added job "run_trading_algorithm" to job store "default"
+INFO 2024-08-18 17:23:25,755 base Scheduler started
+DEBUG 2024-08-18 17:23:25,755 base Looking for jobs to run
+DEBUG 2024-08-18 17:23:25,756 base Next wakeup is due at 2024-08-19 13:30:00+00:00 (in 72394.244300 seconds)
