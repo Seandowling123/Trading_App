@@ -2,5 +2,6 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/
-
+    destination: /var/Trading_App/
+    overwrite: true
+file_exists_behavior: OVERWRITE

@@ -1,10 +1,8 @@
 #!/bin/bash
 
-current_dir=$(pwd)
-echo "Current directory is: $current_dir"
-
 # Delete contents of Django_back_end/build/
 rm -r Django_back_end/build/*
 
 # Copy contents of react_front_end/build/ to Django_back_end/build/
 cp -r react_front_end/build/* Django_back_end/build/
+cp react_front_end/public/favicon_custom.ico Django_back_end/build/static/
