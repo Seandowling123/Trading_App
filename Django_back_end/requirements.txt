@@ -5,11 +5,9 @@ asgiref==3.8.1
 async-timeout==4.0.3
 attrs==20.3.0
 Babel==2.9.1
-beautifulsoup4==4.12.3
 certbot==2.6.0
 certbot-nginx==2.6.0
 certifi==2024.2.2
-chevron==0.13.1
 ConfigArgParse==1.7
 cryptography==36.0.1
 Django==4.2.12
@@ -25,9 +23,7 @@ multitasking==0.0.11
 numpy==1.26.4
 pandas==2.2.2
 parsedatetime==2.6
-ply==3.11
 prettytable==0.7.2
-prompt-toolkit==3.0.24
 psycopg2-binary==2.9.9
 python-daemon==2.3.0
 python-dateutil==2.9.0.post0

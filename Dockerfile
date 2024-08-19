@@ -5,8 +5,8 @@ WORKDIR /var/Trading_App/Django_back_end
 COPY Django_back_end /var/Trading_App/Django_back_end/
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
