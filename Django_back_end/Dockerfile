@@ -2,7 +2,7 @@ FROM python:3.10-alpine
 
 WORKDIR /var/Trading_App/Django_back_end
 
-COPY Django_back_end /var/Trading_App/Django_back_end/
+COPY . /var/Trading_App/Django_back_end/
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
