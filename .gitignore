@@ -8,6 +8,9 @@ Django_back_end/myapi/finance_tools/testing.py
 Django_back_end/logs/
 Django_back_end/nginx/ssl/
 
+# Database
+backup.sql
+
 # dependencies
 react_front_end/node_modules
 react_front_end/.pnp
